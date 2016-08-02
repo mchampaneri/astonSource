@@ -1,16 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+/** Front end routes */
+require 'routes/front.php';
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** Student routes */
+require 'routes/student.php';
+
+/** Faculty routse */
+require 'routes/faculty.php';
+
+/** Admin routes */
+require 'routes/admin.php';

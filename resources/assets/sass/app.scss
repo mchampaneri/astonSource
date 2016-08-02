@@ -1,2 +1,13 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
+// Plugin files
+@import "../plugins/bootstrap/scss/bootstrap";
+@import "../plugins/font-awe/scss/font-awesome";
+// Aston Custom Files
+@import "layout";
+@import "components/menu";
+@import "components/sidebar";
+@import "components/text";
+
+

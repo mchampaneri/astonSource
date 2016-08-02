@@ -1,0 +1,1 @@
+@extends('workspace.student.layout.student_layout')
