@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Department;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('workspace.admin.department.page_menu', function($view)
+        {
+            $view->with('departments',Department::all());
+        }
+        );
     }
 
     /**

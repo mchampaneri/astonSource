@@ -2,8 +2,8 @@
 
 Route::group(['prefix' => 'student'], function()
 {
-    Route::get('/', function()
+    Route::get('/',['as'=>'workspace.student.dashboard', function()
     {
-        return view('workspace/student/index');
-    });
+        return view('workspace/student/dashboard/index');
+    }]);
 });

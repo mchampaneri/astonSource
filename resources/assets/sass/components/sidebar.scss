@@ -27,8 +27,7 @@
 
 .sub-sidebar > ul.menu > li{
   width: 100%;
-  text-align: center;
-  padding: 1px;
+  padding:4px  12px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -40,12 +39,12 @@
   color: #fff;
 }
 
-ul.menu > li{
+.iconbar > ul.menu > li{
   text-align: center;
 
 }
 
-ul.menu > li.active{
+.iconbar > ul.menu > li.active{
   background-color: rgba(0, 0, 0, 0.2);
   border-top: 5px solid #65FFCD;
 }
@@ -55,12 +54,12 @@ ul.menu > li > a {
   padding: 4px 0;
 }
 
-ul.menu > li > a > i.icon {
+.iconbar > ul.menu > li > a > i.icon {
   color: inherit;
   font-size: 20px;
 }
 
-ul.menu > li > a > .name {
+.iconbar > ul.menu > li > a > .name {
   color: inherit;;
   font-size: 11px;
 }
@@ -80,7 +79,7 @@ ul.submenu> li{
     width: 100%;
   }
 
-  ul.menu > li.active{
+  .iconbar >  ul.menu > li.active{
     border-top: none;
     border-left: 5px solid #65FFCD;
   }
@@ -90,12 +89,12 @@ ul.submenu> li{
     background-color: rgba(0, 0, 0, 0.2);
     border-left: 5px solid #65FFCD;
   }
-  ul.menu > li > a > i.icon {
+  .iconbar > ul.menu > li > a > i.icon {
     color: inherit;
     font-size: 36px;
   }
 
-  ul.menu > li > a > .name {
+  .iconbar > ul.menu > li > a > .name {
     color: inherit;;
     font-size: 14px;
     padding: 8px 0;

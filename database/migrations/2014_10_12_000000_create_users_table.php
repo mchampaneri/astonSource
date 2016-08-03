@@ -17,7 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role');
+            $table->string('role'); /* student, faculty, hod, principle, admin */
+            $table->string('status')->default('inactive');
             $table->rememberToken();
             $table->timestamps();
         });

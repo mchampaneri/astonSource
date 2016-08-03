@@ -2,7 +2,8 @@
 
 Route::group(['prefix'=>'faculty'],function() {
 
-    Route::get('/',function(){
-        return view('workspace/faculty/index');
-    });
+    Route::get('/',['as'=>'workspace.faculty.dashboard',function(){
+        return view('workspace/faculty/dashboard/index');
+    }]);
+
 });

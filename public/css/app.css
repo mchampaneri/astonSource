@@ -6923,7 +6923,8 @@ body {
   padding: 20px 0; }
 
 .content {
-  width: 100%; }
+  width: 100%;
+  padding: 10px; }
 
 /*****************************************************************************
   Css For Larger Scrrens
@@ -6980,8 +6981,7 @@ ul.menu {
 
 .sub-sidebar > ul.menu > li {
   width: 100%;
-  text-align: center;
-  padding: 1px;
+  padding: 4px  12px;
   background-color: rgba(0, 0, 0, 0.2); }
 
 /** Displaying the toggle button **/
@@ -6991,10 +6991,10 @@ ul.menu {
   font-size: 18px;
   color: #fff; }
 
-ul.menu > li {
+.iconbar > ul.menu > li {
   text-align: center; }
 
-ul.menu > li.active {
+.iconbar > ul.menu > li.active {
   background-color: rgba(0, 0, 0, 0.2);
   border-top: 5px solid #65FFCD; }
 
@@ -7002,11 +7002,11 @@ ul.menu > li > a {
   color: #fff;
   padding: 4px 0; }
 
-ul.menu > li > a > i.icon {
+.iconbar > ul.menu > li > a > i.icon {
   color: inherit;
   font-size: 20px; }
 
-ul.menu > li > a > .name {
+.iconbar > ul.menu > li > a > .name {
   color: inherit;
   font-size: 11px; }
 
@@ -7019,16 +7019,16 @@ ul.submenu > li {
   ul.menu > li {
     display: block;
     width: 100%; }
-  ul.menu > li.active {
+  .iconbar > ul.menu > li.active {
     border-top: none;
     border-left: 5px solid #65FFCD; }
   .iconbar > ul > li:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border-left: 5px solid #65FFCD; }
-  ul.menu > li > a > i.icon {
+  .iconbar > ul.menu > li > a > i.icon {
     color: inherit;
     font-size: 36px; }
-  ul.menu > li > a > .name {
+  .iconbar > ul.menu > li > a > .name {
     color: inherit;
     font-size: 14px;
     padding: 8px 0; }
@@ -7068,5 +7068,8 @@ a:active {
   float: right;
   margin-top: 5px;
   margin-right: 20px; }
+
+i.sub-menu-icon {
+  padding: 14px; }
 
 /*# sourceMappingURL=app.css.map */

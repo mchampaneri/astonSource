@@ -1,13 +1,21 @@
 <?php
 
-/** Front end routes */
-require 'routes/front.php';
+    /** Front end routes */
+    require 'routes/front.php';
 
-/** Student routes */
-require 'routes/student.php';
+    /** Authentication Routes */
+    require 'routes/auth.php';
 
-/** Faculty routse */
-require 'routes/faculty.php';
+Route::group(['prefix'=>'workspace','middleware'=>'auth'],function() {
 
-/** Admin routes */
-require 'routes/admin.php';
+    /** Student routes */
+    require 'routes/student.php';
+
+    /** Faculty routse */
+    require 'routes/faculty.php';
+
+    /** Admin routes */
+    require 'routes/admin.php';
+
+
+});

@@ -1,8 +1,6 @@
-@extends('workspace.layout.main')
-
 @section('workspace-main-menu')
 
-    <li  class="active">
+    <li>
         <a href="#">
             <i class="icon fa fa-file-text"></i>
             <p class="name">Dashboard</p>

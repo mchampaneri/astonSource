@@ -14,6 +14,11 @@ class CreateAssingmentsTable extends Migration
     {
         Schema::create('assingments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('faculty_id');
+            $table->integer('subject_id');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
