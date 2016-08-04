@@ -13,8 +13,12 @@ Route::get('/register/student',['as'=>'register.student',function() {
 }]);
 
 Route::get('/register/faculty',['as'=>'register.faculty',function() {
-    return view('front.register.faculty');
+    $departments = App\Department::lists('name','id');
+    return view('front.register.faculty')->with(['departments'=>$departments]);
 }]);
+
+Route::post('/register/student',['as'=>'register.student.store','uses'=>'UsersController@registerStudent']);
+Route::post('/register/faculty',['as'=>'register.faculty.store','uses'=>'UsersController@registerFaculty']);
 
 Route::get('/login',['as'=>'login.home',function() {
     return view('front.login.index');

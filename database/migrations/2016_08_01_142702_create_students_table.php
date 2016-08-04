@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('enrollment_no');
             $table->string('address');
             $table->string('phone_no');
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(0); // Working/Detained/Suspend
             $table->timestamps();
         });
     }

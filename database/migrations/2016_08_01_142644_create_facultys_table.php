@@ -12,13 +12,14 @@ class CreateFacultysTable extends Migration
      */
     public function up()
     {
-        Schema::create('facultys', function (Blueprint $table) {
+        Schema::create('faculties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
             $table->integer('department_id');
             $table->string('address');
             $table->string('phone_no');
+            $table->string('info');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ class CreateFacultysTable extends Migration
      */
     public function down()
     {
-        Schema::drop('facultys');
+        Schema::drop('faculties');
     }
 }

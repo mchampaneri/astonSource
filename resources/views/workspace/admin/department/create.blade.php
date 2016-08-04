@@ -32,21 +32,7 @@
                    </div>
                </div>
 
-               <div class="form-group">
-                   <div class="row">
-                       <div class="col-md-2">
-                           <label for="" class="control-label">Head of Department</label>
-                       </div>
-                       <div class="col-md-9">
-                           <select name="hod_id" id="" class="form-control">
-                               <option value="6">HOd1</option>
-                               <option value="6">HOd1</option>
-                               <option value="6">HOd1</option>
-                               <option value="6">HOd1</option>
-                           </select>
-                       </div>
-                   </div>
-               </div>
+
 
                <div class="form-group">
                    <input type="submit" class="btn btn-sm btn-success">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Faculty;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,11 +25,26 @@ class DepartmentController extends Controller
         $department = new Department();
         $department->name = $request->name;
         $department->description = $request->description;
-        $department->hod_id = $request->hod_id;
-
         $department->save();
         return redirect()->route('workspace.admin.departments.index');
     }
 
+    public function edit($id)
+    {
+        $department = Department::find($id);
+        $faculties = Faculty::where('department_id',$department->id)->get(['name','id']);
+        return view('workspace.admin.department.edit')->with(['department'=>$department,
+                                                                'faculties'=>$faculties]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $department = Department::find($id);
+        $department->name = $request->name;
+        $department->description = $request->description;
+        $department->hod_id =$request->hod_id;
+        $department->save();
+        return redirect()->route('workspace.admin.departments.index');
+    }
 
 }
