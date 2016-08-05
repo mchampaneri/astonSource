@@ -14,11 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('workspace.admin.department.page_menu', function($view)
-        {
-            $view->with('departments',Department::all());
-        }
-        );
+
+      // Admin Workspace Menu ServiceProvider
+          $this->Admin_Workspace_Menus();
+      // Faculty Workspace Menu ServiceProvider
+
     }
 
     /**
@@ -29,5 +29,19 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    public function Admin_Workspace_Menus()
+    {
+      // Generates Menu for the department
+       view()->composer('workspace.admin.department.page_menu',function($view){
+            $departments = Department::all();
+            $view->with('departments',$departments);
+       });
+    }
+
+    public function Faculty_Workspace_Menus()
+    {
+      
     }
 }

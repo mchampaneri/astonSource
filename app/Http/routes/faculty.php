@@ -6,4 +6,5 @@ Route::group(['prefix'=>'faculty'],function() {
         return view('workspace/faculty/dashboard/index');
     }]);
 
+    Route::resource('subjects','SubjectController');
 });
