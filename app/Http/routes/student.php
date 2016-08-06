@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'student'], function()
+Route::group(['prefix' => 'student','middleware'=>'student'], function()
 {
     Route::get('/',['as'=>'workspace.student.dashboard', function()
     {

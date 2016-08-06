@@ -11,6 +11,7 @@ use App\Http\Requests;
 
 class DepartmentController extends Controller
 {
+
     public function index()
     {
         return view('workspace.admin.department.index');

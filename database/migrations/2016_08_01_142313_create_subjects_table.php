@@ -17,6 +17,9 @@ class CreateSubjectsTable extends Migration
             $table->integer('department_id');
             $table->string('name');
             $table->integer('sem');
+            $table->integer('code');
+            $table->text('description');
+            $table->integer('added_by'); // That means the id of hod on that time
             $table->string('status')->default('inactive');
             $table->timestamps();
         });
