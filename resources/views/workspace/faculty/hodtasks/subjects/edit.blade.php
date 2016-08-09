@@ -72,24 +72,15 @@
                                 <select name="faculties[]" id="" class="form-control" multiple>
                                     @if(isset($faculties) && sizeof($faculties) > 0)
                                         @foreach($faculties as $faculty)
-                                            <option value="{{$faculty->id}}" @if(in_array($faculty->id,$subject->faculties()->get()->toArray(),true)) selected @endif>
+                                            <option value="{{$faculty->id}}"
+                                                    @if(in_array($faculty->id,$faculty_selected,true)) selected @endif>
                                                 {{$faculty->name}}
                                             </option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
-                            <?php
-                                if(in_array(3,$subject->faculty_subject->toArray(),true))
-                                {
-                                    echo "done";
-                                }
-                                else
-                                    {
-                                        echo "please check";
-                                        echo $subject->faculties()->get();
-                                    }
-                            ?>
+
                         </div>
                     </div>
                     <div class="form-group">

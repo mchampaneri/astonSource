@@ -14,8 +14,8 @@ class SubjectController extends Controller
 
     public function index()
     {
-      $hod = Faculty::where('user_id',Auth::user()->id)->first();
-      $subjects = Subject::where('department_id',$hod->department_id)->get();
+
+      $subjects = Subject::where('department_id',Auth::user()->asFaculty()->first()->department_id)->get();
       return view('workspace.faculty.hodtasks.subjects.index')->with(['subjects'=>$subjects]);
     }
 
@@ -27,19 +27,25 @@ class SubjectController extends Controller
     public function edit($id)
     {
         $subject = Subject::find($id);
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
-        $faculties = Faculty::where('department_id',$hod->department_id)->get();
+        $faculties = Faculty::where('department_id',Auth::user()->asFaculty()->first()->department_id)->get();
+        $faculty_selected = $subject->faculties()->lists('faculty_id')->toArray();
+        if(sizeof($faculty_selected) == 0)
+        {
+            $faculty_selected= [0];
+        }
+//        return $faculty_selected;
         return view('workspace.faculty.hodtasks.subjects.edit')->with(['subject'=>$subject,
+                                                                        'faculty_selected' => $faculty_selected,
                                                                         'faculties'=>$faculties]);
     }
 
     public function store(Request $request)
     {
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
+
         $subject = new Subject();
         $subject->name = $request->name;
         $subject->code = $request->code;
-        $subject->department_id = $hod->department_id; // Set the department ID
+        $subject->department_id = Auth::user()->asFaculty()->first()->department_id; // Set the department ID
         $subject->description = $request->description;
         $subject->sem = $request->sem;
         $subject->added_by = \Auth::user()->id;
@@ -51,15 +57,16 @@ class SubjectController extends Controller
 
     public function update($id,Request $request)
     {
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
+
         $subject = Subject::find($id);
         $subject->name = $request->name;
         $subject->code = $request->code;
-        $subject->department_id = $hod->department_id; // Set the department ID
+        $subject->department_id = Auth::user()->asFaculty()->first()->department_id; // Set the department ID
         $subject->description = $request->description;
         $subject->sem = $request->sem;
         $subject->added_by = \Auth::user()->id;
-
+        if(!isset($request->faculties))
+            $request->faculties = [ ];
         $subject->faculties()->sync($request->faculties);
 
         $subject->save();

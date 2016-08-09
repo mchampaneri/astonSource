@@ -34,7 +34,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $department = Department::find($id);
-        $faculties = Faculty::where('department_id',$department->id)->get(['name','id']);
+        $faculties = Faculty::where('department_id',$department->id)->get(['name','user_id']);
         return view('workspace.admin.department.edit')->with(['department'=>$department,
                                                                 'faculties'=>$faculties]);
     }
@@ -43,10 +43,11 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
 
-        $faculty = Faculty::find($department->hod_id);
-        $user = User::find($faculty->user_id);
-        $user->role = "faculty";
-        $user->save();
+        if($department->hod_id != 0) {
+            $user = User::find($department->hod_id);
+            $user->role = "faculty";
+            $user->save();
+        }
 
         $department->name = $request->name;
         $department->description = $request->description;
@@ -54,8 +55,7 @@ class DepartmentController extends Controller
         $department->save();
 
 
-        $faculty = Faculty::find($department->hod_id);
-        $user = User::find($faculty->user_id);
+        $user = User::find($department->hod_id);
         $user->role = "hod";
         $user->save();
 

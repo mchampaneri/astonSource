@@ -44,8 +44,8 @@
                             <select name="hod_id" id="" class="form-control">
                                 @if(isset($faculties) &&  sizeof($faculties) >0 )
                                     @foreach ($faculties as $faculty)
-                                        <option value="{{$faculty->id}}"
-                                        @if($department->hod_id == $faculty->id) selected @endif
+                                        <option value="{{$faculty->user_id}}"
+                                        @if($department->hod_id == $faculty->user_id) selected @endif
                                         >{{$faculty->name}}</option>
                                     @endforeach
                                 @endif

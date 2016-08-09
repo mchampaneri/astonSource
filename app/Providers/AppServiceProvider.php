@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Department;
+use App\Faculty;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
       // Admin Workspace Menu ServiceProvider
           $this->Admin_Workspace_Menus();
       // Faculty Workspace Menu ServiceProvider
-
+          $this->Faculty_Workspace_Menus();
     }
 
     /**
@@ -42,6 +43,12 @@ class AppServiceProvider extends ServiceProvider
 
     public function Faculty_Workspace_Menus()
     {
-      
+      view()->composer('workspace.faculty.assingments.page_menu',function($view){
+
+            $subjects = \Auth::user()->asFaculty()->first()->subjects()->get();
+
+            $view->with('subjects',$subjects);
+      });
+
     }
 }

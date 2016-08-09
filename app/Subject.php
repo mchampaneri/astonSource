@@ -10,4 +10,9 @@ class Subject extends Model
     {
         return $this->belongsToMany('App\Faculty');
     }
+
+    public  function assingments()
+    {
+        return $this->hasMany('App\Assingment');
+    }
 }

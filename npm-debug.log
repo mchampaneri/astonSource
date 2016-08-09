@@ -1,0 +1,55 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', '-g' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData .
+8 silly fetchDirectoryPackageData .
+9 silly install normalizeTree
+10 silly loadCurrentTree Finishing
+11 silly loadIdealTree Starting
+12 silly install loadIdealTree
+13 silly cloneCurrentTree Starting
+14 silly install cloneCurrentTreeToIdealTree
+15 silly cloneCurrentTree Finishing
+16 silly loadShrinkwrap Starting
+17 silly install loadShrinkwrap
+18 silly loadShrinkwrap Finishing
+19 silly loadAllDepsIntoIdealTree Starting
+20 silly install loadAllDepsIntoIdealTree
+21 silly resolveWithNewModule !invalid#1 checking installable status
+22 silly cache add args [ '.', null ]
+23 verbose cache add spec .
+24 silly cache add parsed spec Result {
+24 silly cache add   raw: '.',
+24 silly cache add   scope: null,
+24 silly cache add   name: null,
+24 silly cache add   rawSpec: '.',
+24 silly cache add   spec: '/var/www/astonSource',
+24 silly cache add   type: 'directory' }
+25 error addLocal Could not install /var/www/astonSource
+26 silly rollbackFailedOptional Starting
+27 silly rollbackFailedOptional Finishing
+28 silly runTopLevelLifecycles Starting
+29 silly runTopLevelLifecycles Finishing
+30 silly install printInstalled
+31 verbose stack Error: No name provided in package.json
+31 verbose stack     at /usr/share/npm/lib/cache/add-local.js:65:17
+31 verbose stack     at /usr/share/npm/node_modules/read-package-json/read-json.js:345:5
+31 verbose stack     at checkBinReferences_ (/usr/share/npm/node_modules/read-package-json/read-json.js:309:45)
+31 verbose stack     at final (/usr/share/npm/node_modules/read-package-json/read-json.js:343:3)
+31 verbose stack     at then (/usr/share/npm/node_modules/read-package-json/read-json.js:113:5)
+31 verbose stack     at /usr/share/npm/node_modules/read-package-json/read-json.js:300:12
+31 verbose stack     at /usr/share/npm/node_modules/graceful-fs/graceful-fs.js:76:16
+31 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
+32 verbose cwd /var/www/astonSource
+33 error Linux 4.4.0-31-generic
+34 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g"
+35 error node v4.2.6
+36 error npm  v3.5.2
+37 error No name provided in package.json
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]

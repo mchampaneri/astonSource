@@ -6,6 +6,9 @@ Route::group(['prefix'=>'faculty','middleware'=>'faculty'],function() {
         return view('workspace/faculty/dashboard/index');
     }]);
 
+    Route::resource('assingments','AssingmentController');
+    Route::resource('assingments.questions','QuestionController');
+
     // Purely Hod Task Routes
     Route::group(['prefix'=>'hod_tasks','middleware'=>'hod'],function() {
         Route::resource('subjects','SubjectController');
