@@ -7,11 +7,9 @@ use App\Faculty;
 use App\User;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class DepartmentController extends Controller
 {
-
     public function index()
     {
         return view('workspace.admin.department.index');
@@ -28,15 +26,17 @@ class DepartmentController extends Controller
         $department->name = $request->name;
         $department->description = $request->description;
         $department->save();
+
         return redirect()->route('workspace.admin.departments.index');
     }
 
     public function edit($id)
     {
         $department = Department::find($id);
-        $faculties = Faculty::where('department_id',$department->id)->get(['name','id']);
-        return view('workspace.admin.department.edit')->with(['department'=>$department,
-                                                                'faculties'=>$faculties]);
+        $faculties = Faculty::where('department_id', $department->id)->get(['name', 'id']);
+
+        return view('workspace.admin.department.edit')->with(['department'  => $department,
+                                                                'faculties' => $faculties, ]);
     }
 
     public function update($id, Request $request)
@@ -45,21 +45,20 @@ class DepartmentController extends Controller
 
         $faculty = Faculty::find($department->hod_id);
         $user = User::find($faculty->user_id);
-        $user->role = "faculty";
+        $user->role = 'faculty';
         $user->save();
 
         $department->name = $request->name;
         $department->description = $request->description;
-        $department->hod_id =$request->hod_id;
+        $department->hod_id = $request->hod_id;
         $department->save();
 
 
         $faculty = Faculty::find($department->hod_id);
         $user = User::find($faculty->user_id);
-        $user->role = "hod";
+        $user->role = 'hod';
         $user->save();
 
         return redirect()->route('workspace.admin.departments.index');
     }
-
 }

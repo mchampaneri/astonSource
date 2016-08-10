@@ -13,26 +13,26 @@ class users_db_seeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'admin',
-                'email' => 'admin@aston.pro',
+                'name'     => 'admin',
+                'email'    => 'admin@aston.pro',
                 'password' => bcrypt('1234'),
-                'role'=>'admin',
-                'status'=>'active',
+                'role'     => 'admin',
+                'status'   => 'active',
              ],
             [
-                'name' => 'hod1',
-                'email' => 'hod1@aston.pro',
+                'name'     => 'hod1',
+                'email'    => 'hod1@aston.pro',
                 'password' => bcrypt('1234'),
-                'role'=>'hod',
-                'status'=>'active',
+                'role'     => 'hod',
+                'status'   => 'active',
             ],
             [
-                'name' => 'student1',
-                'email' => 'student1@aston.pro',
+                'name'     => 'student1',
+                'email'    => 'student1@aston.pro',
                 'password' => bcrypt('1234'),
-                'role'=>'student',
-                'status'=>'active',
-            ]]
+                'role'     => 'student',
+                'status'   => 'active',
+            ], ]
         );
     }
 }
