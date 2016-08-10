@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Faculty;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Subject;
 use Auth;
+use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
-
     public function index()
     {
-      $hod = Faculty::where('user_id',Auth::user()->id)->first();
-      $subjects = Subject::where('department_id',$hod->department_id)->get();
-      return view('workspace.faculty.hodtasks.subjects.index')->with(['subjects'=>$subjects]);
+        $hod = Faculty::where('user_id', Auth::user()->id)->first();
+        $subjects = Subject::where('department_id', $hod->department_id)->get();
+
+        return view('workspace.faculty.hodtasks.subjects.index')->with(['subjects' => $subjects]);
     }
 
     public function create()
@@ -27,15 +25,16 @@ class SubjectController extends Controller
     public function edit($id)
     {
         $subject = Subject::find($id);
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
-        $faculties = Faculty::where('department_id',$hod->department_id)->get();
-        return view('workspace.faculty.hodtasks.subjects.edit')->with(['subject'=>$subject,
-                                                                        'faculties'=>$faculties]);
+        $hod = Faculty::where('user_id', Auth::user()->id)->first();
+        $faculties = Faculty::where('department_id', $hod->department_id)->get();
+
+        return view('workspace.faculty.hodtasks.subjects.edit')->with(['subject'    => $subject,
+                                                                        'faculties' => $faculties, ]);
     }
 
     public function store(Request $request)
     {
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
+        $hod = Faculty::where('user_id', Auth::user()->id)->first();
         $subject = new Subject();
         $subject->name = $request->name;
         $subject->code = $request->code;
@@ -49,9 +48,9 @@ class SubjectController extends Controller
         return view('workspace.faculty.hodtasks.index');
     }
 
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
-        $hod = Faculty::where('user_id',Auth::user()->id)->first();
+        $hod = Faculty::where('user_id', Auth::user()->id)->first();
         $subject = Subject::find($id);
         $subject->name = $request->name;
         $subject->code = $request->code;

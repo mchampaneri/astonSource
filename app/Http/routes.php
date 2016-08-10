@@ -6,7 +6,7 @@
     /** Authentication Routes */
     require 'routes/auth.php';
 
-Route::group(['prefix'=>'workspace','middleware'=>'auth'],function() {
+Route::group(['prefix' => 'workspace', 'middleware' => 'auth'], function () {
 
     /** Student routes */
     require 'routes/student.php';
@@ -16,6 +16,4 @@ Route::group(['prefix'=>'workspace','middleware'=>'auth'],function() {
 
     /** Admin routes */
     require 'routes/admin.php';
-
-
 });

@@ -10,5 +10,4 @@ class Faculty extends Model
     {
         return $this->belongsToMany('App\Subject');
     }
-
 }

@@ -6,8 +6,6 @@ use App\Faculty;
 use App\Student;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -18,11 +16,11 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role = "student";
+        $user->role = 'student';
         $user->save();
 
         $student = new Student();
-        $student->user_id  = $user->id;
+        $student->user_id = $user->id;
         $student->name = $user->name;
         $student->enrollment_no = $request->enrollment_no;
         $student->sem = $request->sem;
@@ -41,11 +39,11 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role = "faculty";
+        $user->role = 'faculty';
         $user->save();
 
         $faculty = new Faculty();
-        $faculty->user_id  = $user->id;
+        $faculty->user_id = $user->id;
         $faculty->name = $user->name;
         $faculty->department_id = $request->department_id;
         $faculty->phone_no = $request->phone_no;
