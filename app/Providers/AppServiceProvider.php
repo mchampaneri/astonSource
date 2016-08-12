@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
           $this->Admin_Workspace_Menus();
       // Faculty Workspace Menu ServiceProvider
           $this->Faculty_Workspace_Menus();
+      // Student Workspace Menu ServiceProvider
+          $this->Student_Workspace_Menus();
     }
 
     /**
@@ -50,5 +52,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('subjects',$subjects);
       });
 
+    }
+
+    public function Student_Workspace_Menus()
+    {
+        view()->composer('workspace.student.assingments.page_menu',function($view){
+            $subjects = \Auth::user()->asStudent()->first()->subjects()->get();
+            $view->with('subjects',$subjects);
+        });
     }
 }

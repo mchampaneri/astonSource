@@ -1,5 +1,3 @@
-@extends('workspace.layout.main')
-
 @section('workspace-main-menu')
 
     <li  class="active">

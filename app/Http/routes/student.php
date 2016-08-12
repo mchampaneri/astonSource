@@ -6,4 +6,7 @@ Route::group(['prefix' => 'student','middleware'=>'student'], function()
     {
         return view('workspace/student/dashboard/index');
     }]);
+
+    Route::resource('fill','FillController');
+    Route::resource('fill.answers','AnswerController');
 });

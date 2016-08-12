@@ -10,4 +10,11 @@ class Student extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function subjects()
+    {
+
+        return $subjects = Subject::where('sem',$this->sem);
+
+    }
 }

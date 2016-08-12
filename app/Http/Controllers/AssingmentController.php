@@ -60,7 +60,7 @@ class AssingmentController extends Controller
 
         $assingment = Assingment::find($id);
 
-        return view('workspace.faculty.assingments.show')->with(['assingment'=>$assingment]);
+        return redirect()->route('workspace.faculty.assingments.questions.index',['id'=>$assingment->id]);
 
     }
 }

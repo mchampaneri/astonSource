@@ -45,7 +45,7 @@
 31 verbose stack     at /usr/share/npm/node_modules/graceful-fs/graceful-fs.js:76:16
 31 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
 32 verbose cwd /var/www/astonSource
-33 error Linux 4.4.0-31-generic
+33 error Linux 4.4.0-34-generic
 34 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g"
 35 error node v4.2.6
 36 error npm  v3.5.2
