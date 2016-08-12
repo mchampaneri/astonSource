@@ -46,9 +46,7 @@ class AppServiceProvider extends ServiceProvider
     public function Faculty_Workspace_Menus()
     {
       view()->composer('workspace.faculty.assingments.page_menu',function($view){
-
             $subjects = \Auth::user()->asFaculty()->first()->subjects()->get();
-
             $view->with('subjects',$subjects);
       });
 

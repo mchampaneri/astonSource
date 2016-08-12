@@ -8,7 +8,7 @@
                 <ul class="menu submenu collapse" id="{{$subject->name}}">
                     @if( $subject->assingments()->count() > 0)
                         @foreach($subject->assingments()->get() as $assingment)
-                            <li><a href="{{route('workspace.student.fill.show',['id'=>$assingment->id])}}">{{$assingment->name}}</a></li>
+                            <li><a href="#">{{$assingment->name}}</a></li>
                         @endforeach
                     @endif
                 </ul>

@@ -29,14 +29,18 @@
             </tr>
             </thead>
             <tbody>
-            @if(isset($questions) && sizeof($questions) > 0)
-                @foreach($questions as $question)
+            @if(isset($assingment->questions) && sizeof($assingment->questions) > 0)
+                @foreach($assingment->questions as $question)
                     <tr>
                         <td>{{$question->question}}</td>
                         <td>{{$question->imp_level}}</td>
-                        <td>
-                            <a href="{{route('workspace.student.fill.answers.edit',['id1'=>$assingment->id,'id2'=>$question->id])}}"
+                        <td>@if( !$question->isAnswered() )
+                            <a href="{{route('workspace.student.answer.question.create',['id1'=>$question->assingment()->first()->id,'id2'=>$question->id])}}"
                                class="btn btn-sm btn-primary">Answer</a>
+                            @else
+                                <a href="{{route('workspace.student.answer.question.edit',['id1'=>$question->assingment()->first()->id,'id2'=>$question->id])}}"
+                                   class="btn btn-sm btn-info">Update</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

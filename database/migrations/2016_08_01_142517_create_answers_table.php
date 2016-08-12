@@ -15,7 +15,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id');
-            $table->integer('subject_id');
+            $table->integer('question_id');
             $table->integer('assingment_id');
             $table->integer('status')->default(0);
             $table->string('answer');

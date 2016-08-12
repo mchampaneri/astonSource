@@ -47,4 +47,6 @@ class QuestionController extends Controller
         $question =  Question::find($question_id);
         return view('workspace.faculty.assingments.questions.edit')->with(['assingment' => $assingment, 'question'=>$question]);
     }
+
+
 }
