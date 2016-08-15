@@ -1,0 +1,19 @@
+
+
+// core scss of the aston package
+@import "variable";
+
+// Importing the base packages
+@import "../plugins/bootstrap/scss/bootstrap";
+@import "../plugins/summernote/scss/summernote";
+@import "../plugins/datatables/scss/dataTables.bootstrap4";
+@import "../plugins/font-awesome/scss/font-awesome";
+
+// Importing the aston layout packages
+@import "components/menu";
+@import "base";
+@import "components/text";
+@import "layouts/header";
+@import "layouts/content";
+@import "layouts/footer";
+//@import "layouts/siderbar";
