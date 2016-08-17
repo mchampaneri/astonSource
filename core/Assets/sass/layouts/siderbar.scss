@@ -1,0 +1,36 @@
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $aston-sidebar-size;
+  height: 100%;
+  background-color: $aston-theme-color;
+  z-index: 1000;
+  padding: 0;
+
+  @media (max-width: $screen-sm-max){
+    display: none;
+  }
+}
+
+ul.sidebar-menu{
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  &  li{
+    display: block;
+    padding: 25px;
+
+    &  .fa{
+      font-size: 40px;
+      color: $aston-text-secondary;
+    }
+  }
+
+  & li:hover{
+    background-color: $aston-theme-color-light;
+  }
+  & li.active{
+    background-color: $aston-theme-color-light;
+  }
+}

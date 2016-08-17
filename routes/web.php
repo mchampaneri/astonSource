@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('workspace.admin.departments.index');
-});
+
+require 'aston_routes/front.php';
+require 'aston_routes/admin.php';

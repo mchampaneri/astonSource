@@ -7,11 +7,11 @@
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-md {{$menu['icon']}}"></i>
                         </a>
-                        <div class="dropdown-menu">
+                        <ul class="dropdown-menu-right dropdown-menu">
                             @foreach($menu['has-child'] as $sub_menu)
-                                <a class="dropdown-item">{{$sub_menu['title']}}</a>
+                               <li> <a class="dropdown-item btn btn-md"><i class="fa fa-sm {{$menu['icon']}}"></i> {{$sub_menu['title']}}</a> </li>
                             @endforeach
-                        </div>
+                        </ul>
                     </li>
                 @else
                     <li class="nav-item">
@@ -23,24 +23,24 @@
 @stop
 
 
-@section('header-bottom-menu')
+@section('sidebar-menu')
 
-    @foreach(config('menu.admin.admin-bottom') as $menu)
+    @foreach(config('menu.admin.admin-sidebar') as $menu)
             @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
-                <li class="nav-item dropdown">
+                <li class="dropdown">
                     <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-md {{$menu['icon']}}"> {{$menu['title']}}</i>
+                        <i class="fa  fa-md   {{$menu['icon']}}"> </i>
                     </a>
-                    <div class="dropdown-menu">
+                    <ul class=" dropdown-menu">
                         @foreach($menu['has-child'] as $sub_menu)
-                            <a class="dropdown-item"> {{$sub_menu['title']}}</a>
+                           <li> <a class="dropdown-item"> </a> </li>
                         @endforeach
-                    </div>
+                    </ul>
                 </li>
             @else
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-lg {{$menu['icon']}}"></i> {{$menu['title']}}</a>
+                <li >
+                    <a  href="#"><i class="fa fa-lg {{$menu['icon']}}"></i></a>
                 </li>
             @endif
     @endforeach

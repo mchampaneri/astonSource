@@ -22,10 +22,11 @@ elixir(function(mix) {
     ],'public/core/assets/css');
 
     mix.scripts([
-        'jquery/jquery.js',
-        'bootstrap/js/bootstrap.js',
-        'datatables/js/dataTables.bootstrap4.js',
-        'summernote/js/summernote.js'
-        // '../js/app.js'
+        '../../../node_modules/jquery/dist/jquery.js',
+        '../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+        '../../../node_modules/summernote/dist/summernote.js',
+        '../../../node_modules/datatables/media/js/jquery.dataTables.js',
+        '../../../node_modules/select2/dist/js/select2.full.js',
+
     ],'public/core/assets/js/all.js','core/Assets/plugins');
 });

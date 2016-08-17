@@ -4,10 +4,14 @@
 @import "variable";
 
 // Importing the base packages
-@import "../plugins/bootstrap/scss/bootstrap";
-@import "../plugins/summernote/scss/summernote";
-@import "../plugins/datatables/scss/dataTables.bootstrap4";
-@import "../plugins/font-awesome/scss/font-awesome";
+
+@import "../plugins/fontawesome/font-awesome";
+
+@import "../../../node_modules/bootstrap-sass/templates/project/styles";
+@import "../../../node_modules/summernote/dist/summernote.scss";
+@import "../../../node_modules/datatables/media/css/jquery.dataTables";
+@import "../../../node_modules/select2/src/scss/core";
+
 
 // Importing the aston layout packages
 @import "components/menu";
@@ -16,4 +20,4 @@
 @import "layouts/header";
 @import "layouts/content";
 @import "layouts/footer";
-//@import "layouts/siderbar";
+@import "layouts/siderbar";

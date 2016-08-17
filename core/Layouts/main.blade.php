@@ -1,16 +1,20 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title> @yield('page-title') </title>
         @include('AstonLayouts::head')
     </head>
     <body>
-        @include('AstonLayouts::header')
-        {{--@include('AstonLayouts::sidebar')--}}
-        <div class="container">
-            <div class="content">
-                    @yield('page-content')
+
+        @include('AstonLayouts::sidebar')
+
+            <div class="page">
+                @include('AstonLayouts::header')
+                <div class="content">
+                        @yield('page-content')
+                </div>
             </div>
-        </div>
+
         @include('AstonLayouts::footer')
         @include('AstonLayouts::foot')
 

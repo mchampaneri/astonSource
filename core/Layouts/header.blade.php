@@ -19,12 +19,5 @@
         </div>
     </div>
 
-    <div class="header-bottom">
-        <div class="container">
-            <ul class="nav nav-inline">
-                @yield("header-bottom-menu")
-            </ul>
-        </div>
-    </div>
 
 </div>

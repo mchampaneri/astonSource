@@ -8,10 +8,17 @@
 
 
 @section('page-content')
-        Content Starts Here
 
-        <textarea name=""  cols="30" rows="10" id="summernote" ></textarea>
-
+    <div class="container">
+        <div class="panel">
+            <div class="panel-heading">
+                 <h1 class="page-header">Add New Department</h1>
+            </div>
+            <div class="panel-body">
+                <input type="text" placeholder="Name" class="form-control">
+            </div>
+        </div>
+    </div>
 
 @stop
 
@@ -20,6 +27,7 @@
     $(document).ready(function() {
 
         $('#summernote').summernote();
+        $('.datatable').DataTable();
     });
     </script>
 @stop

@@ -1,19 +1,21 @@
 .header{
   width: 100%;
   height: auto;
+  box-shadow: 4px 0 4px rgba(100,100,100,0.5);
 
   &-top{
     width: 100%;
     background-color: $aston-main-background;
     text-align: center;
     padding: 20px 0;
+    //border-bottom: 3px solid $aston-theme-color;
     &  &-menu{
 
-      height: 30px;
       padding: 5px 0;
 
 
-      @include media-breakpoint-up(md) {
+
+      @media (min-width: $screen-md-max) {
           float: right;
       }
     }
@@ -24,7 +26,8 @@
         padding: 0;
         margin: 0;
       }
-      @include media-breakpoint-up(md) {
+
+      @media (min-width: $screen-md-max) {
         float: left;
       }
     }
@@ -38,7 +41,8 @@
     & a{
       color: $aston-text-secondary;
     }
-    @include media-breakpoint-down(xs) {
+
+    @media (max-width: $screen-xs-max){
       display: none;
     }
   }

@@ -19,29 +19,24 @@ Return [
                                         "icon" => "fa-plus",
                                         "has-child" =>[
                                                         [
-                                                            "title"=>"Note",
+                                                            "title"=>"Department",
                                                             "link"=> "ok",
                                                             "icon" => "fa-sticky-note"
-                                                        ],
-                                                        [
-                                                            "title"=>"Files",
-                                                            "link"=> "ok",
-                                                            "icon" => "fa-file"
                                                         ]
                                                     ]
                                     ]
 
                                 ],
-                 "admin-bottom" =>[
+                 "admin-sidebar" =>[
                                     [
                                         "title"=>"home",
                                         "link"=>"#",
-                                        "icon" => "fa-envelope"
+                                        "icon" => "fa-home"
                                     ],
                                     [
                                         "title"=>"Departments",
                                         "link"=>"#",
-                                        "icon" => "fa-envelope"
+                                        "icon" => "fa-file"
                                     ],
                                     [
                                         "title"=>"home",
