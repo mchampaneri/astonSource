@@ -1,6 +1,7 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue');
+
+ require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------
@@ -28,5 +29,9 @@ elixir(function(mix) {
         '../../../node_modules/datatables/media/js/jquery.dataTables.js',
         '../../../node_modules/select2/dist/js/select2.full.js',
 
+        '../js/aston-init.js'
+
     ],'public/core/assets/js/all.js','core/Assets/plugins');
+
+    mix.browserify('vuefiles.js','public/core/vue/all.js');
 });

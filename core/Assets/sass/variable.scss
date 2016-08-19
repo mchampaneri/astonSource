@@ -5,7 +5,7 @@ $aston-main-background : rgb(255, 255, 255);
 
 $aston-theme-color : rgb(42, 52, 70);
 
-$aston-theme-color-light : darken($aston-theme-color,20%) ;
+$aston-theme-color-active : darken($aston-theme-color,7%) ;
 
 $aston-page-color : rgb(255, 227, 216);
 // Text Colors
@@ -13,6 +13,9 @@ $aston-page-color : rgb(255, 227, 216);
 $aston-text-secondary: rgb(255,255,255);
 
 $aston-text-sidebar: rgb(13, 91, 214);
+
+$aston-empty-message-text: #aaa;
+
 // Media query break points
 
 $pc : '(min-width: 1200px)';

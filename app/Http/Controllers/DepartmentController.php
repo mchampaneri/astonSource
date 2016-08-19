@@ -12,12 +12,18 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        return $departments;
+        return view('workspace.admin.departments.index')->with(['departments'=>$departments]);
     }
 
     public function create()
     {
-        return "Create A  New Department";
+        return view('workspace.admin.departments.create');
+    }
+
+    public function edit($id)
+    {
+        $department = Department::find($id);
+        return view('workspace.admin.departments.edit')->with(['department'=>$department]);
     }
 
     public function store(Request $request)
@@ -27,15 +33,16 @@ class DepartmentController extends Controller
         $department->hod_id = 0;
         $department->save();
 
-        return "Created A New Department";
+        return redirect()->route('departments.index');
     }
 
     public function update($id,Request $request)
     {
         $department = Department::find($id);
         $department->name = $request->name;
-        $department->hod_id = $request->hod_id;
+        $department->hod_id = 0;
         $department->save();
+        return redirect()->route('departments.index');
     }
 
     public function destroy($id)
@@ -44,10 +51,10 @@ class DepartmentController extends Controller
         if($department->persons()->count() == 0)
         {
             $department->delete();
-            return "deleted";
+            return redirect()->route('departments.index');
         }
         else
-            return "Can't Delete The Working Department";
+            return redirect()->route('departments.index');
     }
 
 }

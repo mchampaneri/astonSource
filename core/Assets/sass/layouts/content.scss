@@ -1,4 +1,5 @@
 .page{
+  position: relative;
   width: 100%;
   padding-left:$aston-sidebar-size;
   background-color: $aston-page-color;
@@ -9,4 +10,9 @@
 
 .content{
   padding: 20px;
+  padding-top: 120px;
+  @media (max-width: $screen-xs-max){
+    padding-top: 150px;
+  }
+
 }

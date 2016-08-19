@@ -1,8 +1,15 @@
 .header{
+  top:0;
+  left: 0;
+  position: fixed;
   width: 100%;
   height: auto;
   box-shadow: 4px 0 4px rgba(100,100,100,0.5);
-
+  z-index: 999;
+  padding-left: $aston-sidebar-size;
+  @media (max-width: $screen-md-max){
+    padding-left:0;
+  }
   &-top{
     width: 100%;
     background-color: $aston-main-background;
@@ -15,7 +22,7 @@
 
 
 
-      @media (min-width: $screen-md-max) {
+      @media (min-width: $screen-xs-max) {
           float: right;
       }
     }
@@ -48,5 +55,15 @@
   }
 }
 
+.sidebar-puller{
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  display: none;
+  z-index: 1000;
+  @media (max-width: $screen-sm-max){
+    display: block;
+  }
+}
 
 

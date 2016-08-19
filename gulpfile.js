@@ -1,8 +1,8 @@
  require('./core/Assets/gulpfile.js');
 
-elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue');
+require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,12 +14,10 @@ require('laravel-elixir-vue');
  | file for our application, as well as publishing vendor resources.
  |
  */
-//
-// elixir.config.assetsDir = 'resource/assets';
+
+// elixir.config.assetsPath = 'resources/assets';
 // elixir(function(mix) {
-//     mix.sass([
-//         "app.scss"
-//     ],'public/my_app/assets/css');
+//     mix.browserify('app.js','public/app.js');
 // });
 
 

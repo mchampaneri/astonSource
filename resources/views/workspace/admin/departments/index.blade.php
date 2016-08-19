@@ -1,33 +1,55 @@
-@extends('AstonLayouts::main')
+@extends('AstonLayouts::templates.resource')
 
-@include('workspace.admin.partials.header-menu')
 
 @section('page-title')
     Aston | Admin/Departments
 @stop
 
 
-@section('page-content')
+@section('page-heading')
+     Departments
+@stop
 
-    <div class="container">
-        <div class="panel">
-            <div class="panel-heading">
-                 <h1 class="page-header">Add New Department</h1>
-            </div>
-            <div class="panel-body">
-                <input type="text" placeholder="Name" class="form-control">
-            </div>
-        </div>
-    </div>
+@section('page-buttons')
+    <a href="{{route('departments.create')}}" class="btn btn-success">
+              <i class="fa fa-plus fa-sm"></i> Add Department
+    </a>
 
 @stop
 
-@section('page-js')
-    <script type="text/javascript">
-    $(document).ready(function() {
+@section('page-body')
 
-        $('#summernote').summernote();
-        $('.datatable').DataTable();
-    });
-    </script>
+    @if(isset($departments) && $departments->count() > 0)
+        <table class="table table-hover aston-datatable">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($departments as $department)
+                <tr>
+                    <td>{{$department->id}}</td>
+                    <td>{{$department->name}}</td>
+                    <td><a href="{{route('departments.edit',['id'=>$department->id])}}"
+                           class="btn btn-sm btn-primary">Edit
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    @else
+        <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
+            Add your first department by clicking the <span class="label label-info">Add Department</span>
+            Button </p>
+    @endif
+
+@stop
+
+
+@section('page-js')
+
 @stop

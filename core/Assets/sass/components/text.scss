@@ -1,3 +1,27 @@
+a{
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:none;
+}
+
+a:active{
+  text-decoration:none;
+}
+
+a:visited{
+  text-decoration:none;
+}
+
 .aston-theme-text{
   color: $aston-theme-color;
+}
+
+.aston-empty-message-text{
+  color: $aston-empty-message-text;
+}
+
+.aston-theme-text-light{
+  color: lighten($aston-theme-color,20%);
 }

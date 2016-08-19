@@ -12,14 +12,14 @@ class AssignmentController extends Controller
 {
     public function index()
     {
-        return "done";
-        $assigments = Assignment::where('user_id',Session::get('id'));
-        return $assigments;
+
+        $assigments = Assignment::where('user_id',Session::get('id')?:1);
+        return view('workspace.faculty.assignments.index')->with(['assignemnts'=>$assigments]);
     }
 
     public function create()
     {
-        return "Create New Assignment";
+        return view('workspace.faculty.assignments.create');
     }
 
     public function store(Request $request)

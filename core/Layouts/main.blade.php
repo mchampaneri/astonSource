@@ -4,10 +4,9 @@
         <title> @yield('page-title') </title>
         @include('AstonLayouts::head')
     </head>
-    <body>
-
+    <body id="app">
+        <div class="cover"></div>
         @include('AstonLayouts::sidebar')
-
             <div class="page">
                 @include('AstonLayouts::header')
                 <div class="content">
@@ -19,5 +18,6 @@
         @include('AstonLayouts::foot')
 
          @yield('page-js')
+
     </body>
 </html>

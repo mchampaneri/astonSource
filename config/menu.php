@@ -20,8 +20,8 @@ Return [
                                         "has-child" =>[
                                                         [
                                                             "title"=>"Department",
-                                                            "link"=> "ok",
-                                                            "icon" => "fa-sticky-note"
+                                                            "link"=> "/workspace/admin/departments/create",
+                                                            "icon" => "fa-building"
                                                         ]
                                                     ]
                                     ]
@@ -30,45 +30,87 @@ Return [
                  "admin-sidebar" =>[
                                     [
                                         "title"=>"home",
-                                        "link"=>"#",
+                                        "link"=>"/workspace/admin",
                                         "icon" => "fa-home"
                                     ],
                                     [
                                         "title"=>"Departments",
-                                        "link"=>"#",
-                                        "icon" => "fa-file"
+                                        "link"=>"/workspace/admin/departments",
+                                        "icon" => "fa-building"
                                     ],
-                                    [
-                                        "title"=>"home",
-                                        "link"=>"#",
-                                        "icon" => "fa-envelope"
-                                    ],
-                                    [
-                                        "title"=>"Departments",
-                                        "link"=>"#",
-                                        "icon" => "fa-envelope",
-                                        "has-child" => [
-                                                          [
-                                                              "title"=>"New",
-                                                              "link"=> "ok",
-                                                              "icon" => "fa-envelope"
-                                                          ]
-
-                                                    ]
-                                    ],
-                                    [
-                                        "title"=>"home",
-                                        "link"=>"#",
-                                        "icon" => "fa-envelope"
-                                    ]
 
                                  ]
                  ],
     "student" => [
         
                 ],
-    "faculty" => [
+    "faculty" => [ "faculty-top" => [
+                                        [
+                                            "title" => "notifications",
+                                            "link" => "#",
+                                            "icon" => "fa-bell"
+                                        ],
+                                        [
+                                            "title" => "Quick Add",
+                                            "link" => "#",
+                                            "icon" => "fa-plus",
+                                            "has-child" => [
+                                                            [
+                                                                "title" => "Assigment",
+                                                                "link" => "#",
+                                                                "icon" => "fa-plus"
+                                                            ],
+                                                            [
+                                                                "title" => "Lecture",
+                                                                "link" => "#",
+                                                                "icon" => "fa-plus"
+                                                            ]
+                                                        ],
+                                        ]
+                                    ],
+
+                   "faculty-sidebar" => [
+                                            [
+                                                "title" => "Assignemtns",
+                                                "link" => "#",
+                                                "icon" => "fa-file"
+                                            ]
+                                        ]
         
-    ]
+                    ],
+
+    "hod" => [ 'hod-top' => [
+                                [
+                                    "title" => "Quick Add",
+                                    "link" => "#",
+                                    "icon" => "fa-plus",
+                                    "has-child" => [
+                                                        [
+                                                            "title" => "Subject",
+                                                            "link" => "#",
+                                                            "icon" => "fa-file"
+                                                        ],
+                                                        [
+                                                            "title" => "Assignment",
+                                                            "link" => "#",
+                                                            "icon" => "fa-file"
+                                                        ]
+                                                    ]
+                                ]
+                           ],
+               'hod-sidebar' => [
+                                    [
+                                        "title" => "Subject",
+                                        "link" => "#",
+                                        "icon" => "fa-file"
+                                    ],
+                                    [
+                                        "title" => "Assignments",
+                                        "link" => "#",
+                                        "icon" => "fa-book"
+                                    ]
+                                ]
+
+             ]
 
 ];

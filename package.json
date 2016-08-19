@@ -19,6 +19,7 @@
     "vue-resource": "^0.9.3"
   },
   "dependencies": {
-    "datepicker": "0.0.0"
+    "datepicker": "0.0.0",
+    "laravel-elixir-vueify": "^2.0.0"
   }
 }

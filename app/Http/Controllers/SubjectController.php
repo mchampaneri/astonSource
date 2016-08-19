@@ -12,14 +12,14 @@ class SubjectController extends Controller
 {
     public  function index()
     {
-        $subjects = Subject::where('department_id',Session::get('dept_id'))
+        $subjects = Subject::where('department_id',Session::get('dept_id')?:1)
                                 ->get();
-        return $subjects;
+        return view('workspace.faculty.hod.subjects.index')->with(['subjects'=>$subjects]);
     }
 
     public function create()
     {
-        return "Create A new departmental subject";
+        return view('workspace.faculty.hod.subjects.create');
     }
 
     public function edit($id)
@@ -34,10 +34,10 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->department_id = Session::get('dept_id')?: 1;
         $subject->sem = $request->sem;
-        $subject->faculties()->sync( $request->faculties );
-        $subject->added_by = Session::get('id')?: 1;
+//        $subject->faculties()->sync( $request->faculties );
+//        $subject->added_by = Session::get('id')?: 1;
         $subject->save();
-        return "A new Subject Added";
+        return redirect()->route('subjects.index');
     }
 
 

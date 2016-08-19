@@ -2,6 +2,7 @@
 
 namespace  Aston;
 
+use App\Department;
 use Illuminate\Support\ServiceProvider;
 
 class AstoCoreProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class AstoCoreProvider extends ServiceProvider
          *
          */
         $this->app['view']->addNameSpace('AstonLayouts',base_path('core/Layouts'));
+
     }
 
     /**
@@ -28,6 +30,9 @@ class AstoCoreProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->singleton('departments', function()
+        {
+            return Department::all(['name','id']);
+        });
     }
 }

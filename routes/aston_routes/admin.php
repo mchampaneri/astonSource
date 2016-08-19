@@ -1,5 +1,10 @@
 <?php
 
-Route::get('/workspace/admin',function () {
-    return view('workspace.admin.departments.index');
+
+Route::group(['prefix'=>'admin'],function() {
+
+    Route::get('/',function (){ return view('workspace.admin.dashboard.index');});
+
+    Route::resource('departments','DepartmentController');
+
 });

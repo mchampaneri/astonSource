@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function asSudent()
+    {
+        if(\Auth::user()->role=="student")
+        return $this->hasOne('App\Student');
+        else
+            return [];
+    }
+
+    public function asFaculty()
+    {
+        if(\Auth::user()->role=="student")
+            return $this->hasOne('App\Student');
+        else
+            return [];
+    }
 }
