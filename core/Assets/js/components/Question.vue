@@ -1,8 +1,4 @@
 <template>
-    <div class="container">
-        <input type="text"  v-model="new_question.question" class="form-control text">
-        <input type="button" v-on:click="add()" value="Add Question">
-    </div>
 
 </template>
 
@@ -11,10 +7,15 @@
         name : "Question",
         data : function() {
                 return {
-                    new_question:{
-                        question:''
-                    },
-                    questions : []
+                    assignment :{
+                        new_question:{
+                            question:''
+                        },
+                        title:'',
+                        sem : '1',
+                        subject_id :'',
+                        questions : [ {question:"new Questoin"},{question:"new Questoin"} ]
+                    }
                 }
         },
         Ready : function(){
@@ -22,10 +23,26 @@
         },
         methods : {
                 add: function(){
-                    vm = this;
-                    vm.questions.push( vm.new_question.question
-                         );
-                    vm.new_question.question='';
+                    var vm = this;
+                    vm.assignment.questions.push( {question : vm.assignment.new_question.question} );
+                    vm.assignment.new_question.question='';
+                },
+                submit: function(){
+                    var vm = this;
+                    this.$http.post('/workspace/faculty/assignments', { assignment : vm.assignment})
+                            .then(function(data) {
+                                console.log(data)
+                            },
+                            function(data)
+                            {
+                                console.log(data);
+                            });
+                },
+            getRemoved: function(question)
+                {
+                    var vm = this;
+                    vm.assignment.questions.$remove(question);
+                    console.log(question);
                 }
         }
     }

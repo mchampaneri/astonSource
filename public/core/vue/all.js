@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8,10 +8,15 @@ exports.default = {
     name: "Question",
     data: function data() {
         return {
-            new_question: {
-                question: ''
-            },
-            questions: []
+            assignment: {
+                new_question: {
+                    question: ''
+                },
+                title: '',
+                sem: '1',
+                subject_id: '',
+                questions: [{ question: "new Questoin" }, { question: "new Questoin" }]
+            }
         };
     },
     Ready: function Ready() {
@@ -19,21 +24,35 @@ exports.default = {
     },
     methods: {
         add: function add() {
-            this.questions.push(this.new_question);
-            return new this.new_question();
+            var vm = this;
+            vm.assignment.questions.push({ question: vm.assignment.new_question.question });
+            vm.assignment.new_question.question = '';
+        },
+        submit: function submit() {
+            var vm = this;
+            this.$http.post('/workspace/faculty/assignments', { assignment: vm.assignment }).then(function (data) {
+                console.log(data);
+            }, function (data) {
+                console.log(data);
+            });
+        },
+        getRemoved: function getRemoved(question) {
+            var vm = this;
+            vm.assignment.questions.$remove(question);
+            console.log(question);
         }
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"container\">\n    <input type=\"text\" v-model=\"new_question.question\" class=\"form-control text\">\n    <input type=\"button\" v-on:click=\"add()\" value=\"Add Question\">\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<form action=\"#\" method=\"post\">\n\n    <div class=\"form-group\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <label for=\"name\" class=\"control-label\">Title</label>\n            </div>\n            <div class=\"col-md-9\">\n                <input type=\"text\" v-model=\"assignment.title\" name=\"title\" class=\"form-control\">\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <div class=\"row\">\n            <div class=\" col-md-2\">\n                <label for=\"name\" class=\"control-label\">Semester</label>\n            </div>\n            <div class=\"col-md-9\">\n                <select name=\"assignment.sem\" v-model=\"sem\">\n                    <option v-bind:value=\"1\" selected=\"\">1</option>\n                    <option v-bind:value=\"1\">1</option>\n                    <option v-bind:value=\"1\">1</option>\n                    <option v-bind:value=\"1\">1</option>\n                    <option v-bind:value=\"1\">1</option>\n                </select>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <label for=\"name\" class=\"control-label\">Subject</label>\n            </div>\n            <div class=\"col-md-9\">\n                <select name=\"assignment.subject_id\" v-model=\"subject_id\" class=\"form-control\">\n\n                    <option value=\"1\">yo</option>\n\n                </select>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                Question\n            </div>\n            <div class=\"col-md-9\">\n                <input type=\"text\" v-model=\"assignment.new_question.question\" class=\"form-control\">\n            </div>\n            <input type=\"button\" v-on:click=\"add()\" value=\"add question\">\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <div class=\"row\">\n            <div class=\"col-md-11\">\n                <input type=\"submit\" value=\"Save\" v-on:click.prevent=\"submit()\" class=\"btn btn-sm btn-success pull-right\">\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\">\n        <div class=\"row\" v-for=\"questiondata in assignment.questions\">\n            <div class=\"col-md-8\">\n                <p class=\"\">{{questiondata.question}}</p>\n            </div>\n            <div class=\"col-md-2\">\n                <input type=\"button\" v-on:click=\"getRemoved(questiondata)\" value=\"Delete\">\n            </div>\n        </div>\n    </div>\n</form>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-423dc257", module.exports)
+    hotAPI.createRecord("_v-57de7996", module.exports)
   } else {
-    hotAPI.update("_v-423dc257", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-57de7996", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":6,"vue-hot-reload-api":4}],2:[function(require,module,exports){

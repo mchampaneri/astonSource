@@ -35,7 +35,7 @@
                     <td>{{$assignment->id}}</td>
                     <td>{{$assignment->title}}</td>
                     <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
-                           class="btn btn-sm btn-primary">Edit
+                           class="btn btn-sm btn-primary">Answer
                         </a>
                     </td>
                 </tr>

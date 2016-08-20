@@ -18,9 +18,9 @@ elixir.config.assetsPath = 'core/Assets/';
 
 
 elixir(function(mix) {
-    mix.sass([
-        "core.scss"
-    ],'public/core/assets/css');
+    //mix.sass([
+    //    "core.scss"
+    //],'public/core/assets/css');
 
     mix.scripts([
         '../../../node_modules/jquery/dist/jquery.js',

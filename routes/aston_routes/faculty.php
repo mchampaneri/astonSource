@@ -9,4 +9,6 @@ Route::group(['prefix' => "faculty"] , function() {
     Route::resource('subjects','SubjectController');
 
     Route::resource('assignments','AssignmentController');
+
+    Route::resource('questions','QuestionController');
 });
