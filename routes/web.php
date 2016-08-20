@@ -11,9 +11,11 @@
 |
 */
 
+require 'aston_routes/front.php';
+
 Route::group(['prefix'=>'workspace'],function () {
 
-    require 'aston_routes/front.php';
+
 
     require 'aston_routes/admin.php';
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssignmentsTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('title');
-            $table->string('info');
             $table->integer('sem');
+            $table->integer('user_id');
             $table->integer('subject_id');
+            $table->string('question');
+            $table->integer('imp_lvl');
+            $table->string('hint');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('assignments');
+        Schema::drop('questions');
     }
 }

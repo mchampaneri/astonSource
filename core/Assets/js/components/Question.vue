@@ -1,32 +1,63 @@
 <template>
-    <div class="container">
-        <input type="text"  v-model="new_question.question" class="form-control text">
-        <input type="button" v-on:click="add()" value="Add Question">
-    </div>
 
 </template>
 
 <script>
     export default{
         name : "Question",
+
+        props : ['id'],
+
         data : function() {
-                return {
+            return {
+                assignment :{
                     new_question:{
                         question:''
                     },
-                    questions : []
+                    title:'',
+                    sem : '1',
+                    subject_id :'',
+                    questions : [  ],
+
                 }
+            }
         },
-        Ready : function(){
-            console.log("Questions ready");
+        ready : function(){
+                var  vm = this;
+               this.$http.get('/workspace/faculty/assignments/1')
+                       .then(function ( data) {
+                           console.log(data.body);
+                           vm.assignment.title = data.body['title'];
+                        }),
+                            function () {
+                                console.log('fail work');
+                           alert('fail');
+                       }
+
         },
         methods : {
-                add: function(){
-                    vm = this;
-                    vm.questions.push( vm.new_question.question
-                         );
-                    vm.new_question.question='';
-                }
+            add: function(){
+                var vm = this;
+                vm.assignment.questions.push( {question : vm.assignment.new_question.question} );
+                vm.assignment.new_question.question='';
+            },
+            submit: function(){
+                var vm = this;
+                this.$http.post('/workspace/faculty/assignments', { assignment : vm.assignment})
+                        .then(function(data) {
+                                    alert('success');
+                                },
+                                function(data)
+                                {
+                                    alert('failed');
+                                });
+            },
+            getRemoved: function(question)
+            {
+                var vm = this;
+                vm.assignment.questions.$remove(question);
+                console.log(question);
+            }
         }
     }
 </script>

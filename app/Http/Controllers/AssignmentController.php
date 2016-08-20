@@ -27,23 +27,23 @@ class AssignmentController extends Controller
 
         $assignment = new Assignment();
         $assignment->title = $request->title;
-        $assignment->sem = $request->sem;
-        $assignment->subject_id = $request->subject_id;
+        $assignment->info = 1;
+        $assignment->sem = 1;
+        $assignment->subject_id = $request->subject_id ?:1;
         $assignment->user_id = Session::get('id')?:1;
-        $assignment->questions = json_encode($request->questions);
+
         $assignment->save();
-        return "Assignment created";
+        return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
 
     public function show($id)
     {
         $assignment = Assignment::find($id);
-        $questions = $assignment->questions;
-        $questions = json_decode($assignment->questions);
-        foreach($questions as $question)
-        {
-            echo $question;
-        }
-        die();
+        return $assignment;
+    }
+
+    public function edit($id){
+        $assignment = Assignment::find($id);
+        return view('workspace.faculty.assignments.edit')->with(['assignment'=>$assignment]);
     }
 }
