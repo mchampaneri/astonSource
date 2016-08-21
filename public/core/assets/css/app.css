@@ -9378,6 +9378,10 @@ body {
   padding: 0;
   overflow-x: hidden; }
 
+.aston-theme-color {
+  background-color: #2a3446;
+  color: #fff; }
+
 .header {
   top: 0;
   left: 0;
