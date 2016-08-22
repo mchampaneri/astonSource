@@ -41,7 +41,14 @@ Return [
 
                                  ]
                  ],
-    "student" => [
+    "student" => [ "student-top" => [],
+                    "student-sidebar" => [
+                                            [
+                                                "title" => "Assignments",
+                                                "link" => "/workspace/student/assignments",
+                                                "icon" => "fa-file"
+                                            ]
+                                        ]
         
                 ],
     "faculty" => [ "faculty-top" => [
@@ -80,34 +87,13 @@ Return [
                     ],
 
     "hod" => [ 'hod-top' => [
-                                [
-                                    "title" => "Quick Add",
-                                    "link" => "#",
-                                    "icon" => "fa-plus",
-                                    "has-child" => [
-                                                        [
-                                                            "title" => "Subject",
-                                                            "link" => "#",
-                                                            "icon" => "fa-file"
-                                                        ],
-                                                        [
-                                                            "title" => "Assignment",
-                                                            "link" => "#",
-                                                            "icon" => "fa-file"
-                                                        ]
-                                                    ]
-                                ]
+
                            ],
                'hod-sidebar' => [
                                     [
                                         "title" => "Subject",
                                         "link" => "#",
                                         "icon" => "fa-file"
-                                    ],
-                                    [
-                                        "title" => "Assignments",
-                                        "link" => "#",
-                                        "icon" => "fa-book"
                                     ]
                                 ]
 

@@ -10,4 +10,9 @@ class Faculty extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public  function subjects()
+    {
+        return $this->belongsToMany('App\Subject');
+    }
 }

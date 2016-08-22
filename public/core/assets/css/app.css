@@ -9444,10 +9444,10 @@ body {
 
 .content {
   padding: 20px;
-  padding-top: 120px; }
+  padding-top: 130px; }
   @media (max-width: 767px) {
     .content {
-      padding-top: 150px; } }
+      padding-top: 170px; } }
 
 .sidebar {
   position: fixed;

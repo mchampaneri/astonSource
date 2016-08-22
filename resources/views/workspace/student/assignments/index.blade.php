@@ -11,15 +11,11 @@
 @stop
 
 @section('page-buttons')
-    <a href="{{route('assignments.create')}}" class="btn btn-success">
-        <i class="fa fa-plus fa-sm"></i> Add Assignments
-    </a>
 
 @stop
 
 @section('page-body')
 
-    Hello
     @if(isset($assignments) && $assignments->count() > 0)
         <table class="table table-hover aston-datatable">
             <thead>

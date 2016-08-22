@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Faculty;
 use App\Student;
 use App\User;
@@ -20,27 +21,33 @@ class AuthController extends Controller
     public  function  authenticate(Request $request)
     {
         if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
             // Authentication passed...
 
             if(\Auth::user()->role == "student")
             {
-                Session::put('name',\Auth::user()->student()->name);
-                Session::put('sem',\Auth::user()->sem);
-                Session::put('id',\Auth::user()->student()->id);
+                Session::put('name',\Auth::user()->asStudent()->name);
+                Session::put('sem',\Auth::user()->asStudent()->sem);
+                Session::put('id',\Auth::user()->asStudent()->id);
                 Session::put('dept_id',\Auth::user()->department_id);
-                return Session::get('name');
+                Session::put('role','student');
+
             }
 
             if(\Auth::user()->role == "faculty")
             {
-                Session::put('name',\Auth::user()->faculty()->name);
-                Session::put('sem',\Auth::user()->sem);
-                Session::put('id',\Auth::user()->faculty()->id);
-                Session::put('dept_id',\Auth::user()->department_id);
-                return Session::get('name');
+                Session::put('name',\Auth::user()->asFaculty()->name);
+                Session::put('id',\Auth::user()->asFaculty()->id);
+                Session::put('dept_id',\Auth::user()->asFaculty()->department_id);
+                Session::put('role','faculty');
+                Session::put('hod',\Auth::user()->asFaculty()->is_hod);
             }
-            return "Get Authentication";
-            //return redirect()->intended('dashboard');
+
+            if(\Auth::user()->role == "admin")
+            {
+                Session::put('role','admin');
+            }
+                  return redirect()->intended('workspace/'.\Auth::user()->role);
         }
         else{
             return "failed";
@@ -62,15 +69,19 @@ class AuthController extends Controller
         $user = new User();
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
-        $user->department_id = $request->department_id;
+
         $user->role = "student";
         $user->save();
         $student = new Student();
         $student->user_id = $user->id;
         $student->name = $request->name;
+        $student->department_id = $request->department_id;
         $student->sem = $request->sem;
+        $student->enrollno = $request->enrollno;
+        $student->contactno = $request->contactno;
+        $student->address = $request->address;
         $student->save();
-        return "student stored";
+        return "Thanks For registrtion, Now please contact hod to activate your account";
     }
 
     public function storeFaculty(Request $request)
@@ -79,14 +90,25 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
         $user->role = "faculty";
-        $user->department_id = $request->department_id;
         $user->save();
         $faculty = new Faculty();
         $faculty->user_id = $user->id;
         $faculty->name = $request->name;
-        $faculty->sem = $request->sem;
+        $faculty->contactno = $request->contactno;
+        $faculty->address = $request->address;
+        $faculty->info = $request->info;
+        $faculty->department_id = $request->department_id;
+        $faculty->is_hod = false;
         $faculty->save();
-        return "faculty stored";
+        return "Thanks For registrtion, Now please contact hod to activate your account";
+    }
+
+    public function signout()
+    {
+
+         \Auth::logout();
+         Session::flush();
+        return redirect()->to('/');
     }
 
 

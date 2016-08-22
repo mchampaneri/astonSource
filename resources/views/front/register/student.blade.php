@@ -21,7 +21,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-offset-3 col-md-6 form">
+        <form action="{{route('register.student')}}" method="post">
+            {{csrf_field()}}
+            <div class="col-md-offset-3 col-md-6 form">
             <div class="form-group text-center">
 
             </div>
@@ -35,14 +37,23 @@
                 <input type="text" class="form-control" name="sem" placeholder="current semester"></input>
             </div>
             <div class="form-group">
+                <input type="text" class="form-control" name="contactno" placeholder="phone number "></input>
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control" name="enrollno" placeholder="enrollment number "></input>
             </div>
             <div class="form-group">
-                <select name="department" placeholder="department" id="" class="form-control">
+                <textarea name="address" id="" cols="30" rows="10" class="form-control"></textarea>
+            </div>    
+            <div class="form-group">
+                <select name="department_id" placeholder="department" id="" class="form-control">
                     @foreach($app['departments'] as $department)
                         <option value="{{$department->id}}">{{$department->name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="password"></input>
             </div>
             <div class="row">
                 <div class="col-sm-6">
@@ -57,6 +68,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

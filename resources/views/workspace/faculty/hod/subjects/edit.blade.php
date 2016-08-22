@@ -25,7 +25,7 @@
                             <label for="name" class="control-label">Name</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" value="{{$subject->name}}" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <div class="col-md-9">
                             <select name="sem" id="" class="form-control">
                                 @for($i=1;$i<=8;$i++)
-                                    <option value="{{$i}}">Semester {{$i}}</option>
+                                    <option value="{{$i}}" @if($subject->sem == $i) selected @endif>Semester {{$i}}</option>
                                 @endfor
                             </select>
                         </div>
@@ -52,7 +52,9 @@
                         <div class="col-md-9">
                             <select name="faculties[]" id="" class="form-control">
                                 @foreach(\App\Department::find( Session::get('dept_id'))->faculties() as $faculty)
-                                    <option value="{{$faculty->id}}">{{$faculty->name}}</option>
+                                    <option value="{{$faculty->id}}"
+                                            @if(in_array($faculty->id,$faculty_selected,true)) selected @endif
+                                    >{{$faculty->name}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -27,18 +27,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function asSudent()
+    public function asStudent()
     {
         if(\Auth::user()->role=="student")
-        return $this->hasOne('App\Student');
+        return $this->hasOne('App\Student')->first();
         else
             return [];
     }
 
     public function asFaculty()
     {
-        if(\Auth::user()->role=="student")
-            return $this->hasOne('App\Student');
+        if(\Auth::user()->role=="faculty")
+            return $this->hasOne('App\Faculty')->first();
         else
             return [];
     }

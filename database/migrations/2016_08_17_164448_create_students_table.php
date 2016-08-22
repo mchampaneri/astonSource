@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->integer('department_id');
             $table->integer('sem');
             $table->string('enrollno');
-            $table->integer('contactno',10);
+            $table->string('contactno');
             $table->string('address');
             $table->timestamps();
         });

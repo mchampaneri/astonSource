@@ -12,7 +12,7 @@ class SubjectController extends Controller
 {
     public  function index()
     {
-        $subjects = Subject::where('department_id',Session::get('dept_id')?:1)
+        $subjects = Subject::where('department_id',Session::get('dept_id'))
                                 ->get();
         return view('workspace.faculty.hod.subjects.index')->with(['subjects'=>$subjects]);
     }
@@ -24,19 +24,30 @@ class SubjectController extends Controller
 
     public function edit($id)
     {
+        $i=0;
+        
         $subject = Subject::find($id);
-        return $subject;
+        $faculty_subject =  $subject->faculties()->get()->toArray();
+        foreach ( $faculty_subject as $faculty_selected)
+        {
+            $faculty_selected[$i] = $faculty_subject[$i]['id'];
+        }
+        if(sizeof($faculty_selected) == 0)
+        {
+            $faculty_selected= [0];
+        }
+        return view('workspace.faculty.hod.subjects.edit')->with(['subject'=>$subject,'faculty_selected'=>$faculty_selected]);
     }
     
     public function store(Request $request)
     {
         $subject = new Subject();
         $subject->name = $request->name;
-        $subject->department_id = Session::get('dept_id')?: 1;
+        $subject->department_id = Session::get('dept_id');
         $subject->sem = $request->sem;
-//        $subject->faculties()->sync( $request->faculties );
-//        $subject->added_by = Session::get('id')?: 1;
+        $subject->user_id = Session::get('id');
         $subject->save();
+        $subject->faculties()->sync( $request->faculties );
         return redirect()->route('subjects.index');
     }
 
@@ -47,9 +58,9 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->department_id = Session::get('dept_id');
         $subject->sem = $request->sem;
-        $subject->added_by = Session::get('id');
-        $subject->faculties()->sync( $request->faculties );
+        $subject->user_id = Session::get('id');
         $subject->save();
+        $subject->faculties()->sync( $request->faculties );
         return "A new Subject Added";
     }
 

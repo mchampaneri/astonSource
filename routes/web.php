@@ -13,7 +13,7 @@
 
 require 'aston_routes/front.php';
 
-Route::group(['prefix'=>'workspace'],function () {
+Route::group(['prefix'=>'workspace','middleware'=>'auth'],function () {
 
 
 

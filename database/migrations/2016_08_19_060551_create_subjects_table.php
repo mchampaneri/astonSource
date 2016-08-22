@@ -18,6 +18,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('department_id');
             $table->string('name');
             $table->integer('sem');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

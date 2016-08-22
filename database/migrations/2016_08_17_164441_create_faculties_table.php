@@ -17,7 +17,11 @@ class CreateFacultiesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
+            $table->string('contactno');
+            $table->string('address');
+            $table->string('info');
             $table->integer('department_id');
+            $table->boolean('is_hod');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@
             <tr>
                 <th>Number</th>
                 <th>Name</th>
+                <th>Assigned To</th>
                 <th>Edit</th>
             </tr>
             </thead>
@@ -33,7 +34,14 @@
                 <tr>
                     <td>{{$subject->id}}</td>
                     <td>{{$subject->name}}</td>
-                    <td><a href="{{route('departments.edit',['id'=>$subject->id])}}"
+                    <td>
+                        @if($subject->faculties()->count() > 0 )
+                            @foreach($subject->faculties()->get() as $faculty)
+                                {{ $faculty->name }}
+                            @endforeach
+                        @endif
+                    </td>
+                    <td><a href="{{route('subjects.edit',['id'=>$subject->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
                     </td>
