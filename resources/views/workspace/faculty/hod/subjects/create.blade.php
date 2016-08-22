@@ -50,7 +50,7 @@
                             <label for="" class="control-label"> Faculty</label>
                         </div>
                         <div class="col-md-9">
-                            <select name="faculties[]" id="" class="form-control">
+                            <select name="faculties[]" id="" class="form-control" multiple="multiple">
                                 @foreach(\App\Department::find( Session::get('dept_id'))->faculties() as $faculty)
                                     <option value="{{$faculty->id}}">{{$faculty->name}}</option>
                                 @endforeach

@@ -11,4 +11,5 @@ Route::group(['prefix' => "faculty",'middleware'=>'faculty'] , function() {
     });
 
     Route::resource('assignments','AssignmentController');
+    Route::resource('questions','QuestionController');
 });

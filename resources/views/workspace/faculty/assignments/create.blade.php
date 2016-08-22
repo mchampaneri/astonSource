@@ -31,34 +31,29 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <div class=" col-md-2">
-                            <label for="name" class="control-label">Semester</label>
-                        </div>
-                        <div class="col-md-9" >
-                            <select name="sem"  >
-                                <option value="1" selected>1</option>
-                                <option value="1" >1</option>
-                                <option value="1" >1</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
                         <div class="col-md-2">
                             <label for="name" class="control-label">Subject</label>
                         </div>
                         <div class="col-md-9">
                             <select name="subject_id"   class="form-control">
-
-                                <option value="1">yo</option>
-
+                                @foreach($subjects as $subject)
+                                    <option value="{{$subject->id}}">{{$subject->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                 </div>
 
-
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="control-label">Informaion</label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea name="info" id="" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <div class="row">

@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('sem');
             $table->integer('user_id');
             $table->integer('subject_id');
+            $table->integer('assignment_id');
             $table->string('question');
             $table->integer('imp_lvl');
             $table->string('hint');

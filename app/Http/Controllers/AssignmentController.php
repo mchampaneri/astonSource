@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Assignment;
+use App\Faculty;
+use App\Subject;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,13 +15,14 @@ class AssignmentController extends Controller
     public function index()
     {
 
-        $assigments = Assignment::where('user_id',Session::get('id')?:1);
-        return view('workspace.faculty.assignments.index')->with(['assignemnts'=>$assigments]);
+        $assignments = Assignment::where('user_id',Session::get('id'))->get();
+        return view('workspace.faculty.assignments.index')->with(['assignments'=>$assignments]);
     }
 
     public function create()
     {
-        return view('workspace.faculty.assignments.create');
+        $subjects = Faculty::find(Session::get('id'))->subjects()->get();
+        return view('workspace.faculty.assignments.create')->with(['subjects'=>$subjects]);
     }
 
     public function store(Request $request)
@@ -27,11 +30,10 @@ class AssignmentController extends Controller
 
         $assignment = new Assignment();
         $assignment->title = $request->title;
-        $assignment->info = 1;
-        $assignment->sem = 1;
-        $assignment->subject_id = $request->subject_id ?:1;
-        $assignment->user_id = Session::get('id')?:1;
-
+        $assignment->info = $request->info;
+        $assignment->sem = Subject::find($request->subject_id)->sem;
+        $assignment->subject_id = $request->subject_id;
+        $assignment->user_id = Session::get('id'); // Faculty_Id
         $assignment->save();
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
@@ -43,7 +45,20 @@ class AssignmentController extends Controller
     }
 
     public function edit($id){
+        $subjects = Faculty::find(Session::get('id'))->subjects()->get();
         $assignment = Assignment::find($id);
-        return view('workspace.faculty.assignments.edit')->with(['assignment'=>$assignment]);
+        return view('workspace.faculty.assignments.edit')->with(['assignment'=>$assignment,'subjects'=>$subjects]);
+    }
+
+    public function update($id,Request $request)
+    {
+        $assignment = Assignment::find($id);
+        $assignment->title = $request->title;
+        $assignment->info = $request->info;
+        $assignment->sem = Subject::find($request->subject_id)->sem;
+        $assignment->subject_id = $request->subject_id;
+        $assignment->user_id = Session::get('id'); // Faculty_Id
+        $assignment->save();
+        return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
 }

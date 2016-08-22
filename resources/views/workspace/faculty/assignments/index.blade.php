@@ -1,4 +1,4 @@
-@extends('AstonLayouts::main')
+@extends('AstonLayouts::templates.resource')
 
 
 @section('page-title')
@@ -11,7 +11,7 @@
 @stop
 
 @section('page-buttons')
-    <a href="{{route('subjects.create')}}" class="btn btn-success">
+    <a href="{{route('assignment.create')}}" class="btn btn-success">
         <i class="fa fa-plus fa-sm"></i> Add Assignments
     </a>
 
@@ -19,7 +19,7 @@
 
 @section('page-body')
 
-    @if(isset($assignments) && $assignments->count() > 0)
+    @if($assignments->count() > 0)
         <table class="table table-hover aston-datatable">
             <thead>
             <tr>
@@ -32,8 +32,8 @@
             @foreach($assignments as $assignment)
                 <tr>
                     <td>{{$assignment->id}}</td>
-                    <td>{{$assignment->name}}</td>
-                    <td><a href="{{route('departments.edit',['id'=>$assignment->id])}}"
+                    <td>{{$assignment->title}}</td>
+                    <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
                     </td>

@@ -6,5 +6,5 @@ Route::group(['prefix'=>'student','middleware'=>'student'],function() {
         return "Student Home Page";
     });
     
-    Route::resource('assignments','SubmissionController');
+    Route::resource('assignment','SubmissionController');
 });

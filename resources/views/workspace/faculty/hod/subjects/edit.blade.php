@@ -17,8 +17,9 @@
 @section('page-body')
     <div class="row">
         <div class="col-md-8">
-            <form action="{{route('subjects.store')}}" method="post">
+            <form action="{{route('subjects.update',['id'=>$subject->id])}}" method="post">
                 {{csrf_field()}}
+                <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
@@ -50,7 +51,7 @@
                             <label for="" class="control-label"> Faculty</label>
                         </div>
                         <div class="col-md-9">
-                            <select name="faculties[]" id="" class="form-control">
+                            <select name="faculties[]" id="" class="form-control" multiple="multiple">
                                 @foreach(\App\Department::find( Session::get('dept_id'))->faculties() as $faculty)
                                     <option value="{{$faculty->id}}"
                                             @if(in_array($faculty->id,$faculty_selected,true)) selected @endif

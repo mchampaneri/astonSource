@@ -45,7 +45,7 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->department_id = Session::get('dept_id');
         $subject->sem = $request->sem;
-        $subject->user_id = Session::get('id');
+        $subject->user_id = Session::get('id'); // Faculty Id
         $subject->save();
         $subject->faculties()->sync( $request->faculties );
         return redirect()->route('subjects.index');
@@ -58,10 +58,10 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->department_id = Session::get('dept_id');
         $subject->sem = $request->sem;
-        $subject->user_id = Session::get('id');
+        $subject->user_id = Session::get('id'); // Faculty ID
         $subject->save();
         $subject->faculties()->sync( $request->faculties );
-        return "A new Subject Added";
+        return redirect()->route('subjects.index');
     }
 
     public function destroy($id)
