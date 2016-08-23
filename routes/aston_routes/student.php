@@ -7,4 +7,6 @@ Route::group(['prefix'=>'student','middleware'=>'student'],function() {
     });
     
     Route::resource('assignment','SubmissionController');
+
+    Route::resource('answers','AnswerController');
 });

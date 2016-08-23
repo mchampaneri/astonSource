@@ -25,7 +25,7 @@
             @endif
         @endforeach
 
-        @if(Session::has('hod') && Session::get('hod')== '1')
+        @if(Session::has('hod') && Session::get('hod')=== 1)
             <!-- Putting Hod Menus -->
             @foreach(config('menu.hod.hod-sidebar') as $menu)
                 @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)

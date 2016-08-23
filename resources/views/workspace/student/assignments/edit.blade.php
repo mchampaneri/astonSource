@@ -13,7 +13,7 @@
         <div class="col-md-10 col-md-offset-1">
             @if($assignment->questions()->count() > 0)
                 @foreach($assignment->questions()->get() as $question)
-                    @if( '1' != '1' )
+                    @if( ($question->answerByUser( Session::get('id') ) == null ) )
                     <form action="{{route('answers.store')}}" method="post">
                             {{ csrf_field() }}
                         <div class="form-group">
@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label for="" class="control-label">{{$question->question}}</label>
                                 <input type="hidden" name="question_id" value="{{$question->id}}">
-                                <textarea name="answer" class="form-control aston-summernote" id="" cols="30" rows="10">{{$question->answerByUser('1')->answer}}</textarea>
+                                <textarea name="answer" class="form-control aston-summernote" id="" cols="30" rows="10">{{$question->answerByUser(Session::get('id'))->answer}}</textarea>
                             </div>
                             <div class="form-group">
                                 <div class="row">

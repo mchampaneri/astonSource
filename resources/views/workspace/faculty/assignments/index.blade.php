@@ -11,7 +11,7 @@
 @stop
 
 @section('page-buttons')
-    <a href="{{route('assignment.create')}}" class="btn btn-success">
+    <a href="{{route('assignments.create')}}" class="btn btn-success">
         <i class="fa fa-plus fa-sm"></i> Add Assignments
     </a>
 
