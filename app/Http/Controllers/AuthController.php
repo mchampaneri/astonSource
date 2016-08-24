@@ -20,6 +20,10 @@ class AuthController extends Controller
 
     public  function  authenticate(Request $request)
     {
+        if(\Auth::check())
+        {
+            return redirect()->route('logout');
+        }
         if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
             // Authentication passed...

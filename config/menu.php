@@ -45,9 +45,14 @@ Return [
                     "student-sidebar" => [
                                             [
                                                 "title" => "Assignments",
-                                                "link" => "/workspace/student/assignments",
+                                                "link" => "/workspace/student/assignment",
                                                 "icon" => "fa-file"
-                                            ]
+                                            ],
+                                            [
+                                                "title" => "Results",
+                                                "link" => "/workspace/student/results",
+                                                "icon" => "fa-certificate"
+                                            ],
                                         ]
         
                 ],

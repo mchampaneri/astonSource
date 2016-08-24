@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use DOMDocument;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class AnswerController extends Controller
 {
@@ -14,7 +17,7 @@ class AnswerController extends Controller
     {
         $answer = new Answer();
         $answer->question_id = $request->question_id;
-        $answer->user_id = Session::get('id');
+        $answer->student_id = Session::get('id');
         $answer->answer = $request->answer;
         $answer->save();
         return redirect()->route('assignment.index');
@@ -24,9 +27,10 @@ class AnswerController extends Controller
     {
         $answer = Answer::find($id);
         $answer->question_id = $request->question_id;
-        $answer->user_id = Session::get('id');
+        $answer->student_id = Session::get('id');
         $answer->answer = $request->answer;
-        $answer->save();
-        return redirect()->route('assignment.index');
+            $answer->save();
+            return redirect()->route('assignment.index');
     }
+
 }

@@ -22,6 +22,8 @@
             <tr>
                 <th>Number</th>
                 <th>Name</th>
+                <th>Subject</th>
+                <th>Faculty</th>
                 <th>Edit</th>
             </tr>
             </thead>
@@ -30,10 +32,13 @@
                 <tr>
                     <td>{{$assignment->id}}</td>
                     <td>{{$assignment->title}}</td>
+                    <td>{{App\Subject::name($assignment->subject_id)}}</td>
+                    <td>{{App\Faculty::name($assignment->faculty_id)}}</td>
                     <td><a href="{{route('assignment.edit',['id'=>$assignment->id])}}"
                            class="btn btn-sm btn-primary">Answer
                         </a>
                     </td>
+
                 </tr>
             @endforeach
             </tbody>

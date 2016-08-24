@@ -11,7 +11,7 @@ class SubmissionController extends Controller
 {
     public function index()
     {
-        $assignments = Assignment::where('user_id', 1)->get();
+        $assignments = Assignment::where('sem', \Session::get('sem'))->get();
         return view('workspace.student.assignments.index')->with(['assignments' => $assignments]);
     }
 

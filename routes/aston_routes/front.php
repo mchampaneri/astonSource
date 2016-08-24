@@ -26,3 +26,6 @@ Route::post('/register/faculty',['as'=>'register.faculty','uses'=>'AuthControlle
 Route::get('/register/faculty',['as'=>'register.faculty' ,function() {
     return view('front.register.faculty');
 }]);
+
+
+

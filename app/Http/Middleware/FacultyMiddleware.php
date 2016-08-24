@@ -18,8 +18,7 @@ class FacultyMiddleware
         if (\Auth::user()->role == "faculty")
             return $next($request);
         else {
-            \Auth::logout();
-            return redirect()->to('/');
+            return redirect()->route('logout');
 
         }
     }

@@ -19,8 +19,7 @@ class HodMiddleware
         return $next($request);
         else
         {
-            \Auth::logout();
-            return redirect()->to('/');
+            return redirect()->route('logout');
         }
     }
 }

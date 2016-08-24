@@ -9,7 +9,7 @@ class Question extends Model
     public function answerByUser()
     {
 
-        return Answer::where('user_id',1)
+        return Answer::where('student_id',\Session::get('id'))
                         -> where('question_id',$this->id)
                         ->first();
     }

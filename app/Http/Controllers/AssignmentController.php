@@ -15,7 +15,7 @@ class AssignmentController extends Controller
     public function index()
     {
 
-        $assignments = Assignment::where('user_id',Session::get('id'))->get();
+        $assignments = Assignment::where('faculty_id',Session::get('id'))->get();
         return view('workspace.faculty.assignments.index')->with(['assignments'=>$assignments]);
     }
 
@@ -33,7 +33,7 @@ class AssignmentController extends Controller
         $assignment->info = $request->info;
         $assignment->sem = Subject::find($request->subject_id)->sem;
         $assignment->subject_id = $request->subject_id;
-        $assignment->user_id = Session::get('id'); // Faculty_Id
+        $assignment->faculty_id = Session::get('id'); // Faculty_Id
         $assignment->save();
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
@@ -57,7 +57,7 @@ class AssignmentController extends Controller
         $assignment->info = $request->info;
         $assignment->sem = Subject::find($request->subject_id)->sem;
         $assignment->subject_id = $request->subject_id;
-        $assignment->user_id = Session::get('id'); // Faculty_Id
+        $assignment->faculty_id = Session::get('id'); // Faculty_Id
         $assignment->save();
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }

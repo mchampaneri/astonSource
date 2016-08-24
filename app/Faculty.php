@@ -15,4 +15,10 @@ class Faculty extends Model
     {
         return $this->belongsToMany('App\Subject');
     }
+
+    public static function Name($id)
+    {
+      return Faculty::find($id)->name;
+
+    }
 }

@@ -30,7 +30,7 @@ class QuestionController extends Controller
     {
         $question = new Question();
         $question->question = $request->question;
-        $question->user_id = Session::get('id');
+        $question->faculty_id = Session::get('id');
         $question->assignment_id = $request->assignment_id;
         $question->subject_id = Assignment::find($request->assignment_id)->subject_id;
         $question->imp_lvl = $request->imp_lvl;
@@ -43,7 +43,7 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $question->question = $request->question;
-        $question->user_id = Session::get('id');
+        $question->faculty_id = Session::get('id');
         $question->imp_lvl = $request->imp_lvl;
         $question->hint = $request->hint;
         $question->save();

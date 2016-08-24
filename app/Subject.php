@@ -10,4 +10,10 @@ class Subject extends Model
     {
         return $this->belongsToMany('App\Faculty');
     }
+
+    public static function Name($id)
+    {
+        return Subject::find($id)->name;
+
+    }
 }

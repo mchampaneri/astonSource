@@ -37,7 +37,7 @@
                                 <label for="name" class="control-label">Subject</label>
                             </div>
                             <div class="col-md-9">
-                                <select name="subject_id"   class="form-control">
+                                <select name="subject_id"   class="form-control aston-select2">
                                     @foreach($subjects as $subject)
                                         <option value="{{$subject->id}}" @if($assignment->subject_id == $subject->id)
                                         Selected @endif>{{$subject->name}}</option>

@@ -17,7 +17,7 @@
         @include('AstonLayouts::footer')
         @include('AstonLayouts::foot')
 
-         @yield('page-js')
+        @yield('page-js')
 
     </body>
 </html>

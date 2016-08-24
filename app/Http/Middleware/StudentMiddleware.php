@@ -18,8 +18,7 @@ class StudentMiddleware
         if (\Auth::user()->role == "student")
             return $next($request);
         else {
-            \Auth::logout();
-            return redirect()->to('/');
+            return redirect()->route('logout');
 
         }
     }

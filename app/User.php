@@ -42,4 +42,14 @@ class User extends Authenticatable
         else
             return [];
     }
+
+    public static function Name($id)
+    {
+        $user = User::find($id);
+        if($user->role=="student")
+            return $user->hasOne('App\Student')->first()->name;
+        if($user->role=="faculty")
+            return $user->hasOne('App\Faculty')->first()->name;
+
+    }
 }

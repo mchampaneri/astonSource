@@ -27,7 +27,10 @@ elixir(function(mix) {
         '../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
         '../../../node_modules/summernote/dist/summernote.js',
         '../../../node_modules/datatables/media/js/jquery.dataTables.js',
+        '../../../node_modules/datatables-responsive/js/dataTables.responsive.js',
+        '../../../node_modules/datatables-responsive/js/responsive.bootstrap.js',
         '../../../node_modules/select2/dist/js/select2.full.js',
+        '../../../vendor/kartik-v/bootstrap-fileinput/js/fileinput.js',
 
         '../js/aston-init.js'
 
