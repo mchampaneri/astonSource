@@ -11,4 +11,9 @@ class Assignment extends Model
         return $this->hasMany('App\Question');
     }
 
+    public function myAnswers()
+    {
+        return $this->hasMany('App\Answer');
+    }
+
 }

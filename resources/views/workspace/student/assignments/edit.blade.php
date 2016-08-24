@@ -13,7 +13,7 @@
         <div class="col-md-10 col-md-offset-1">
             @if($assignment->questions()->count() > 0)
                 @foreach($assignment->questions()->get() as $question)
-                    @if( ($question->answerByUser( Session::get('id') ) == null ) )
+                    @if( ($question->answerByUser( \Session::get('id') ) == null ) )
                     <form action="{{route('answers.store')}}" method="post">
                             {{ csrf_field() }}
                         <div class="form-group">
