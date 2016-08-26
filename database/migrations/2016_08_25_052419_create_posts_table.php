@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLecturesTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateLecturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lectures', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('subject_id');
             $table->string('title');
-            $table->string('info');
-            $table->text('lecture');
+            $table->text('detail');
+            $table->string('thumb');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateLecturesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('lectures');
+        Schema::drop('posts');
     }
 }

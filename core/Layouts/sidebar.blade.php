@@ -17,7 +17,7 @@
                     </ul>
                 </li>
             @else
-                <li >
+                <li class="{{ set_active($menu['link'].'*') }}" >
                     <a  href="{{url($menu['link'])}}"><i class="fa fa-lg {{$menu['icon']}}"></i>
                         <p class="name">{{$menu['title']}}</p>
                     </a>
@@ -42,7 +42,7 @@
                         </ul>
                     </li>
                 @else
-                    <li >
+                    <li  class="{{ set_active($menu['link'].'/*') }}">
                         <a  href="{{url($menu['link'])}}"><i class="fa fa-lg {{$menu['icon']}}"></i>
                             <p class="name">{{$menu['title']}}</p>
                         </a>

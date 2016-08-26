@@ -2,7 +2,7 @@
 
 Route::group(['prefix'=>'student','middleware'=>'student'],function() {
 
-    Route::get('/',function(){
+    Route::get('/home',function(){
         return view('workspace.student.dashboard.index');
     });
     

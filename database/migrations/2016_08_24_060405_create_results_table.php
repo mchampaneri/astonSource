@@ -15,7 +15,7 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('student_id');
+            $table->integer('user_id');
             $table->string('title');
             $table->string('path');
             $table->timestamps();

@@ -6,7 +6,7 @@
 @stop
 
 @section('page-heading')
-    Aston | New Department
+     Add New Department
 @stop
 
 @section('page-buttons')
@@ -16,7 +16,7 @@
 
 @section('page-body')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
         <form action="{{route('departments.store')}}" method="post">
             {{csrf_field()}}
             <div class="form-group">

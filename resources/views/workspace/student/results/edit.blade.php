@@ -19,6 +19,7 @@
         <div class="col-md-8">
             <form action="{{route('results.update',['id'=>$result->id])}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
+
                 <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <div class="row">

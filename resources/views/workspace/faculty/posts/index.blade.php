@@ -7,19 +7,19 @@
 
 
 @section('page-heading')
-    <i class="fa fa-lg fa-sticky-note"> </i> Assignments
+    Lectures
 @stop
 
 @section('page-buttons')
-    <a href="{{route('assignments.create')}}" class="btn btn-success">
-        <i class="fa fa-plus fa-sm"></i> Add Assignments
+    <a href="{{route('posts.create')}}" class="btn btn-success">
+        <i class="fa fa-plus fa-sm"></i> Add Lectures
     </a>
 
 @stop
 
 @section('page-body')
 
-    @if($assignments->count() > 0)
+    @if($posts->count() > 0)
         <table class="table table-hover aston-datatable">
             <thead>
             <tr>
@@ -29,11 +29,11 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($assignments as $assignment)
+            @foreach($posts as $post)
                 <tr>
-                    <td>{{$assignment->id}}</td>
-                    <td>{{$assignment->title}}</td>
-                    <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
+                    <td>{{$post->id}}</td>
+                    <td>{{$post->title}}</td>
+                    <td><a href="{{route('posts.edit',['id'=>$post->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
                     </td>
@@ -43,7 +43,7 @@
         </table>
     @else
         <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
-            Add your first Subject by clicking the <span class="label label-info">Add Subject</span>
+            Add your first Lecture by clicking the <span class="label label-info">Add Post</span>
             Button </p>
     @endif
 

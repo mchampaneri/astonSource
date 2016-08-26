@@ -17,8 +17,9 @@
 @section('page-body')
     <div class="row">
         <div class="col-md-8" >
-            <form action="{{route('lectures.store')}}" method="post">
+            <form action="{{route('lectures.update',['id'=>$lecture->id])}}" method="post">
                 {{ csrf_field() }}
+                <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">

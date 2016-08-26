@@ -19,7 +19,7 @@ class CreateAssignmentsTable extends Migration
             $table->string('info');
             $table->integer('sem');
             $table->integer('subject_id');
-            $table->integer('faculty_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

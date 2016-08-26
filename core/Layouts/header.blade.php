@@ -12,7 +12,7 @@
 
                 <div class="col-sm-5">
                     <div class="logo">
-                        <h1 class="logo">ASTON <span class="aston-theme-text">SYSTEMS</span> </h1>
+                        <h1 class="logo">ASTON  </h1>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -31,7 +31,7 @@
                                         </a>
                                         <ul class="dropdown-menu-right dropdown-menu">
                                             @foreach($menu['has-child'] as $sub_menu)
-                                                <li> <a class="dropdown-item btn btn-md" href="{{url($sub_menu['link'])}}">
+                                                <li> <a class="dropdown-item btn btn-md pull-left" href="{{url($sub_menu['link'])}}">
                                                         <i class="fa fa-sm {{$sub_menu['icon']}}"></i>
                                                         {{$sub_menu['title']}}</a>
                                                 </li>

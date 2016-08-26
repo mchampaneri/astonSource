@@ -13,8 +13,10 @@ class ResultController extends Controller
 {
     public function index()
     {
-        $results = Result::where('student_id',\Session::get('id'))->get();
-        return view('workspace.student.results.index')->with(['results'=>$results]);
+        $results = Result::where('user_id',\Auth::user()->id)
+                            ->get();
+        return view('workspace.student.results.index')
+                    ->with(['results'=>$results]);
     }
 
     public function create()
@@ -26,7 +28,7 @@ class ResultController extends Controller
     {
         $result = new Result();
         $result->title = $request->title;
-        $result->student_id = \Session::get('id');
+        $result->user_id = \Auth::user()->id;
         $file = \Storage::put(\Auth::user()->id.'/results',$request->result_snap);
         $result->path = $file;
         $result->save();
@@ -40,14 +42,15 @@ class ResultController extends Controller
         JavaScript::put([
             'image'=>$result->path
         ]);
-        return view('workspace.student.results.edit')->with(['result'=>$result]);
+        return view('workspace.student.results.edit')
+                    ->with(['result'=>$result]);
     }
 
     public function update($id,Request $request)
     {
         $result = Result::find($id);
         $result->title = $request->title;
-        $result->student_id = \Session::get('id');
+        $result->user_id = \Auth::user()->id;
         $file = \Storage::put(\Auth::user()->id.'/results',$request->result_snap);
         $result->path = $file;
         $result->save();

@@ -12,7 +12,8 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        return view('workspace.admin.departments.index')->with(['departments'=>$departments]);
+        return view('workspace.admin.departments.index')
+                    ->with(['departments'=>$departments]);
     }
 
     public function create()
@@ -23,7 +24,8 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $department = Department::find($id);
-        return view('workspace.admin.departments.edit')->with(['department'=>$department]);
+        return view('workspace.admin.departments.edit')
+                    ->with(['department'=>$department]);
     }
 
     public function store(Request $request)

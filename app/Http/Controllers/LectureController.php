@@ -6,32 +6,41 @@ namespace App\Http\Controllers;
 use App\Faculty;
 use App\Lecture;
 use App\Subject;
+use core\Functions\Editor;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Intervention\Image\Facades\Image;
+use Storage;
 
 class LectureController extends Controller
 {
     public function index()
     {
 
-        $lectures = Lecture::where('faculty_id',\Session::get('id'))->get();
-        return view('workspace.faculty.lectures.index')->with(['lectures'=>$lectures]);
+        $lectures = Lecture::where('user_id',\Auth::user()->id)
+                            ->get();
+        return view('workspace.faculty.lectures.index')
+                    ->with(['lectures'=>$lectures]);
     }
 
     public function create()
     {
-        $subjects = Faculty::find(\Session::get('id'))->subjects()->get();
-        return view('workspace.faculty.lectures.create')->with(['subjects'=>$subjects]);
+        $subjects = Faculty::find(\Session::get('id'))
+                            ->subjects()
+                            ->get();
+        return view('workspace.faculty.lectures.create')
+                            ->with(['subjects'=>$subjects]);
     }
     public function store(Request $request)
     {
+     
 
         $lecture = new Lecture();
         $lecture->title = $request->title;
         $lecture->info = $request->info;
-        $lecture->lecture = $request->lecture;
+        $lecture->lecture = b64toUrl($request->lecture);
         $lecture->subject_id = $request->subject_id;
-        $lecture->faculty_id = \Session::get('id'); // Faculty_Id
+        $lecture->user_id = \Auth::user()->id; // Faculty_Id
         $lecture->save();
         return redirect()->route('lectures.index');
     }
@@ -50,12 +59,13 @@ class LectureController extends Controller
 
     public function update($id,Request $request)
     {
+
         $lecture = Lecture::find($id);
         $lecture->title = $request->title;
         $lecture->info = $request->info;
-        $lecture->lecture = $request->lecture;
+        $lecture->lecture = b64toUrl($request->lecture);
         $lecture->subject_id = $request->subject_id;
-        $lecture->faculty_id = \Session::get('id'); // Faculty_Id
+        $lecture->user_id = \Auth::user()->id; 
         $lecture->save();
         return redirect()->route('lectures.index');
     }

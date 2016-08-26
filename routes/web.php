@@ -13,22 +13,13 @@
 
 require 'aston_routes/front.php';
 
+require 'aston_routes/assets_routes.php';
+
+
+
 Route::group(['prefix'=>'workspace','middleware'=>'auth'],function () {
 
-    Route::get('/images/{id}/results/{file}', function ($id,$filename)
-    {
-        $path = storage_path().'/app/'. $id . '/results/' . $filename;
 
-        if(!File::exists($path)) abort(404);
-
-        $file = File::get($path);
-        $type = File::mimeType($path);
-
-        $response = Response::make($file, 200);
-        $response->header("Content-Type", $type);
-
-        return $response;
-    });
 
     Route::resource('messages','MessageController');
     Route::get('/messages/sent/show','MessageController@sent');

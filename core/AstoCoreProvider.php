@@ -20,7 +20,6 @@ class AstoCoreProvider extends ServiceProvider
          *
          */
         $this->app['view']->addNameSpace('AstonLayouts',base_path('core/Layouts'));
-
     }
 
     /**

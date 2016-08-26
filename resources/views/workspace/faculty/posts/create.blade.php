@@ -6,20 +6,19 @@
 @stop
 
 @section('page-heading')
-    <i class="fa fa-lg fa-sticky-note"> </i> Create New Assignment
+    Aston | New Post
 @stop
 
 @section('page-buttons')
 
-    <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
+    <a href="{{route('posts.index')}}" class="btn btn-default">Back</a>
 @stop
 
 @section('page-body')
     <div class="row">
-        <div class="col-md-12" >
-            <form action="{{route('assignments.store')}}" method="post">
+        <div class="col-md-8" >
+            <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class="col-md-6">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
@@ -30,44 +29,38 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-6">
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="name" class="control-label">Subject</label>
+                            <label for="name" class="control-label">Thumbnail</label>
                         </div>
-                        <div class="col-md-9">
-                            <select name="subject_id"   class="form-control aston-select2">
-                                @foreach($subjects as $subject)
-                                    <option value="{{$subject->id}}">{{$subject->name}}</option>
-                                @endforeach
-                            </select>
+                        <div>
+                        <input type="file" name="thumb" class="aston-image form-control">
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-6">
+
+
+
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
-                            <label class="control-label">Informaion</label>
-                        </div>
-                        <div class="col-md-9">
-                            <textarea name="info" id="" cols="30" rows="4" class="form-control"></textarea>
+                        <div class="col-md-11">
+                            <textarea name="detail" id="" cols="30" rows="200"
+                                      class="form-control aston-summernote"></textarea>
                         </div>
                     </div>
-                </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-11">
-                            <input type="submit" value="Create"
+                            <input type="submit" value="Save"
                                    class="btn btn-sm btn-success pull-right">
                         </div>
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 @stop

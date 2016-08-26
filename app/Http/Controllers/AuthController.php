@@ -15,15 +15,19 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return "Welcome on login screen";
+        return redirect()->to('/login');
     }
 
     public  function  authenticate(Request $request)
     {
+        /*
+         * Clearing the previous login to zero state
+         */
         if(\Auth::check())
         {
             return redirect()->route('logout');
         }
+
         if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
             // Authentication passed...
@@ -54,7 +58,7 @@ class AuthController extends Controller
                   return redirect()->intended('workspace/'.\Auth::user()->role);
         }
         else{
-            return "failed";
+            return redirect()->to('/login');
         }
     }
 
@@ -70,12 +74,15 @@ class AuthController extends Controller
 
     public function storeStudent(Request $request)
     {
+
+        //Generating The User Account
         $user = new User();
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
-
         $user->role = "student";
         $user->save();
+
+        //Generating The Student Account;
         $student = new Student();
         $student->user_id = $user->id;
         $student->name = $request->name;
@@ -90,11 +97,14 @@ class AuthController extends Controller
 
     public function storeFaculty(Request $request)
     {
+        //Generating User Account
         $user = new User();
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
         $user->role = "faculty";
         $user->save();
+
+        //Generating The Faculty Account;
         $faculty = new Faculty();
         $faculty->user_id = $user->id;
         $faculty->name = $request->name;
@@ -110,8 +120,8 @@ class AuthController extends Controller
     public function signout()
     {
 
-         \Auth::logout();
-         Session::flush();
+        \Auth::logout();
+        Session::flush();
         return redirect()->to('/');
     }
 
