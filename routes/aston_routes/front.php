@@ -2,7 +2,11 @@
 
 
 Route::get('/',function() {
-    return " Working On The Fronend :-)";
+    return view('front.index');
+});
+
+Route::get('/department/{name}',function($name) {
+    return view('front.department')->with(['department'=>$name]);
 });
 
 Route::get('/login',function() {

@@ -2,7 +2,7 @@
 
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vueify');
+//require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------
