@@ -17,6 +17,7 @@
 
 @section('page-body')
 
+
     <div class="row panel-body">
         <form action="{{route('assignments.update',['id'=>$assignment->id])}}" method="post">
             {{ csrf_field() }}
@@ -57,6 +58,7 @@
                         </div>
                         <div class="col-md-9">
                             <textarea name="info" id="" cols="30" rows="3" class="form-control">{{$assignment->info}}</textarea>
+
                         </div>
                     </div>
                 </div>
@@ -67,7 +69,6 @@
                     <input type="submit" value="Update"
                            class="btn btn-sm btn-success pull-right">
                 </div>
-
             </div>
         </form>
     </div>
@@ -100,6 +101,7 @@
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                 </select>
+
                             </div>
                         </div>
                     </div>
@@ -176,28 +178,29 @@
     <div class="row">
         <div class="col-md-12">
         @if ( $assignment->questions()->count() > 0)
-        <table class="table table-hover">
-            <thead>
+            <table class="table table-hover">
+                <thead>
                 <tr>
                     <th>Question</th>
                     <th>Imp Level</th>
                     <th>Edit</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 @foreach($assignment->questions()->get() as $question)
                     <tr>
                         <td>{{$question->question}}</td>
                         <td>{{$question->imp_lvl}}</td>
-                        <td><a href="{{route('questions.edit',['id'=>$question->id])}}" class="btn btn-primary">Edit</a></td>
+                        <td><a href="{{route('questions.edit',['id'=>$question->id])}}" class="btn btn-primary">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
+                </tbody>
+            </table>
         @else
             <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
                 Add your first Question by clicking the <span class="label label-info">Add Questions</span>
-                Button </p>
+            </p>
         @endif
         </div>
     </div>
