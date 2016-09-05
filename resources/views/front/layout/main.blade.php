@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>@yield('page-title')</title>
+        @include('front.layout.head')
+        @yield('page-css')
+    </head>
+    <body>
+        @include('front.layout.header')
+            @yield('page-content')
+        @include('front.layout.footer')
+        @include('front.layout.foot')
+        @yield('page-js')
+    </body>
+</html>

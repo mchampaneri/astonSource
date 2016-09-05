@@ -1,0 +1,122 @@
+/** Colors For sidebar Childs **/
+.sidebar > .iconbar{
+  background-color: #02593D;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: 1002;
+}
+
+.sidebar > .sub-sidebar {
+  background-color: #17392E;//rgb(30, 45, 53)
+}
+
+
+
+
+
+/** Setting The Menu For The Sidebar childs **/
+
+/** Setting up the iconbar **/
+.iconbar > ul.menu > li{
+  display: inline-block;
+  padding: 8px 10px;
+}
+
+.sub-sidebar > ul.menu {
+  display: none;
+}
+
+.sub-sidebar > ul.menu > li{
+  width: 100%;
+  padding:4px  12px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/** Displaying the toggle button **/
+.toggle{
+  display: block;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.iconbar > ul.menu > li{
+  text-align: center;
+
+}
+
+.iconbar > ul.menu > li.active{
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #65FFCD;
+}
+
+ul.menu > li > a {
+  color: #fff;
+  padding: 4px 0;
+}
+
+.iconbar > ul.menu > li > a > i.icon {
+  color: inherit;
+  font-size: 20px;
+}
+
+.iconbar > ul.menu > li > a > .name {
+  color: inherit;;
+  font-size: 11px;
+}
+
+
+ul.submenu> li{
+  background-color: rgba(100,100,100,0.2);
+  display: block;
+  padding: 5px 0;
+}
+
+
+@media screen and (min-width:600px) {
+
+  ul.menu > li{
+    display: block;
+    width: 100%;
+  }
+
+  .iconbar >  ul.menu > li.active{
+    border-top: none;
+    border-left: 5px solid #65FFCD;
+  }
+
+
+  .iconbar > ul > li:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #65FFCD;
+  }
+  .iconbar > ul.menu > li > a > i.icon {
+    color: inherit;
+    font-size: 36px;
+  }
+
+  .iconbar > ul.menu > li > a > .name {
+    color: inherit;;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  /** Setting up the iconbar **/
+  .iconbar{
+    display: block;
+
+  }
+  .iconbar > ul,li{
+    width: 100%;
+  }
+
+
+  /** Setting up the sub-sidebar **/
+  .sub-sidebar > ul.menu {
+    display: block;
+  }
+
+  /** Hidding the toggle button **/
+  .toggle{
+    display: none;
+  }
+}
