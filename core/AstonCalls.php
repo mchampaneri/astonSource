@@ -9,10 +9,17 @@
 namespace Aston;
 
 
+use App\Faculty;
+
 class AstonCalls
 {
       public static function hello()
         {
             return "hello";
+        }
+
+        public static function Faculties()
+        {
+            return Faculty::all()->pluck('name','id');
         }
 }
