@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+@include('AstonLayouts::head')

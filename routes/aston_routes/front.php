@@ -31,5 +31,14 @@ Route::get('/register/faculty',['as'=>'register.faculty' ,function() {
     return view('front.register.faculty');
 }]);
 
+Route::get('/blog',function (){
+    return view('front.blog.index');
+});
+
+Route::get('/blog/{id}',function ($id){
+    $post = \App\Post::find($id);
+    return view('front.blog.detail')->with(['post'=>$post]);
+});
+
 
 

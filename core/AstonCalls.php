@@ -10,10 +10,11 @@ namespace Aston;
 
 
 use App\Faculty;
+use App\Post;
 
 class AstonCalls
 {
-      public static function hello()
+        public static function hello()
         {
             return "hello";
         }
@@ -21,5 +22,10 @@ class AstonCalls
         public static function Faculties()
         {
             return Faculty::all()->pluck('name','id');
+        }
+
+        public static function Posts()
+        {
+            return Post::all();
         }
 }

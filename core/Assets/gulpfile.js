@@ -22,19 +22,18 @@ elixir(function(mix) {
         "core.scss"
     ],'public/core/assets/css');
 
-    //mix.scripts([
-    //    '../../../node_modules/jquery/dist/jquery.js',
-    //    '../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
-    //    '../../../node_modules/summernote/dist/summernote.js',
-    //    '../../../node_modules/datatables/media/js/jquery.dataTables.js',
-    //    '../../../node_modules/datatables-responsive/js/dataTables.responsive.js',
-    //    '../../../node_modules/datatables-responsive/js/responsive.bootstrap.js',
-    //    '../../../node_modules/select2/dist/js/select2.full.js',
-    //    '../../../vendor/kartik-v/bootstrap-fileinput/js/fileinput.js',
-    //
-    //    '../js/aston-init.js'
-    //
-    //],'public/core/assets/js/all.js','core/Assets/plugins');
-    //
-    //mix.browserify('vuefiles.js','public/core/vue/all.js');
+    mix.scripts([
+       '../../../node_modules/jquery/dist/jquery.js',
+       '../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+       '../../../node_modules/summernote/dist/summernote.js',
+       '../../../node_modules/datatables/media/js/jquery.dataTables.js',
+       '../../../node_modules/datatables-responsive/js/dataTables.responsive.js',
+       '../../../node_modules/datatables-responsive/js/responsive.bootstrap.js',
+       '../../../node_modules/select2/dist/js/select2.full.js',
+       '../../../vendor/kartik-v/bootstrap-fileinput/js/fileinput.js',
+        // Aston Workspace Config Files //
+       '../js/aston-init.js'
+    ],'public/core/assets/js/all.js','core/Assets/plugins');
+
+    mix.browserify('vuefiles.js','public/core/vue/all.js');
 });
