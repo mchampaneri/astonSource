@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('user_id',\Auth::user()->id);
+        $posts = Post::where('user_id',\Auth::user()->id)->get();
         return view('workspace.faculty.posts.index')->with(['posts'=>$posts]);
     }
 
@@ -27,9 +27,13 @@ class PostController extends Controller
     {
         $post = new Post();
         $post->title = $request->title;
-        $file = $request->file('thumb')
-                ->store(\Auth::user()->id.'/posts/thumb');
-        $post->thumb = $file;
+        if(isset($request->thumb)) {
+            $file = $request->file('thumb')
+                ->store(\Auth::user()->id . '/posts/thumb');
+            $post->thumb = $file;
+        }else{
+            $post->thumb ="0";
+        }
         $post->user_id = \Auth::user()->id;
         $post->detail = b64toUrl($request->detail);
         $post->save();
@@ -39,9 +43,11 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->title = $post->title;
-        $file =$request->file('thumb')
-                        ->store(\Auth::user()->id.'/posts/thumb');
-        $post->thumb = $file;
+        if(isset($request->thumb)) {
+            $file = $request->file('thumb')
+                ->store(\Auth::user()->id . '/posts/thumb');
+            $post->thumb = $file;
+        }
         $post->detail = b64toUrl($request->detail);
         $post->save();
         return redirect()->back();

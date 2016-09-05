@@ -12,7 +12,7 @@
 
 @section('page-buttons')
     <a href="{{route('posts.create')}}" class="btn btn-success">
-        <i class="fa fa-plus fa-sm"></i> Add Lectures
+        <i class="fa fa-plus fa-sm"></i> Add Post
     </a>
 
 @stop
@@ -43,7 +43,7 @@
         </table>
     @else
         <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
-            Add your first Lecture by clicking the <span class="label label-info">Add Post</span>
+            Add your first Post by clicking the <span class="label label-info">Add Post</span>
             Button </p>
     @endif
 

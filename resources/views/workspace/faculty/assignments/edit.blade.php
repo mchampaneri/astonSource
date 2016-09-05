@@ -16,172 +16,165 @@
 @stop
 
 @section('page-body')
-    <div class="row">
-        <div class="col-md-12" >
-            <div class="col-md-12" >
-                <form action="{{route('assignments.update',['id'=>$assignment->id])}}" method="post">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="_method" value="put">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="name"   class="control-label">Title</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" value="{{$assignment->title}}" name="title" class="form-control">
-                                </div>
-                            </div>
+
+    <div class="row panel-body">
+        <form action="{{route('assignments.update',['id'=>$assignment->id])}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="put">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <label for="name"  class="control-label">Title</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"  value={{$assignment->title}} name="title" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="name" class="control-label">Subject</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <select name="subject_id"   class="form-control aston-select2">
-                                        @foreach($subjects as $subject)
-                                            <option value="{{$subject->id}}" @if($assignment->subject_id == $subject->id)
-                                            Selected @endif>{{$subject->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="control-label">Informaion</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea name="info" id="" cols="30" rows="4" class="form-control">{{$assignment->title}}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <input type="submit" value="Save"
-                                       class="btn btn-sm btn-success pull-right">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        @if ( isset($question) )
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <form action="{{route('questions.update',['id'=>$question->id])}}" method="post">
-                        <input type="hidden" name="_method" value="put">
-                        <input type="hidden" name="assignment_id" value="{{$assignment->id}}">
-                        {{csrf_field()}}
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label for="">Question</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" value="{{$question->question}}" name="question" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label for="">Imp Level</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" value="{{$question->imp_lvl}}" name="imp_lvl" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label for="">Hint</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" name="hint">{{$question->hint}}"</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-11">
-                                    <input type="submit" value="Update" class="btn btn-success pull-right">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
-        @else
-            <div class="col-md-12">
-                <div class="col-md-12">
-                <form action="{{route('questions.store')}}" method="post">
-                    <input type="hidden" name="assignment_id" value="{{$assignment->id}}">
-                    {{csrf_field()}}
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="">Question</label>
-                                </div>
-                                <div class="col-md-9">
-                                <input type="text" name="question" class="form-control">
-                                </div>
-                            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="name" class="control-label">Subject</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select name="subject_id"   class="form-control aston-select2">
+                                @foreach($subjects as $subject)
+                                    <option value="{{$subject->id}}" @if($assignment->subject_id == $subject->id) selected @endif>{{$subject->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="">Imp Level</label>
-                                </div>
-                                <div class="col-md-9">
-                                <input type="text" name="imp_lvl" class="form-control">
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="control-label">Informaion</label>
                         </div>
-                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="">Hint</label>
-                                </div>
-                                <div class="col-md-9">
-                                <textarea class="form-control" name="hint"></textarea>
-                                </div>
+                        <div class="col-md-9">
+                            <textarea name="info" id="" cols="30" rows="3" class="form-control">{{$assignment->info}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <input type="submit" value="Update"
+                           class="btn btn-sm btn-success pull-right">
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="row ">
+        @if (isset($question) )
+            <form action="{{route('questions.update',['id'=>$question->id])}}" method="post">
+                {{csrf_field()}}
+                <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="assignment_id" value="{{$assignment->id}}">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="">Question</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="question" value="{{$question->question}}" class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-11">
-                                <input type="submit" value="Add" class="btn btn-success pull-right">
+                            <div class="col-md-3">
+                                <label for="">Impotnace Level</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select name="imp_lvl" class="form-control" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label for="">Hint</label>
+                            </div>
+                            <div class="col-md-11">
+                                <textarea name="hint" id="" cols="30" rows="4" class="form-control">{{$question->hint}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Update Question" class="btn btn-success pull-right">
+                    </div>
+                </div>
+            </form>
+        @else
+            <form action="{{route('questions.store')}}" method="post">
+                {{csrf_field()}}
+                <input type="hidden" name="assignment_id" value="{{$assignment->id}}">
+                <div class="col-md-7">
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">Question</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="question" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="">Impotnace Level</label>
+                            </div>
+                            <div class="col-md-9">
+                                <select name="imp_lvl" class="form-control" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label for="">Hint</label>
+                        </div>
+                        <div class="col-md-11">
+                            <textarea name="hint" id="" cols="30" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Add Question" class="btn btn-success pull-right">
+                    </div>
+                </div>
+            </form>
         @endif
     </div>
+    <hr>
     <div class="row">
+        <div class="col-md-12">
         @if ( $assignment->questions()->count() > 0)
         <table class="table table-hover">
             <thead>
@@ -203,10 +196,10 @@
         </table>
         @else
             <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
-                Add your first Question by clicking the <span class="label label-info">Add Department</span>
+                Add your first Question by clicking the <span class="label label-info">Add Questions</span>
                 Button </p>
         @endif
-
+        </div>
     </div>
 @stop
 

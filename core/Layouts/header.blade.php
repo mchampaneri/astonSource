@@ -1,7 +1,7 @@
 <div class="header">
 
     <div class="header-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <!-- Sidebar Puller for small screens -->
@@ -10,12 +10,12 @@
                 </div>
                 <!-- // Sidebar puller -->
 
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="logo">
                         <h1 class="logo">ASTON  </h1>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 pull-right">
                     <div class="header-top-menu">
                         <ul class="nav nav-pills">
 

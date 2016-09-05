@@ -15,26 +15,29 @@
 @stop
 
 @section('page-body')
-    <div class="row">
-        <div class="col-md-8" >
+    <div class="row panel-body">
+
             <form action="{{route('lectures.store')}}" method="post">
                 {{ csrf_field() }}
-                <div class="form-group">
+                <div class="col-md-3">
+                    <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
                             <label for="name"  class="control-label">Title</label>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <input type="text"  name="title" class="form-control">
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
                             <label for="name" class="control-label">Subject</label>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <select name="subject_id"   class="form-control">
                                 @foreach($subjects as $subject)
                                     <option value="{{$subject->id}}">{{$subject->name}}</option>
@@ -43,21 +46,22 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
                             <label class="control-label">Informaion</label>
                         </div>
-                        <div class="col-md-9">
-                            <textarea name="info" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <div class="col-md-10">
+                            <textarea name="info" id="" cols="30" rows="4" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
-
+                </div>
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-11">
+                        <div class="col-md-12">
                             <textarea name="lecture" id="" cols="30" rows="200"
                                       class="form-control aston-summernote"></textarea>
                         </div>
@@ -65,7 +69,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-11">
+                        <div class="col-md-12">
                             <input type="submit" value="Save"
                                    class="btn btn-sm btn-success pull-right">
                         </div>

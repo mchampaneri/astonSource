@@ -9861,17 +9861,16 @@ body {
   .header-top {
     width: 100%;
     background-color: white;
-    text-align: center;
-    padding: 20px 0; }
+    text-align: center; }
     .header-top .header-top-menu {
       padding: 5px 0; }
       @media (min-width: 767px) {
         .header-top .header-top-menu {
           float: right; } }
     .header-top .logo {
-      padding: 10px 0px; }
+      padding-top: 20px; }
       .header-top .logo h1.logo {
-        font-size: 20px;
+        font-size: 30px;
         padding: 0;
         margin: 0; }
       @media (min-width: 1199px) {
@@ -9901,7 +9900,7 @@ body {
   position: relative;
   width: 100%;
   padding-left: 100px;
-  background-color: #ffe3d8; }
+  background-color: #f8f8f8; }
   @media (max-width: 991px) {
     .page {
       padding-left: 0; } }

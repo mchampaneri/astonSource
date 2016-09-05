@@ -15,14 +15,14 @@
 @stop
 
 @section('page-body')
-    <div class="row">
-        <div class="col-md-12" >
+
+<div class="row">
             <form action="{{route('assignments.store')}}" method="post">
                 {{ csrf_field() }}
-                <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3 ">
                             <label for="name"  class="control-label">Title</label>
                         </div>
                         <div class="col-md-9">
@@ -30,11 +30,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-6">
+            </div>
+            <div class="col-md-3">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label for="name" class="control-label">Subject</label>
                         </div>
                         <div class="col-md-9">
@@ -46,11 +46,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-6">
+            </div>
+            <div class="col-md-5">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label class="control-label">Informaion</label>
                         </div>
                         <div class="col-md-9">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-11">
@@ -68,8 +68,7 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
+</div>
 @stop
 
 @section('page-js')

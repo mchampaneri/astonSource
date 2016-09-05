@@ -2,10 +2,10 @@
 
 @section('page-content')
 
-    <div class="container">
+
         <div class="panel">
             <div class="panel-heading">
-                <div class="page-header">
+                <div class="panel-head">
                     <div class="pull-left">
                        <h4> @yield('page-heading') </h4>
                     </div>
@@ -20,7 +20,7 @@
             </div>
 
         </div>
-    </div>
+
 
 @stop
 

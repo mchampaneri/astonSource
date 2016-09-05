@@ -45522,6 +45522,7 @@ $(document).ready(function() {
         placeholder: "Select a Subject"
     });
 
+   
     // Initiating The Bootstrap file input class
     $('.aston-image').fileinput();
     $('.aston-image-edit').fileinput({

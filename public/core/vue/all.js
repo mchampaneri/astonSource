@@ -61,9 +61,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-423dc257", module.exports)
+    hotAPI.createRecord("_v-48418db6", module.exports)
   } else {
-    hotAPI.update("_v-423dc257", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-48418db6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":6,"vue-hot-reload-api":4}],2:[function(require,module,exports){

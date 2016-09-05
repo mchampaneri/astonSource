@@ -55,7 +55,7 @@ class AuthController extends Controller
             {
                 Session::put('role','admin');
             }
-                  return redirect()->intended('workspace/'.\Auth::user()->role);
+                  return redirect()->intended('workspace/'.\Auth::user()->role.'/home');
         }
         else{
             return redirect()->to('/login');

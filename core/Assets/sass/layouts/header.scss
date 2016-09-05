@@ -14,8 +14,7 @@
     width: 100%;
     background-color: $aston-main-background;
     text-align: center;
-    padding: 20px 0;
-    //border-bottom: 3px solid $aston-theme-color;
+
     &  &-menu{
 
       padding: 5px 0;
@@ -27,9 +26,9 @@
       }
     }
     &  .logo{
-      padding: 10px 0px;
+      padding-top: 20px;
       &   h1.logo{
-        font-size: 20px;
+        font-size: 30px;
         padding: 0;
         margin: 0;
       }
