@@ -6,7 +6,14 @@
     Aston | New Subject
 @stop
 @section('page-buttons')
-    <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
+    <form action="{{route('submits.update',['id'=>$submit->id])}}" method="post">
+        {{ method_field('put') }}
+        {{ csrf_field() }}
+        <input value="Submit" type="submit"
+           class="btn @if($submit->status == "unsubmitted")btn-default @else btn-success @endif">
+            </input>
+        <a href="{{route('submits.index')}}" class="btn btn-default">Back</a>
+    </form>
 @stop
 @section('panel-body')
     <div class="row">

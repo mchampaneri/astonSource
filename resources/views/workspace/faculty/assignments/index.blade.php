@@ -31,7 +31,9 @@
             <tr>
                 <th>Number</th>
                 <th>Name</th>
-                <th>Edit</th>
+                <th>Subject</th>
+                <th>Submittion Requests</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -39,10 +41,14 @@
                 <tr>
                     <td>{{$assignment->id}}</td>
                     <td>{{$assignment->title}}</td>
+                    <td>{{\App\Subject::Name($assignment->subject_id)}}</td>
+                    <td>{{\App\Submit::where('assignment_id',$assignment->id)->where('status','!=','unsubmitted')->count() }}</td>
                     <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
+                        <a href="{{route('assignments.submitlist',['id'=>$assignment->id])}}" class="btn btn-sm btn-primary"> Review Answers</a>
                     </td>
+
                 </tr>
             @endforeach
             </tbody>

@@ -6,7 +6,7 @@ Route::group(['prefix'=>'student','middleware'=>'student'],function() {
         return view('workspace.student.dashboard.index');
     });
     
-    Route::resource('assignment','SubmissionController');
+    Route::resource('submits','SubmissionController');
 
     Route::resource('answers','AnswerController');
 

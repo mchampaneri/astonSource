@@ -13,7 +13,15 @@ class Assignment extends Model
 
     public function myAnswers()
     {
-        return $this->hasMany('App\Answer');
+        return Answer::where('user_id',\Auth::user()->id)
+                        ->where('assignment_id',$this->id);
     }
+
+    public static function Name($id)
+    {
+        return Assignment::find($id)->title;
+    }
+    
+    
 
 }

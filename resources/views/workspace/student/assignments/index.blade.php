@@ -25,10 +25,12 @@
                 <th>Subject</th>
                 <th>Answered/Total Question</th>
                 <th>Faculty</th>
+                <th>Status</th>
                 <th>Edit</th>
             </tr>
             </thead>
             <tbody>
+
             @foreach($assignments as $assignment)
                 <tr>
                     <td>{{$assignment->id}}</td>
@@ -36,13 +38,28 @@
                     <td>{{App\Subject::name($assignment->subject_id)}}</td>
                     <td>{{$assignment->myAnswers()->count()}}/{{$assignment->questions()->count()}}</td>
                     <td>{{App\Faculty::where('user_id',$assignment->user_id)->first()->name}}</td>
-                    <td><a href="{{route('assignment.edit',['id'=>$assignment->id])}}"
-                           class="btn btn-sm btn-primary">Answer
-                        </a>
-                    </td>
+                    @if( \App\Submit::submitExists($assignment->id) )
+                        <td>{{  \App\Submit::submitStatus($assignment->id) }}</td>
+                        <td><a href="{{route('submits.edit',['id'=> \App\Submit::submitId($assignment->id)])}}"
+                               class="btn btn-sm btn-primary">Update
+                            </a>
+                        </td>
+                        @else
+                        <td> UnAttmpted </td>
+                        <td>
+                            <form action="{{route('submits.store')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="assignment_id" value="{{$assignment->id}}">
+                                <input type="submit" value="attempt"
+                                   class="btn btn-sm btn-primary">
+                                </input>
+                            </form>
+                        </td>
+                    @endif
 
                 </tr>
             @endforeach
+
             </tbody>
         </table>
     @else

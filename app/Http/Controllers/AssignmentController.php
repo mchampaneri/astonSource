@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Assignment;
 use App\Faculty;
 use App\Subject;
+use App\Submit;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -106,5 +107,41 @@ class AssignmentController extends Controller
         $assignment->save();
 
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
+    }
+
+    public function submitlist($id)
+    {
+        $assigment_id = $id;
+        $submits = Submit::where('assignment_id',$id)
+                    ->where('status','!=','unsubmitted')
+                    ->get();
+        return view('workspace.faculty.assignments.submitlist')
+            ->with(['submits'=>$submits,'assignment_id'=>$assigment_id]);
+    }
+
+    public function answersof($submitid)
+    {
+        $submit = Submit::find($submitid);
+        $assigment = Assignment::find($submit->assignment_id);
+        $user_id = $submit->user_id;
+        return view('workspace.faculty.assignments.answers')
+            ->with(['assignment'=>$assigment,'user_id'=>$user_id,'submit'=>$submit]);
+    }
+
+    public function accept($id)
+    {
+        $submit = Submit::find($id);
+        $submit->status = "Accepted";
+        $submit->save();
+        return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
+    }
+
+    public function reject($id, Request $request)
+    {
+        $submit = Submit::find($id);
+        $submit->status = "Rejected";
+        $submit->comment = $request->comment;
+        $submit->save();
+        return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
     }
 }

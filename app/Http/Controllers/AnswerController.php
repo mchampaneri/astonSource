@@ -28,7 +28,7 @@ class AnswerController extends Controller
                                             ->assignment_id;
         $answer->save();
 
-        return redirect()->route('assignment.index');
+        return redirect()->route('submits.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class AnswerController extends Controller
         $answer->answer = $request->answer;
         $answer->save();
 
-        return redirect()->route('assignment.index');
+        return redirect()->route('submits.index');
     }
 
 }
