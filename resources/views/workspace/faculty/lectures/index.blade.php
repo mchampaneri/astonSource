@@ -7,8 +7,16 @@
 
 
 @section('page-heading')
-    Lectures
+    <i class="fa fa-lg fa-television"> </i> Lectures
 @stop
+
+@section('page-heading-small')
+    You have created
+@stop
+
+@section('panel-heading')
+    Lectures of Yours
+@stop()
 
 @section('page-buttons')
     <a href="{{route('lectures.create')}}" class="btn btn-success">
@@ -17,7 +25,7 @@
 
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if($lectures->count() > 0)
         <table class="table table-hover aston-datatable">
@@ -25,6 +33,7 @@
             <tr>
                 <th>Number</th>
                 <th>Name</th>
+                <th>Subject</th>
                 <th>Edit</th>
             </tr>
             </thead>
@@ -33,6 +42,7 @@
                 <tr>
                     <td>{{$lecture->id}}</td>
                     <td>{{$lecture->title}}</td>
+                    <td>{{\App\Subject::Name($lecture->subject_id)}}</td>
                     <td><a href="{{route('lectures.edit',['id'=>$lecture->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>

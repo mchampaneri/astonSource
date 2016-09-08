@@ -6,16 +6,23 @@
 @stop
 
 @section('page-heading')
-    <i class="fa fa-lg fa-sticky-note"> </i> Editing Assignment |  <span class="aston-theme-text-light">
+    <i class="fa fa-lg fa-sticky-note"> </i> Assignments
+@stop
+
+@section('page-heading-small')
+    Edit existing
+@stop
+
+@section('panel-heading')
+    Editing Assignment   <span class="aston-theme-text-light">
         {{ $assignment->title }} </span>
 @stop
 
 @section('page-buttons')
-
     <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     <div class="row panel-body">
         <form action="{{route('assignments.update',['id'=>$assignment->id])}}" method="post">

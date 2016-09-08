@@ -6,15 +6,22 @@
 @stop
 
 @section('page-heading')
-    Aston | New Subject
+    <i class="fa fa-lg fa-television"> </i> Lectures
 @stop
 
+@section('page-heading-small')
+    Existing one
+@stop
+
+@section('panel-heading')
+    Edit you lecture
+@stop()
 @section('page-buttons')
 
     <a href="{{route('lectures.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row panel-body">
 
             <form action="{{route('lectures.update',['id'=>$lecture->id])}}" method="post">

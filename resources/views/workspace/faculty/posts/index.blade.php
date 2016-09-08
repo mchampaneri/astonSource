@@ -7,8 +7,16 @@
 
 
 @section('page-heading')
-    Lectures
+    <i class="fa fa-lg fa-picture-o"> </i> Posts
 @stop
+
+@section('page-heading-small')
+    You have created
+@stop
+
+@section('panel-heading')
+    Posts of Yours
+@stop()
 
 @section('page-buttons')
     <a href="{{route('posts.create')}}" class="btn btn-success">
@@ -17,7 +25,7 @@
 
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if($posts->count() > 0)
         <table class="table table-hover aston-datatable">

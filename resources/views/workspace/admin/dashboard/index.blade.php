@@ -1,10 +1,19 @@
-@extends('AstonLayouts::main')
+@extends('AstonLayouts::templates.resource')
 
 @section('page-title')
     Aston | Home
 @stop
+@section('page-heading')
+   Admin Dashboard
+@stop
+@section('page-heading-small')
+    See the summary
+@stop
+@section('panel-heading')
+    Admin Bhai zindabad
+@stop
 
-@section('page-content')
+@section('panel-body')
     <div class="container">
         <div class="row">
 

@@ -5,7 +5,7 @@
             <div class="row">
 
                 <!-- Sidebar Puller for small screens -->
-                <div class="sidebar-puller">
+                <div class="sidebar-puller" style="margin-top: -5px">
                     <a href="#" onclick="toggle()" class="btn btn-default"><i class="fa fa-bars fa-lg"></i></a>
                 </div>
                 <!-- // Sidebar puller -->

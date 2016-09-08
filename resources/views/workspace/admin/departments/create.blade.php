@@ -6,15 +6,20 @@
 @stop
 
 @section('page-heading')
-     Add New Department
+     <i class="fa fa-lg fa-building"></i>Department
 @stop
-
+@section('page-heading-small')
+    Add New one
+@stop
+@section('panel-heading')
+    Add New Department
+@stop
 @section('page-buttons')
 
     <a href="{{route('departments.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row">
         <div class="col-md-12">
         <form action="{{route('departments.store')}}" method="post">

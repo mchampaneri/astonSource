@@ -7,8 +7,16 @@
 
 
 @section('page-heading')
-    Subjects
+    <i class="fa fa-lg fa-book"> </i> Subjects
 @stop
+
+@section('page-heading-small')
+    Of Your Department
+@stop
+
+@section('panel-heading')
+    Subjects
+@stop()
 
 @section('page-buttons')
     <a href="{{route('subjects.create')}}" class="btn btn-success">
@@ -17,7 +25,7 @@
 
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if(isset($subjects) && $subjects->count() > 0)
         <table class="table table-hover aston-datatable">

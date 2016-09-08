@@ -6,7 +6,15 @@
 @stop
 
 @section('page-heading')
-    Editing Department | <span class="aston-theme-text-light">{{ $department->name }} </span>
+    <i class="fa fa-building fa-lg"></i> Department
+@stop
+
+@section('page-heading-small')
+    {{ $department->name }}
+@stop
+
+@section('panel-heading')
+    Edit Deartment
 @stop
 
 @section('page-buttons')
@@ -14,7 +22,7 @@
     <a href="{{route('departments.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row">
         <div class="col-md-8">
             <form action="{{route('departments.update',['id'=>$department->id])}}" method="post">

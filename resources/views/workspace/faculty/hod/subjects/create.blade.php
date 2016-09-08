@@ -6,15 +6,23 @@
 @stop
 
 @section('page-heading')
-    Aston | New Subject
+    <i class="fa fa-lg fa-book"> </i> Subjects
 @stop
+
+@section('page-heading-small')
+    Add to your department
+@stop
+
+@section('panel-heading')
+    Include New Subject
+@stop()
 
 @section('page-buttons')
 
     <a href="{{route('subjects.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row">
         <div class="col-md-8">
             <form action="{{route('subjects.store')}}" method="post">

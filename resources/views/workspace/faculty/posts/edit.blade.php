@@ -6,15 +6,22 @@
 @stop
 
 @section('page-heading')
-    Aston | New Post
+    <i class="fa fa-lg fa-picture-o"> </i> Posts
 @stop
 
+@section('page-heading-small')
+    Existing one
+@stop
+
+@section('panel-heading')
+    Edit your post
+@stop()
 @section('page-buttons')
 
     <a href="{{route('posts.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row panel-body">
             <form action="{{route('posts.update',['id'=>$post->id])}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}

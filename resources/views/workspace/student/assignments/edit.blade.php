@@ -8,7 +8,7 @@
 @section('page-buttons')
     <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
 @stop
-@section('page-body')
+@section('panel-body')
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             @if($assignment->questions()->count() > 0)

@@ -14,7 +14,7 @@
 
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if(isset($assignments) && $assignments->count() > 0)
         <table class="table table-hover  text-center aston-datatable">

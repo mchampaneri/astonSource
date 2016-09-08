@@ -2,19 +2,27 @@
 
 
 @section('page-title')
-    Aston | Hod/Subjects/Create
+    Aston |
 @stop
 
 @section('page-heading')
-    <i class="fa fa-lg fa-sticky-note"> </i> Create New Assignment
+    <i class="fa fa-lg fa-sticky-note"> </i> Assignments
 @stop
 
-@section('page-buttons')
+@section('page-heading-small')
+    Create A New One
+@stop
 
+
+@section('page-buttons')
     <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
 @stop
 
-@section('page-body')
+@section('panel-heading')
+    Add Assignment
+@stop
+
+@section('panel-body')
 
 <div class="row">
             <form action="{{route('assignments.store')}}" method="post">

@@ -10,14 +10,20 @@
     <i class="fa fa-lg fa-sticky-note"> </i> Assignments
 @stop
 
+@section('page-heading-small')
+    You have created
+@stop
+
+@section('panel-heading')
+    List of All Assignments
+@stop
 @section('page-buttons')
     <a href="{{route('assignments.create')}}" class="btn btn-success">
         <i class="fa fa-plus fa-sm"></i> Add Assignments
     </a>
-
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if($assignments->count() > 0)
         <table class="table table-hover aston-datatable">

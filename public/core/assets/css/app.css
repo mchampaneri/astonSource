@@ -9863,14 +9863,14 @@ body {
     background-color: white;
     text-align: center; }
     .header-top .header-top-menu {
-      padding: 5px 0; }
+      padding: 0 0; }
       @media (min-width: 767px) {
         .header-top .header-top-menu {
           float: right; } }
     .header-top .logo {
       padding-top: 20px; }
       .header-top .logo h1.logo {
-        font-size: 30px;
+        font-size: 20px;
         padding: 0;
         margin: 0; }
       @media (min-width: 1199px) {
@@ -9900,17 +9900,17 @@ body {
   position: relative;
   width: 100%;
   padding-left: 100px;
-  background-color: #f8f8f8; }
+  background-color: #fafafa; }
   @media (max-width: 991px) {
     .page {
       padding-left: 0; } }
 
 .content {
   padding: 20px;
-  padding-top: 130px; }
+  padding-top: 100px; }
   @media (max-width: 767px) {
     .content {
-      padding-top: 170px; } }
+      padding-top: 150px; } }
 
 .sidebar {
   position: fixed;

@@ -10,6 +10,14 @@
      Departments
 @stop
 
+@section('page-heading-small')
+   You have created
+@stop
+@section('panel-heading')
+    All existing departments
+@stop
+
+
 @section('page-buttons')
     <a href="{{route('departments.create')}}" class="btn btn-success">
               <i class="fa fa-plus fa-sm"></i> Add Department
@@ -17,7 +25,7 @@
 
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if(isset($departments) && $departments->count() > 0)
         <table class="table table-hover aston-datatable">

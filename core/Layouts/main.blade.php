@@ -13,7 +13,6 @@
                         @yield('page-content')
                 </div>
             </div>
-
         @include('AstonLayouts::footer')
         @include('AstonLayouts::foot')
 

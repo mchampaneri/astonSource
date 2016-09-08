@@ -6,15 +6,21 @@
 @stop
 
 @section('page-heading')
-    Aston | New Subject
+    <i class="fa fa-lg fa-television"> </i> Lectures
 @stop
+
+@section('page-heading-small')
+    Add a new one
+@stop
+
+@section('panel-heading')
+    Add New lecture
+@stop()
 
 @section('page-buttons')
-
-    <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
+    <a href="{{route('lectures.index')}}" class="btn btn-default">Back</a>
 @stop
-
-@section('page-body')
+@section('panel-body')
     <div class="row panel-body">
 
             <form action="{{route('lectures.store')}}" method="post">

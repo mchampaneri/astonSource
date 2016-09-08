@@ -14,7 +14,7 @@
     <a href="{{route('results.create')}}" class="btn btn-default">Add Result</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
     <div class="row">
         <div class="col-md-8">
             <form action="{{route('results.update',['id'=>$result->id])}}" method="post" enctype="multipart/form-data">

@@ -14,7 +14,7 @@
     <a href="{{route('results.create')}}" class="btn btn-default">Add Result</a>
 @stop
 
-@section('page-body')
+@section('panel-body')
 
     @if(isset($results) && $results->count() > 0)
         <table class="table table-hover aston-datatable">
