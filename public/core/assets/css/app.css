@@ -9833,7 +9833,7 @@ ul.horizontal-menu {
     display: inline-block;
     padding: 5px 10px; }
 
-/*****************************************************************************/
+/***************************************************************************/
 /* Aston
 /*****************************************************************************/
 html,
@@ -9843,7 +9843,7 @@ body {
   overflow-x: hidden; }
 
 .aston-theme-color {
-  background-color: #2a3446;
+  background-color: #37474F;
   color: #fff; }
 
 .header {
@@ -9860,31 +9860,23 @@ body {
       padding-left: 0; } }
   .header-top {
     width: 100%;
-    background-color: white;
+    background-color: #B0BEC5;
     text-align: center; }
     .header-top .header-top-menu {
-      padding: 0 0; }
+      padding: 0 0;
+      padding-top: 10px; }
       @media (min-width: 767px) {
         .header-top .header-top-menu {
           float: right; } }
     .header-top .logo {
       padding-top: 20px; }
       .header-top .logo h1.logo {
-        font-size: 20px;
+        font-size: 33px;
         padding: 0;
         margin: 0; }
       @media (min-width: 1199px) {
         .header-top .logo {
           float: left; } }
-  .header-bottom {
-    width: 100%;
-    background-color: #2a3446;
-    padding: 10px 0; }
-    .header-bottom a {
-      color: white; }
-    @media (max-width: 767px) {
-      .header-bottom {
-        display: none; } }
 
 .sidebar-puller {
   position: absolute;
@@ -9912,13 +9904,17 @@ body {
     .content {
       padding-top: 150px; } }
 
+/*******************88 Bootstrap Overrides ************/
+.page-header {
+  margin-top: 0; }
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100px;
   height: 100%;
-  background-color: #2a3446;
+  background-color: #37474F;
   z-index: 1001;
   padding: 0;
   -webkit-transition: all 0.4s linear;
@@ -9943,9 +9939,9 @@ ul.sidebar-menu {
   ul.sidebar-menu li:last-child {
     border-bottom: 1px solid #536f8a; }
   ul.sidebar-menu li:hover {
-    background-color: #1d2330; }
+    background-color: #28343a; }
   ul.sidebar-menu li.active {
-    background-color: #1d2330; }
+    background-color: #28343a; }
   ul.sidebar-menu p.name {
     padding: 0;
     margin: 0;
@@ -9967,7 +9963,8 @@ ul.sidebar-menu {
   z-index: 1000; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #fff; }
 
 a:hover {
   text-decoration: none; }
@@ -9979,12 +9976,15 @@ a:visited {
   text-decoration: none; }
 
 .aston-theme-text {
-  color: #2a3446; }
+  color: #37474F; }
 
 .aston-empty-message-text {
   color: #aaa; }
 
 .aston-theme-text-light {
-  color: #506386; }
+  color: #617d8b; }
+
+.white {
+  color: #fff; }
 
 /*# sourceMappingURL=app.css.map */

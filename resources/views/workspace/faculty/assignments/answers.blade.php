@@ -20,7 +20,7 @@
             <form action="{{route('assignments.accept',['id'=>$submit->id])}}" method="post">
                 {{ csrf_field() }}
                 <input value="Accept" type="submit"
-                       class="btn btn-default ">
+                       class="btn btn-success ">
                 </input>
             </form>
         </div>
@@ -52,10 +52,15 @@
         <div class="col-md-10 col-md-offset-1">
             <form action="{{route('assignments.reject',['id'=>$submit->id])}}" method="post">
                 {{ csrf_field() }}
-                <textarea name="comment" class="form-control" row="3" cols="5"></textarea>
-                <input value="Reject" type="submit"
-                       class="btn btn-default ">
-                </input>
+                <div class="form-group">
+                    <textarea name="comment" class="form-control" row="3" cols="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <input value="Reject" type="submit"
+                           class="btn btn-danger ">
+
+                    </input>
+                </div>
             </form>
         </div>
     </div>

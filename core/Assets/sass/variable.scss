@@ -1,9 +1,9 @@
 
 // Setting the basic color scheme
 
-$aston-main-background : rgb(255, 255, 255);
+$aston-main-background : #B0BEC5;
 
-$aston-theme-color : rgb(42, 52, 70);
+$aston-theme-color : #37474F;
 
 $aston-theme-color-active : darken($aston-theme-color,7%) ;
 
@@ -12,7 +12,7 @@ $aston-page-color : #fafafa;
 
 $aston-text-secondary: rgb(255,255,255);
 
-$aston-text-sidebar: rgb(13, 91, 214);
+$aston-text-sidebar: #fff;
 
 $aston-empty-message-text: #aaa;
 

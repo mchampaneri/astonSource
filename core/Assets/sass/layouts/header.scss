@@ -18,7 +18,7 @@
     &  &-menu{
 
       padding: 0 0;
-
+      padding-top: 10px;
 
 
       @media (min-width: $screen-xs-max) {
@@ -28,7 +28,7 @@
     &  .logo{
       padding-top: 20px;
       &   h1.logo{
-        font-size: 20px;
+        font-size: 33px;
         padding: 0;
         margin: 0;
       }
@@ -40,18 +40,21 @@
 
   }
 
-  &-bottom{
-    width: 100%;
-    background-color: $aston-theme-color;
-    padding: 10px 0;
-    & a{
-      color: $aston-text-secondary;
-    }
+  //
+  //&-bottom{
+  //  width: 100%;
+  //  background-color: $aston-theme-color;
+  //  padding: 10px 0;
+  //  & a{
+  //    color: $aston-text-secondary;
+  //  }
+  //
+  //  @media (max-width: $screen-xs-max){
+  //    display: none;
+  //  }
+  //}
 
-    @media (max-width: $screen-xs-max){
-      display: none;
-    }
-  }
+
 }
 
 .sidebar-puller{
@@ -63,6 +66,7 @@
   @media (max-width: $screen-sm-max){
     display: block;
   }
+
 }
 
 

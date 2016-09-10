@@ -1,5 +1,6 @@
 a{
   text-decoration:none;
+  color:#fff
 }
 
 a:hover{
@@ -24,4 +25,8 @@ a:visited{
 
 .aston-theme-text-light{
   color: lighten($aston-theme-color,20%);
+}
+
+.white{
+  color:#fff
 }

@@ -11,9 +11,9 @@
                 <!-- // Sidebar puller -->
 
                 <div class="col-sm-6">
-                    <div class="logo">
-                        <h1 class="logo">ASTON  </h1>
-                    </div>
+                    {{--<div class="logo">--}}
+                        {{--<h1 class="logo">ASTON  </h1>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="col-sm-6 pull-right">
                     <div class="header-top-menu">
