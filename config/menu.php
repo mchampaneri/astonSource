@@ -113,7 +113,7 @@ Return [
                                             ],
                                             [
                                                 "title" => "Assignments",
-                                                "link" => "workspace/student/assignment",
+                                                "link" => "workspace/student/submits",
                                                 "icon" => "fa-file"
                                             ],
                                             [

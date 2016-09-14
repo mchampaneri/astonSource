@@ -18,7 +18,7 @@
 
         <div class="col-sm-4">
             <div class="text-center" style="margin-top: 10px;">
-                <a href="#" style="color: #000; font-size: 18px;  "> Login <i class="fa fa-sign-in"></i></a>
+                <a href="{{url('/login')}}" style="color: #000; font-size: 18px;  "> Login <i class="fa fa-sign-in"></i></a>
             </div>
         </div>
 

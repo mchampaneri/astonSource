@@ -49,7 +49,7 @@ Route::get('/images/{id}/lectures/images/{filename}', function ($id,$filename)
  *
  */
 
-Route::get('images/{id}/results/{file}', function ($id,$filename)
+Route::get('/images/{id}/results/{file}', function ($id,$filename)
 {
     $path = storage_path().'/app/'. $id . '/results/' . $filename;
 

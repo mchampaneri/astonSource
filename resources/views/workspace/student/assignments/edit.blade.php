@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="" class="control-label">{{$question->question}}</label>
                                 <input type="hidden" name="question_id" value="{{$question->id}}">
-                                <textarea name="answer" class="form-control aston-summernote" id="" cols="30" rows="10">{{$question->answerByUser(Session::get('id'))->answer}}</textarea>
+                                <textarea name="answer" class="form-control aston-summernote" id="" cols="30" rows="10">{{$question->answerByUser(\Auth::user()->id)->answer}}</textarea>
                             </div>
                             <div class="form-group">
                                 <div class="row">
