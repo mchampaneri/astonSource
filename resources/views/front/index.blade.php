@@ -1,16 +1,14 @@
 @extends('front.layout.main')
 
 @section('page-content')
-    <div style="width: 100%; padding-top: 10px;">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-8">
-                    Recent Events
+        @foreach( \Aston\AstonCalls::Faculties() as $id=>$faculty)
+            <a href="{{url('/faculty/'.$id)}}">
+                <div class="col-sm-2 ">
+                    <div class="aston-theme-color" style="padding: 10px">
+                        <img src="#" alt="" width="100%" height="auto">
+                        <h4 class="text-center">{{ $faculty }}</h4>
+                    </div>
                 </div>
-            </div>
-            <h3> NEW USERS ADDED</h3>
-            <hr>
-        </div>
-    </div>
-
+            </a>
+        @endforeach
 @stop()

@@ -10,4 +10,9 @@ class Department extends Model
     {
         return $this->hasMany('App\Faculty')->get();
     }
+
+    public static  function Name($id)
+    {
+        return Department::find($id)->name;
+    }
 }

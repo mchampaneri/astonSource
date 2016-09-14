@@ -8,7 +8,7 @@ class Faculty extends Model
 {
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User')->first();
     }
 
     public  function subjects()
@@ -16,9 +16,9 @@ class Faculty extends Model
         return $this->belongsToMany('App\Subject');
     }
 
+  
     public static function Name($id)
     {
       return Faculty::find($id)->name;
-
     }
 }

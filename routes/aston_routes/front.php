@@ -1,12 +1,41 @@
 <?php
 
 
+use App\Faculty;
+use App\Lecture;
+use App\Subject;
+
 Route::get('/',function() {
     return view('front.index');
 });
 
 Route::get('/department/{name}',function($name) {
     return view('front.department')->with(['department'=>$name]);
+});
+
+Route::get('/faculty/{id}',function ($id) {
+    $faculty = Faculty::find($id);
+    $subjects = $faculty->subjects()->get();
+    $posts = $faculty->user()->posts()->take(1)->get();
+    return view('front.faculty.index')->with(['faculty'=>$faculty,'subjects'=>$subjects,'posts'=>$posts]);
+});
+
+Route::get('/faculty/{id}/subject/{id2}',function ($id,$id2) {
+    $faculty = Faculty::find($id);
+    $subject = Subject::find($id2)->first(['name','id']);
+    $lectures = Lecture::where('subject_id',$id)
+                        ->where('user_id',$id2)
+                        ->get();
+    return view('front.faculty.lecture-list')->with(['faculty'=>$faculty,'lectures'=>$lectures,'subject'=>$subject]);
+});
+
+
+Route::get('/faculty/{id}/subject/{id2}/lecture/{id3}',function ($id,$id2,$id3) {
+    $faculty = Faculty::find($id);
+    $subject_name = Subject::find($id2)->name;
+    $lecture = Lecture::find($id3);
+    return view('front.faculty.lecture')->with(['faculty'=>$faculty,'lecture'=>$lecture,'Subject_Name'=>$subject_name]);
+
 });
 
 Route::get('/login',function() {

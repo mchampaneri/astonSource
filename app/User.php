@@ -52,4 +52,15 @@ class User extends Authenticatable
             return $user->hasOne('App\Faculty')->first()->name;
 
     }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+    public function lectures()
+    {
+        return $this->hasMany('App\Lecture');
+    }
+
 }
