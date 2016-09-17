@@ -18,10 +18,11 @@
     List of All Assignments
 @stop
 @section('page-buttons')
-    <a href="{{route('assignments.create')}}" class="btn btn-success">
+    <a href="{{route('assignments.create')}}" class="btn btn-success"  data-title="Open Google?"
+       >
         <i class="fa fa-plus fa-sm"></i> Add Assignments
     </a>
-@stop
+  @stop
 
 @section('panel-body')
 

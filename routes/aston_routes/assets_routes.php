@@ -68,7 +68,7 @@ Route::get('/images/{id}/results/{file}', function ($id,$filename)
  * Loading The Post Thumbs
  */
 
-Route::get('/image/{id}/posts/thumb/{file}', function ($id,$filename)
+Route::get('/images/{id}/posts/thumb/{file}', function ($id,$filename)
 {
     $path = storage_path().'/app/'. $id . '/posts/thumb/' . $filename;
 

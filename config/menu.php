@@ -5,6 +5,7 @@
  * Return Array Of menu used in aston
  */
 
+
 Return [
 
     "admin" => [ "admin-top" => [
@@ -14,6 +15,7 @@ Return [
                                         "link" => "#",
                                         "icon" => "fa-plus",
                                         "has-child" =>[
+
                                                         [
                                                             "title"=>"Department",
                                                             "link"=> "/workspace/admin/departments/create",

@@ -48,6 +48,7 @@
 
             </div>
         </div>
-
+        @include('AstonLayouts::foot')
+        @include('AstonLayouts::partials.flash')
     </body>
 </html>

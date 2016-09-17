@@ -18,7 +18,10 @@
 @stop()
 @section('page-buttons')
 
-    <a href="{{route('posts.index')}}" class="btn btn-default">Back</a>
+    <form>
+        <a href="{{route('posts.index')}}" data-placement="left" data-singleton="true" data-toggle="confirmation" data-title="Did you Save you work?" class="btn btn-default">Back</a>
+        <input type="submit" class="btn btn-danger" data-placement="left" data-singleton="true" data-toggle="confirmation" value="Delete">
+    </form>
 @stop
 
 @section('panel-body')

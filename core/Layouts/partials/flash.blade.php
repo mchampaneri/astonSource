@@ -1,7 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 9/16/2016
- * Time: 11:32 PM
- */
+@if (session()->has('flash_notification.message'))
+    <script type="text/javascript">
+    toastr.{{session('flash_notification.level')}}('{!! session('flash_notification.message') !!}')
+    </script>
+@endif
+

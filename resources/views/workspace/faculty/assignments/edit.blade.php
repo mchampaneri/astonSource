@@ -19,7 +19,12 @@
 @stop
 
 @section('page-buttons')
-    <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
+
+    <form>
+        <a href="{{route('assignments.index')}}" data-placement="left" data-singleton="true" data-toggle="confirmation" data-title="Did you Save you work?" class="btn btn-default">Back</a>
+        <input type="submit" class="btn btn-danger" data-placement="left" data-singleton="true" data-toggle="confirmation" value="Delete">
+    </form>
+
 @stop
 
 @section('panel-body')
@@ -102,11 +107,9 @@
                                 <label for="">Impotnace Level</label>
                             </div>
                             <div class="col-md-9">
-                                <select name="imp_lvl" class="form-control" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
+                                <input type="text" class="slider"  data-slider-min="1" data-slider-max="5" name='imp_lvl'
+                                       data-slider-step="1" data-slider-value="{{ $question->imp_lvl }}"
+                                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
                             </div>
                         </div>
                     </div>
@@ -150,11 +153,9 @@
                                 <label for="">Impotnace Level</label>
                             </div>
                             <div class="col-md-9">
-                                <select name="imp_lvl" class="form-control" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
+                                <input type="text" class="slider"  data-slider-min="1" data-slider-max="5" name='imp_lvl'
+                                       data-slider-step="1" data-slider-value="3"
+                                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
                             </div>
                         </div>
                     </div>

@@ -26,20 +26,26 @@
 @section('panel-body')
 
     @if($submits->count() > 0)
-        <table class="table  aston-datatable">
+        <table class="table  aston-datatable text-center">
             <thead>
             <tr>
-                <th>Number</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Enrollment Number</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Actions</th>
             </tr>
             </thead>
             <tbody>
             @foreach($submits as $submit)
                 <tr >
-                    <td>{{$submit->id}}</td>
+                    <td class="text-center"> @if($submit->status=="Rejected") <i class="fa fa-close"></i>
+                         @elseif($submit->status=="Accepted") <i class="fa fa-check" aria-hidden="true"></i>
+                         @else
+                            <i class="fa fa-exclamation" aria-hidden="true"></i>
+                        @endif </td>
+                    <td>{{App\Student::where('user_id',$submit->user_id)->first()->enrollno}}</td>
                     <td>{{\App\User::Name($submit->user_id)}}</td>
-                    <td class=" @if($submit->status=="Rejected") bg-warning @elseif( $submit->status=="Accepted") bg-success @endif">
+                    <td>
                         <a href="{{route('assignments.answersof',['submit_id'=>$submit->id])}}" class="btn btn-sm btn-primary"> Review Answers</a>
                     </td>
 

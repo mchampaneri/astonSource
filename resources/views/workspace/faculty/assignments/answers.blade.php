@@ -17,14 +17,6 @@
 @section('page-buttons')
     <div class="row">
         <div class="col-md-6">
-            <form action="{{route('assignments.accept',['id'=>$submit->id])}}" method="post">
-                {{ csrf_field() }}
-                <input value="Accept" type="submit"
-                       class="btn btn-success ">
-                </input>
-            </form>
-        </div>
-        <div class="col-md-6">
             <a href="{{route('assignments.index')}}" class="btn btn-default">Back</a>
         </div>
     </div>
@@ -49,21 +41,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
             <form action="{{route('assignments.reject',['id'=>$submit->id])}}" method="post">
                 {{ csrf_field() }}
-                <div class="form-group">
-                    <textarea name="comment" class="form-control" row="3" cols="5"></textarea>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="form-group">
+                        <textarea name="comment" class="form-control" row="3" cols="5"></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input value="Reject" type="submit"
-                           class="btn btn-danger ">
-
+                <div class="col-md-3 text-center">
+                    <div class="form-group">
+                        <input value="Reject" type="submit"
+                               class="btn btn-danger ">
+                        </input>
+                    </div>
+                </div>
+            </form>
+            <form action="{{route('assignments.accept',['id'=>$submit->id])}}" method="post">
+                {{ csrf_field() }}
+                <div class="col-md-3 text-center">
+                    <input value="Accept" type="submit"
+                           class="btn btn-success ">
                     </input>
                 </div>
             </form>
-        </div>
     </div>
+
 @stop
 
 @section('page-js')

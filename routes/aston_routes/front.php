@@ -6,6 +6,7 @@ use App\Lecture;
 use App\Subject;
 
 Route::get('/',function() {
+    flash('Welcome Aboard!');
     return view('front.index');
 });
 
@@ -22,9 +23,10 @@ Route::get('/faculty/{id}',function ($id) {
 
 Route::get('/faculty/{id}/subject/{id2}',function ($id,$id2) {
     $faculty = Faculty::find($id);
+    $user_id = $faculty->user_id;
     $subject = Subject::find($id2)->first(['name','id']);
-    $lectures = Lecture::where('subject_id',$id)
-                        ->where('user_id',$id2)
+    $lectures = Lecture::where('user_id',$user_id)
+                        ->where('subject_id',$id2)
                         ->get();
     return view('front.faculty.lecture-list')->with(['faculty'=>$faculty,'lectures'=>$lectures,'subject'=>$subject]);
 });

@@ -59,7 +59,7 @@ class AssignmentController extends Controller
         $assignment->user_id = \Auth::user()
                                     ->id;
         $assignment->save();
-
+        flash()->success('Your Assignment Has Been Saved');
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
 
@@ -105,7 +105,7 @@ class AssignmentController extends Controller
         $assignment->subject_id = $request->subject_id;
         $assignment->user_id = \Auth::user()->id;
         $assignment->save();
-
+        flash()->success('Your Assignment Has Been Updated');
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
     }
 
@@ -133,6 +133,7 @@ class AssignmentController extends Controller
         $submit = Submit::find($id);
         $submit->status = "Accepted";
         $submit->save();
+        flash()->success('Submission accepted Successfully ');
         return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
     }
 
@@ -142,6 +143,7 @@ class AssignmentController extends Controller
         $submit->status = "Rejected";
         $submit->comment = $request->comment;
         $submit->save();
+        flash()->success('Submission rejected Successfully ');
         return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
     }
 }

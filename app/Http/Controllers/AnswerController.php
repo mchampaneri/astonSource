@@ -27,7 +27,7 @@ class AnswerController extends Controller
         $answer->assignment_id = Question::find($request->question_id)
                                             ->assignment_id;
         $answer->save();
-
+        flash()->success('Your Answer Has Been Saved');
         return redirect()->route('submits.index');
     }
 
@@ -46,7 +46,7 @@ class AnswerController extends Controller
                                             ->assignment_id;
         $answer->answer = $request->answer;
         $answer->save();
-
+        flash()->success('Your Answer Has Been Updated');
         return redirect()->route('submits.index');
     }
 

@@ -49,15 +49,19 @@ class AuthController extends Controller
                 Session::put('dept_id',\Auth::user()->asFaculty()->department_id);
                 Session::put('role','faculty');
                 Session::put('hod',\Auth::user()->asFaculty()->is_hod);
+
             }
 
             if(\Auth::user()->role == "admin")
             {
                 Session::put('role','admin');
+
             }
+                    flash()->success("welcome ".Session::get('name'));
                   return redirect()->intended('workspace/'.\Auth::user()->role.'/home');
         }
         else{
+            flash()->warning("Wrong Id Or Password ");
             return redirect()->to('/login');
         }
     }

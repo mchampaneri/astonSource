@@ -6,6 +6,7 @@
     </head>
     <body id="app">
         <div class="cover"></div>
+
         @include('AstonLayouts::sidebar')
             <div class="page">
                 @include('AstonLayouts::header')
@@ -15,8 +16,7 @@
             </div>
         @include('AstonLayouts::footer')
         @include('AstonLayouts::foot')
-
         @yield('page-js')
-
+        @include('AstonLayouts::partials.flash')
     </body>
 </html>

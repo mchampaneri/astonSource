@@ -6,12 +6,19 @@ $(document).ready(function() {
     $('.aston-datatable').DataTable({responsive: true});
 
 
-
+    // Initiating The select 2
     $('.aston-select2').select2({
         placeholder: "Select a Subject"
     });
 
-   
+    // Initiating the bootstrap confirmation
+    $('[data-toggle=confirmation]').confirmation();
+
+    // Initiating the bootstrap slider
+    $('.slider').slider();
+
+    // Flash Message
+    $('#flash-overlay-modal').modal();
     // Initiating The Bootstrap file input class
     $('.aston-image').fileinput();
     $('.aston-image-edit').fileinput({

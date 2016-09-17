@@ -16,13 +16,18 @@
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.14.0",
     "vue": "^1.0.26",
-    "vue-resource": "^0.9.3"
+    "vue-resource": "^0.9.3",
+    "bootstrap-confirmation2": "2.3.1"
   },
   "dependencies": {
+    "bootstrap-confirmation": "0.0.2",
+    "bootstrap-confirmation2": "^2.3.1",
     "bootstrap-list-filter": "^0.3.2",
+    "bootstrap-slider": "^9.2.0",
     "datatables-responsive": "^1.0.7",
     "datepicker": "0.0.0",
     "laravel-elixir-vueify": "^2.0.0",
-    "responsive": "^1.0.1"
+    "responsive": "^1.0.1",
+    "toastr": "^2.1.2"
   }
 }

@@ -12,14 +12,14 @@
 
                 <div class="col-sm-6">
                     {{--<div class="logo">--}}
-                        {{--<h1 class="logo">ASTON  </h1>--}}
+                        {{--<h4 class="logo aston-theme-text">Welcome ! {{ App\User::Name(\Auth::user()->id) }} </h4>--}}
                     {{--</div>--}}
                 </div>
                 <div class="col-sm-6 pull-right">
                     <div class="header-top-menu">
                         <ul class="nav nav-pills">
-
                             <!--  Workspace Top Menu ----------------------->
+                            <li> </li>
                             <?php $user=Session::get('role'); ?>
                             @foreach(config('menu.'.$user.'.'.$user.'-top') as $menu)
                                 @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
@@ -72,7 +72,6 @@
                                 @endif
                             @endforeach
                         @endif
-
                             <!-- // Workspace Top Menu ----------------------->
                         </ul>
                     </div>
