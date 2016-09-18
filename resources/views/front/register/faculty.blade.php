@@ -15,11 +15,8 @@
 <body class="aston-theme-color">
 
 <div class="container">
-    <div class="row">
-        <div class="container text-center">
-            <h2 class="aston-text-secondary">Student Registration Form</h2>
-        </div>
-    </div>
+    @include('front.layout.header')
+    <h4 class="text-center"> Faculty Registration Form</h4>
     <div class="row">
         <form action="{{route('register.faculty')}}" method="post">
             {{csrf_field()}}
@@ -37,11 +34,11 @@
                     <input type="text" class="form-control" name="contactno" placeholder="phone number "></input>
                 </div>
                 <div class="form-group">
-                    <textarea name="address" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="address" placeholder="address" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <textarea name="info" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="info" placeholder="Information about self"  id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <select name="department_id" placeholder="department" id="" class="form-control">

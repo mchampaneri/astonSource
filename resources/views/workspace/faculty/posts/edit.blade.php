@@ -18,7 +18,9 @@
 @stop()
 @section('page-buttons')
 
-    <form>
+    <form action="{{route('posts.destroy',['id'=>$post->id])}}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('delete') }}
         <a href="{{route('posts.index')}}" data-placement="left" data-singleton="true" data-toggle="confirmation" data-title="Did you Save you work?" class="btn btn-default">Back</a>
         <input type="submit" class="btn btn-danger" data-placement="left" data-singleton="true" data-toggle="confirmation" value="Delete">
     </form>

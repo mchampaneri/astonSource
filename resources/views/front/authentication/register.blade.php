@@ -13,6 +13,7 @@
     </style>
 </head>
 <body class="aston-theme-color">
+    @include('front.layout.header')
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-center">
@@ -30,8 +31,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <h2>Proceed to Register</h2>
-                <h4>ASTON 18</h4>
+                <h4>ASTON 16</h4>
                 <p>
                     Please, Do not try to register for wrong type of user.
                     It might cause troubles for you.

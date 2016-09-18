@@ -31,12 +31,15 @@ class PostController extends Controller
             $file = $request->file('thumb')
                 ->store(\Auth::user()->id . '/posts/thumb');
             $post->thumb = $file;
-        }else{
-            $post->thumb ="0";
+        }
+        else {
+            $post->thumb = 'mi.png';
         }
         $post->user_id = \Auth::user()->id;
         $post->detail = b64toUrl($request->detail);
         $post->save();
+        flash()->success('Post Saved Succesfully');
+        return redirect()->route('posts.index');
     }
 
     public function update($id, Request $request)
@@ -48,9 +51,13 @@ class PostController extends Controller
                 ->store(\Auth::user()->id . '/posts/thumb');
             $post->thumb = $file;
         }
+        else {
+            $post->thumb = 'mi.png';
+        }
         $post->detail = b64toUrl($request->detail);
         $post->save();
-        return redirect()->back();
+        flash()->success('Post Updated Succesfully');
+        return redirect()->route('posts.index');
     }
 
     public function edit($id)
@@ -61,5 +68,13 @@ class PostController extends Controller
         ]);
         return view('workspace.faculty.posts.edit')
                     ->with(['post'=>$post]);
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        flash()->success('Post Deleted Succesfully');
+        return redirect()->route('posts.index');
     }
 }

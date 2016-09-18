@@ -6,7 +6,6 @@ use App\Lecture;
 use App\Subject;
 
 Route::get('/',function() {
-    flash('Welcome Aboard!');
     return view('front.index');
 });
 
@@ -17,7 +16,7 @@ Route::get('/department/{name}',function($name) {
 Route::get('/faculty/{id}',function ($id) {
     $faculty = Faculty::find($id);
     $subjects = $faculty->subjects()->get();
-    $posts = $faculty->user()->posts()->take(1)->get();
+    $posts = $faculty->user()->posts()->take(5)->get();
     return view('front.faculty.index')->with(['faculty'=>$faculty,'subjects'=>$subjects,'posts'=>$posts]);
 });
 
@@ -62,13 +61,18 @@ Route::get('/register/faculty',['as'=>'register.faculty' ,function() {
     return view('front.register.faculty');
 }]);
 
-Route::get('/blog',function (){
+Route::get('/posts/all',function (){
     return view('front.blog.index');
 });
 
-Route::get('/blog/{id}',function ($id){
+Route::get('/post/{id}',function ($id){
     $post = \App\Post::find($id);
     return view('front.blog.detail')->with(['post'=>$post]);
+});
+
+Route::get('/posts/by/{id}',function($id){
+    $posts = \App\Post::where('user_id',$id)->get();
+    return view('front.blog.index')->with(['posts'=>$posts]);
 });
 
 

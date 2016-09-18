@@ -21,6 +21,11 @@ class Assignment extends Model
     {
         return Assignment::find($id)->title;
     }
+
+    public function Submits()
+    {
+        return $this->hasMany('App\Submit');
+    }
     
     
 

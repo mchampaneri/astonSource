@@ -31,7 +31,7 @@
                     <td>{{$result->id}}</td>
                     <td>{{$result->title}}</td>
                     <td><a href="{{route('results.edit',['id'=>$result->id])}}"
-                           class="btn btn-sm btn-primary">Answer
+                           class="btn btn-sm btn-primary">Edit
                         </a>
                     </td>
                 </tr>

@@ -37,7 +37,7 @@
                             <label for="">Result Snap</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="file"  name="result_snap" class="form-control aston-image-edit" >
+                            <input type="file"  name="result_snap" class="form-control-file" >
                         </div>
                     </div>
                 </div>
@@ -51,5 +51,9 @@
             </form>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="{{url('/images/'.$result->path)}}" alt="" width="100%">
+        </div>
+    </div>
 @stop

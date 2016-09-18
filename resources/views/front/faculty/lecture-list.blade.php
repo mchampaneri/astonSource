@@ -3,24 +3,36 @@
 @section('page-content')
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <h3>{{ $faculty->name }}</h3>
-                <h5>{{ $faculty->info }}</h5>
-                <h6>{{ $faculty->user()->email }}</h6>
-            </div>
-        </div>
+        @include('front.layout.partial.facultyinfo')
         <hr>
 
         <div class="row">
             <div class="col-sm-12">
                 <h3>{{$subject->name}}</h3>
             </div>
-            <div class="col-sm-3 text-center">
-            <ul class="list-group">
-                @foreach( $lectures as $lecture)
-                    <a href="{{url('/faculty/'.$faculty->id.'/subject/'.$subject->id.'/lecture/'.$lecture->id)}}"> <li class="list-group-item  aston-theme-color">{{ $lecture->title }}</li> </a>
-                @endforeach
+            <div class="col-sm-12 text-center">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Info</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach( $lectures as $lecture)
+                        <tr>
+                            <td>{{$lecture->title}}</td>
+                            <td>{{$lecture->info}}</td>
+                            <td> <a  class="btn btn-sm btn-primary"
+                                        href="{{url('/faculty/'.$faculty->id.'/subject/'.$subject->id.'/lecture/'.$lecture->id)}}">
+                                    Go
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </ul>
             </div>
         </div>

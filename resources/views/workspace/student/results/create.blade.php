@@ -35,7 +35,7 @@
                             <label for="">Result Snap</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="file" name="result_snap" class="form-control aston-image" >
+                            <input type="file" name="result_snap" class="form-control" >
                         </div>
                     </div>
                 </div>

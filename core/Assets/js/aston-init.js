@@ -22,7 +22,7 @@ $(document).ready(function() {
     // Initiating The Bootstrap file input class
     $('.aston-image').fileinput();
     $('.aston-image-edit').fileinput({
-        defaultPreviewContent: '<img src="/images/'+image+'" alt="Your Avatar" style="width:160px">'});
+        defaultPreviewContent: '<img src="/images/'+image+'" alt="Image" style="width:160px">'});
 });
 
 function toggle()

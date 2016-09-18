@@ -72,7 +72,21 @@ Route::get('/images/{id}/posts/thumb/{file}', function ($id,$filename)
 {
     $path = storage_path().'/app/'. $id . '/posts/thumb/' . $filename;
 
-    if(!File::exists($path)) abort(404);
+    if(!File::exists($path))$path = asset('/images/mi.jpg');;
+
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+
+Route::get('/images', function()
+{
+    $path = public_path().'/images/mi.jpg';
 
     $file = File::get($path);
     $type = File::mimeType($path);

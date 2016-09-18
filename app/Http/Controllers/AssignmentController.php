@@ -146,4 +146,19 @@ class AssignmentController extends Controller
         flash()->success('Submission rejected Successfully ');
         return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
     }
+
+    public function destroy($id)
+    {
+        $assignment = Assignment::find($id);
+        if($assignment->Submits()->count() > 0) {
+            flash()->warning('Can not Be Deleted Because It has been attended by a student ');
+            return redirect()->route('assignments.edit', ['id' => $id]);
+        }
+        else
+        {
+            $assignment->delete();
+            flash()->success('Assignment deleted Successfully ');
+            return  redirect()->route('assignments.index');
+        }
+    }
 }

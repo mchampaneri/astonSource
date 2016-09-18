@@ -46,7 +46,10 @@ class AnswerController extends Controller
                                             ->assignment_id;
         $answer->answer = $request->answer;
         $answer->save();
+        if (strlen( trim(strip_tags($answer->answer))) > 40 )
         flash()->success('Your Answer Has Been Updated');
+        else
+        flash()->warning('Your Answer Has Been Updated but still seems in complete');
         return redirect()->route('submits.index');
     }
 

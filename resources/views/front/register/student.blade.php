@@ -15,11 +15,8 @@
 <body class="aston-theme-color">
 
 <div class="container">
-    <div class="row">
-        <div class="container text-center">
-            <h2 class="aston-text-secondary">Student Registration Form</h2>
-        </div>
-    </div>
+    @include('front.layout.header')
+    <h4 class="text-center"> Student Registration Form</h4>
     <div class="row">
         <form action="{{route('register.student')}}" method="post">
             {{csrf_field()}}

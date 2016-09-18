@@ -42,6 +42,7 @@ class LectureController extends Controller
         $lecture->subject_id = $request->subject_id;
         $lecture->user_id = \Auth::user()->id; // Faculty_Id
         $lecture->save();
+        flash()->success('Lecture Stored Successfully');
         return redirect()->route('lectures.index');
     }
 
@@ -67,6 +68,15 @@ class LectureController extends Controller
         $lecture->subject_id = $request->subject_id;
         $lecture->user_id = \Auth::user()->id; 
         $lecture->save();
+        flash()->success('Lecture Updated Successfully');
+        return redirect()->route('lectures.index');
+    }
+
+    public function destroy($id)
+    {
+        $lecture = Lecture::find($id);
+        $lecture->delete();
+        flash()->success('Lecture deleted');
         return redirect()->route('lectures.index');
     }
 }

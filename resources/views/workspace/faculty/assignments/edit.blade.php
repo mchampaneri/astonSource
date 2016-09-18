@@ -20,7 +20,9 @@
 
 @section('page-buttons')
 
-    <form>
+    <form action="{{route('assignments.destroy',['id'=>$assignment->id])}}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('delete') }}
         <a href="{{route('assignments.index')}}" data-placement="left" data-singleton="true" data-toggle="confirmation" data-title="Did you Save you work?" class="btn btn-default">Back</a>
         <input type="submit" class="btn btn-danger" data-placement="left" data-singleton="true" data-toggle="confirmation" value="Delete">
     </form>
@@ -40,7 +42,7 @@
                             <label for="name"  class="control-label">Title</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text"  value={{$assignment->title}} name="title" class="form-control">
+                            <input type="text"  value="{{$assignment->title}}" name="title" class="form-control">
                         </div>
                     </div>
                 </div>

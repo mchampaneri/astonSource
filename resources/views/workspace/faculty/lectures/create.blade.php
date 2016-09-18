@@ -57,7 +57,7 @@
                     <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
-                            <label class="control-label">Informaion</label>
+                            <label class="control-label">Information</label>
                         </div>
                         <div class="col-md-10">
                             <textarea name="info" id="" cols="30" rows="4" class="form-control"></textarea>

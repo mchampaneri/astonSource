@@ -26,6 +26,6 @@ class AstonCalls
 
         public static function Posts()
         {
-            return Post::all();
+            return $posts = \App\Post::paginate(7);
         }
 }

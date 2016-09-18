@@ -35,11 +35,10 @@
             </div>
             @foreach( $posts as $post)
                 <div class="col-sm-2 ">
-                    <a href="#">
+                    <a href="{{url('/post/'.$post->id)}}">
                         <div  class="text-center aston-theme-color" style="padding: 10px;border:1px solid rgba(0,0,0,0.1)">
                             <p>{{ $post->title }}</p>
                             <p>Sem {{ $post->info }}</p>
-
                         </div>
                     </a>
                 </div>
