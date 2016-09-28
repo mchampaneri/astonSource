@@ -1,6 +1,5 @@
 @extends('AstonLayouts::templates.resource')
 
-
 @section('page-title')
     Aston | Admin/Departments/Create
 @stop
@@ -14,11 +13,10 @@
 @stop
 
 @section('panel-heading')
-    Edit Deartment
+    Edit Department
 @stop
 
 @section('page-buttons')
-
     <a href="{{route('departments.index')}}" class="btn btn-default">Back</a>
 @stop
 

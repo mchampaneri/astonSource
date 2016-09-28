@@ -1,10 +1,8 @@
 @extends('AstonLayouts::templates.resource')
 
-
 @section('page-title')
     Aston
 @stop
-
 
 @section('page-heading')
     <i class="fa fa-lg fa-sticky-note"> </i> Assignments
@@ -17,12 +15,13 @@
 @section('panel-heading')
     List of All Assignments
 @stop
+
 @section('page-buttons')
-    <a href="{{route('assignments.create')}}" class="btn btn-success"  data-title="Open Google?"
-       >
+    <a href="{{route('assignments.create')}}" class="btn btn-success" data-title="Open Google?"
+    >
         <i class="fa fa-plus fa-sm"></i> Add Assignments
     </a>
-  @stop
+@stop
 
 @section('panel-body')
 
@@ -40,14 +39,15 @@
             <tbody>
             @foreach($assignments as $assignment)
                 <tr>
-                    <td>{{$assignment->id}}</td>
-                    <td>{{$assignment->title}}</td>
-                    <td>{{\App\Subject::Name($assignment->subject_id)}}</td>
-                    <td>{{\App\Submit::where('assignment_id',$assignment->id)->where('status','!=','unsubmitted')->count() }}</td>
+                    <td>{{ $assignment->id }}</td>
+                    <td>{{ $assignment->title }}</td>
+                    <td>{{ \App\Subject::Name($assignment->subject_id)}}</td>
+                    <td>{{ \App\Submit::Submited($assignment->id)->count() }}</td>
                     <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
-                        <a href="{{route('assignments.submitlist',['id'=>$assignment->id])}}" class="btn btn-sm btn-primary"> Review Answers</a>
+                        <a href="{{route('assignments.submitlist',['id'=>$assignment->id])}}"
+                           class="btn btn-sm btn-primary"> Review Answers</a>
                     </td>
 
                 </tr>
@@ -55,7 +55,7 @@
             </tbody>
         </table>
     @else
-        <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
+        <p class="aston-empty-message-text text-center"><i class="fa fa-plus fa-lg icon"></i>
             Add your first Subject by clicking the <span class="label label-info">Add Subject</span>
             Button </p>
     @endif

@@ -3,7 +3,7 @@
 
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function() {
 
-    Route::get('/home',function (){ return view('workspace.admin.dashboard.index');});
+    Route::get('/home',['as'=>'admin.home','uses'=>'DashboardController@admin']);
 
     Route::resource('departments','DepartmentController');
 

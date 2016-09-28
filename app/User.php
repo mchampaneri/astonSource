@@ -27,22 +27,26 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function asStudent()
+    public function student()
     {
-        if(\Auth::user()->role=="student")
         return $this->hasOne('App\Student')->first();
-        else
-            return [];
     }
 
-    public function asFaculty()
+    public function faculty()
     {
-        if(\Auth::user()->role=="faculty")
             return $this->hasOne('App\Faculty')->first();
-        else
-            return [];
     }
+//////////////// Redudant /////////////////////////////
+//    public function asStudent()
+//    {
+//        return $this->hasOne('App\Student')->first();
+//    }
 
+//    public function AsFaculty()
+//    {
+//        return $this->hasOne('App\Faculty')->first();
+//    }
+////////////////////////////////////////////////
     public static function Name($id)
     {
         $user = User::find($id);
@@ -61,6 +65,11 @@ class User extends Authenticatable
     public function lectures()
     {
         return $this->hasMany('App\Lecture');
+    }
+
+    public  function subjects()
+    {
+        return $this->belongsToMany('App\Subject');
     }
 
 }

@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <h3>{{$Subject_Name}} : {{ $lecture->title }}</h3>
+                <h3>{{$subject}} : {{ $lecture->title }}</h3>
             </div>
             <div class="container-fluid">
                <pre>

@@ -1,10 +1,8 @@
 @extends('AstonLayouts::templates.resource')
 
-
 @section('page-title')
     Aston
 @stop
-
 
 @section('page-heading')
     <i class="fa fa-lg fa-sticky-note"> </i> Assignments
@@ -15,8 +13,9 @@
 @stop
 
 @section('panel-heading')
-    {{\App\Assignment::Name('1') }}
+    {{ App\Assignment::Name($assignment_id) }}
 @stop
+
 @section('page-buttons')
     <a href="{{route('assignments.index')}}" class="btn btn-success">
         <i class="fa fa-plus fa-sm"></i> Back
@@ -37,16 +36,17 @@
             </thead>
             <tbody>
             @foreach($submits as $submit)
-                <tr >
+                <tr>
                     <td class="text-center"> @if($submit->status=="Rejected") <i class="fa fa-close"></i>
-                         @elseif($submit->status=="Accepted") <i class="fa fa-check" aria-hidden="true"></i>
-                         @else
+                        @elseif($submit->status=="Accepted") <i class="fa fa-check" aria-hidden="true"></i>
+                        @else
                             <i class="fa fa-exclamation" aria-hidden="true"></i>
                         @endif </td>
-                    <td>{{App\Student::where('user_id',$submit->user_id)->first()->enrollno}}</td>
-                    <td>{{\App\User::Name($submit->user_id)}}</td>
+                    <td>{{$submit->student()->enrollno}}</td>
+                    <td>{{$submit->student()->name}}</td>
                     <td>
-                        <a href="{{route('assignments.answersof',['submit_id'=>$submit->id])}}" class="btn btn-sm btn-primary"> Review Answers</a>
+                        <a href="{{route('assignments.answersof',['submit_id'=>$submit->id])}}"
+                           class="btn btn-sm btn-primary"> Review Answers</a>
                     </td>
 
                 </tr>
@@ -54,7 +54,7 @@
             </tbody>
         </table>
     @else
-        <p class="aston-empty-message-text text-center"> <i class="fa fa-plus fa-lg icon"></i>
+        <p class="aston-empty-message-text text-center"><i class="fa fa-plus fa-lg icon"></i>
             Add your first Subject by clicking the <span class="label label-info">Add Subject</span>
             Button </p>
     @endif

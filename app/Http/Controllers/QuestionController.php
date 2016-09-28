@@ -21,7 +21,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        $subjects = Faculty::find(Session::get('id'))->subjects()->get();
+        $subjects = \Auth::user()->subjects()->get();
         $assignment = Assignment::find($question->assignment_id);
         return view('workspace.faculty.assignments.edit')->with(['assignment'=>$assignment,'subjects'=>$subjects,'question'=>$question]);
     }

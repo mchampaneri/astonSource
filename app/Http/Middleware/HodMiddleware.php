@@ -15,7 +15,7 @@ class HodMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::user()->asFaculty()->is_hod == '1')
+        if(\Auth::user()->faculty()->is_hod == '1')
         return $next($request);
         else
         {

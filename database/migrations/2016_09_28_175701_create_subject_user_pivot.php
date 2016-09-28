@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssignmentsTable extends Migration
+class CreateSubjectUserPivot extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('subject_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('info');
             $table->integer('subject_id');
             $table->integer('user_id');
             $table->timestamps();
@@ -30,6 +28,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('assignments');
+        Schema::drop('subject_user');
     }
 }

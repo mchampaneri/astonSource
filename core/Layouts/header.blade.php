@@ -1,37 +1,42 @@
+{{-- Main Header File --}}
 <div class="header">
 
     <div class="header-top">
-        <div class="container-fluid">
-            <div class="row">
 
-                <!-- Sidebar Puller for small screens -->
+        <div class="container-fluid">
+
+            <div class="row">
+                {{-- Sidebar Puller button --}}
                 <div class="sidebar-puller" style="margin-top: -5px">
                     <a href="#" onclick="toggle()" class="btn btn-default"><i class="fa fa-bars fa-lg"></i></a>
                 </div>
-                <!-- // Sidebar puller -->
 
-                <div class="col-sm-6">
-                    {{--<div class="logo">--}}
-                        {{--<h4 class="logo aston-theme-text">Welcome ! {{ App\User::Name(\Auth::user()->id) }} </h4>--}}
-                    {{--</div>--}}
-                </div>
+                {{-- Sidebar Top-Left Menu --}}
                 <div class="col-sm-6 pull-right">
                     <div class="header-top-menu">
+
+                        {{-- Setting Menu for logged in user --}}
                         <ul class="nav nav-pills">
-                            <!--  Workspace Top Menu ----------------------->
-                            <li> </li>
-                            <?php $user=Session::get('role'); ?>
+
+                            {{-- Get Role From the Session of user set at login --}}
+                            <?php   $user = \Auth::user()->role;  ?>
+
+                            {{-- Getting the relavent menu for user from the menu.php file --}}
                             @foreach(config('menu.'.$user.'.'.$user.'-top') as $menu)
+
+                                {{-- Checking if the current menu has further submenu --}}
                                 @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
+                                        <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#"
+                                           role="button"
                                            aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-md {{$menu['icon']}}"></i>
                                             <p class="name">{{$menu['title']}}</p>
                                         </a>
                                         <ul class="dropdown-menu-right dropdown-menu">
                                             @foreach($menu['has-child'] as $sub_menu)
-                                                <li> <a class="dropdown-item btn btn-md pull-left" href="{{url($sub_menu['link'])}}">
+                                                <li><a class="dropdown-item btn btn-md pull-left"
+                                                       href="{{url($sub_menu['link'])}}">
                                                         <i class="fa fa-sm {{$sub_menu['icon']}}"></i>
                                                         {{$sub_menu['title']}}</a>
                                                 </li>
@@ -45,34 +50,36 @@
                                         </a>
                                     </li>
                                 @endif
+
                             @endforeach
 
-                            @if(Session::has('hod') && Session::get('hod')== 1)
-                            <!-- Putting Hod Menus -->
+                            {{-- Special Check for hod privilage menu access --}}
+                            @if(\Auth::user()->role == 'faculty' && \Auth::user()->faculty()->is_hod)
                                 @foreach(config('menu.hod.hod-top') as $menu)
                                     @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
                                         <li class="dropdown">
-                                            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
+                                            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#"
+                                               role="button"
                                                aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa  fa-md   {{$menu['icon']}}"> </i>
                                                 <p class="name">{{$menu['title']}}</p>
                                             </a>
                                             <ul class=" dropdown-menu">
                                                 @foreach($menu['has-child'] as $sub_menu)
-                                                    <li> <a class="dropdown-item"> </a> </li>
+                                                    <li><a class="dropdown-item"> </a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
                                     @else
-                                        <li >
-                                            <a  href="{{url($menu['link'])}}"><i class="fa fa-lg {{$menu['icon']}}"></i>
+                                        <li>
+                                            <a href="{{url($menu['link'])}}"><i class="fa fa-lg {{$menu['icon']}}"></i>
                                                 <p class="name">{{$menu['title']}}</p>
                                             </a>
                                         </li>
-                                @endif
-                            @endforeach
-                        @endif
-                            <!-- // Workspace Top Menu ----------------------->
+                                    @endif
+                                @endforeach
+                            @endif
+
                         </ul>
                     </div>
                 </div>

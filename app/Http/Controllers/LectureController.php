@@ -16,24 +16,21 @@ class LectureController extends Controller
 {
     public function index()
     {
-
-        $lectures = Lecture::where('user_id',\Auth::user()->id)
-                            ->get();
+        $lectures = Lecture::auth();
         return view('workspace.faculty.lectures.index')
-                    ->with(['lectures'=>$lectures]);
+            ->with(['lectures' => $lectures]);
     }
 
     public function create()
     {
-        $subjects = Faculty::find(\Session::get('id'))
-                            ->subjects()
-                            ->get();
+        $subjects = \Auth::user()->subjects()->get();
         return view('workspace.faculty.lectures.create')
-                            ->with(['subjects'=>$subjects]);
+            ->with(['subjects' => $subjects]);
     }
+
     public function store(Request $request)
     {
-     
+
 
         $lecture = new Lecture();
         $lecture->title = $request->title;
@@ -52,13 +49,14 @@ class LectureController extends Controller
         return $lecture;
     }
 
-    public function edit($id){
-        $subjects = Faculty::find(\Session::get('id'))->subjects()->get();
+    public function edit($id)
+    {
+        $subjects = \Auth::user()->subjects()->get();
         $lecture = Lecture::find($id);
-        return view('workspace.faculty.lectures.edit')->with(['lecture'=>$lecture,'subjects'=>$subjects]);
+        return view('workspace.faculty.lectures.edit')->with(['lecture' => $lecture, 'subjects' => $subjects]);
     }
 
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
 
         $lecture = Lecture::find($id);
@@ -66,7 +64,7 @@ class LectureController extends Controller
         $lecture->info = $request->info;
         $lecture->lecture = b64toUrl($request->lecture);
         $lecture->subject_id = $request->subject_id;
-        $lecture->user_id = \Auth::user()->id; 
+        $lecture->user_id = \Auth::user()->id;
         $lecture->save();
         flash()->success('Lecture Updated Successfully');
         return redirect()->route('lectures.index');

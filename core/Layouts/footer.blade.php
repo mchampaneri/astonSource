@@ -1,0 +1,1 @@
+{{-- Main footer of the aston template --}}

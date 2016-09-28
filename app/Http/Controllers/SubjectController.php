@@ -2,52 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Faculty;
 use App\Subject;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Session;
+
 
 class SubjectController extends Controller
 {
     public  function index()
     {
-        $subjects = Subject::where('department_id',Session::get('dept_id'))
-                                ->get();
+        $subjects = Subject::department(\Auth::user()->faculty()->department_id);
         return view('workspace.faculty.hod.subjects.index')->with(['subjects'=>$subjects]);
     }
 
     public function create()
     {
-        return view('workspace.faculty.hod.subjects.create');
+        $faculties = Faculty::department(\Auth::user()->faculty()->department_id);
+        return view('workspace.faculty.hod.subjects.create')->with(['faculties'=>$faculties]);
     }
 
     public function edit($id)
     {
-        $i=0;
-        
+        $faculties = Faculty::department(\Auth::user()->faculty()->department_id);
+
         $subject = Subject::find($id);
-        $faculty_subject =  $subject->faculties()->get()->toArray();
-        foreach ( $faculty_subject as $faculty_selected)
-        {
-            $faculty_selected[$i] = $faculty_subject[$i]['id'];
-        }
-        if(sizeof($faculty_selected) == 0)
-        {
-            $faculty_selected= [0];
-        }
-        return view('workspace.faculty.hod.subjects.edit')->with(['subject'=>$subject,'faculty_selected'=>$faculty_selected]);
+        $faculty_selected =  $subject->users()->pluck('user_id')->toArray();
+        return view('workspace.faculty.hod.subjects.edit')->with(['faculties'=>$faculties,'subject'=>$subject,'faculty_selected'=>$faculty_selected]);
     }
     
     public function store(Request $request)
     {
         $subject = new Subject();
         $subject->name = $request->name;
-        $subject->department_id = Session::get('dept_id');
+        $subject->department_id = \Auth::user()->faculty()->department_id;
         $subject->sem = $request->sem;
-        $subject->user_id = Session::get('id'); // Faculty Id
+        $subject->user_id = \Auth::user()->id;
         $subject->save();
-        $subject->faculties()->sync( $request->faculties );
+        $subject->users()->sync( $request->faculties );
         return redirect()->route('subjects.index');
     }
 
@@ -56,11 +49,11 @@ class SubjectController extends Controller
     {
         $subject = Subject::find($id);
         $subject->name = $request->name;
-        $subject->department_id = Session::get('dept_id');
+        $subject->department_id = \Auth::user()->faculty()->department_id;
         $subject->sem = $request->sem;
-        $subject->user_id = Session::get('id'); // Faculty ID
+        $subject->user_id = \Auth::user()->id;
         $subject->save();
-        $subject->faculties()->sync( $request->faculties );
+        $subject->users()->sync( $request->faculties );
         return redirect()->route('subjects.index');
     }
 

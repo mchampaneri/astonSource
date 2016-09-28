@@ -23,28 +23,28 @@
 @section('panel-body')
     <div class="row panel-body">
 
-            <form action="{{route('lectures.store')}}" method="post">
-                {{ csrf_field() }}
-                <div class="col-md-3">
-                    <div class="form-group">
+        <form action="{{route('lectures.store')}}" method="post">
+            {{ csrf_field() }}
+            <div class="col-md-3">
+                <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="name"  class="control-label">Title</label>
+                            <label for="name" class="control-label">Title</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text"  name="title" class="form-control">
+                            <input type="text" name="title" class="form-control">
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
                             <label for="name" class="control-label">Subject</label>
                         </div>
                         <div class="col-md-10">
-                            <select name="subject_id"   class="form-control">
+                            <select name="subject_id" class="form-control">
                                 @foreach($subjects as $subject)
                                     <option value="{{$subject->id}}">{{$subject->name}}</option>
                                 @endforeach
@@ -52,9 +52,9 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group">
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
                             <label class="control-label">Information</label>
@@ -64,25 +64,25 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
                             <textarea name="lecture" id="" cols="30" rows="200"
                                       class="form-control aston-summernote"></textarea>
-                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="submit" value="Save"
-                                   class="btn btn-sm btn-success pull-right">
-                        </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="Save"
+                               class="btn btn-sm btn-success pull-right">
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
     </div>
 @stop
 

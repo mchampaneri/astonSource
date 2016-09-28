@@ -26,7 +26,11 @@ class Assignment extends Model
     {
         return $this->hasMany('App\Submit');
     }
-    
+
+    public function scopeAuth($query)
+    {
+        return $query->where('user_id',\Auth::user()->id);
+    }
     
 
 }

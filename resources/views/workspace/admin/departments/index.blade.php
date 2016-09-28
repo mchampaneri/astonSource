@@ -1,10 +1,8 @@
 @extends('AstonLayouts::templates.resource')
 
-
 @section('page-title')
     Aston | Admin/Departments
 @stop
-
 
 @section('page-heading')
      Departments
@@ -13,16 +11,15 @@
 @section('page-heading-small')
    You have created
 @stop
+
 @section('panel-heading')
     All existing departments
 @stop
-
 
 @section('page-buttons')
     <a href="{{route('departments.create')}}" class="btn btn-success">
               <i class="fa fa-plus fa-sm"></i> Add Department
     </a>
-
 @stop
 
 @section('panel-body')

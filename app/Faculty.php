@@ -11,14 +11,17 @@ class Faculty extends Model
         return $this->belongsTo('App\User')->first();
     }
 
-    public  function subjects()
+    public function posts()
     {
-        return $this->belongsToMany('App\Subject');
+        return $this->hasMany('App\Post');
     }
-
-  
     public static function Name($id)
     {
       return Faculty::find($id)->name;
+    }
+
+    public function scopeDepartment($query,$id)
+    {
+        return $query->where('department_id',$id)->get();
     }
 }

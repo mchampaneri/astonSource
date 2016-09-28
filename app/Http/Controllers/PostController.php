@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('user_id',\Auth::user()->id)->get();
+        $posts = Post::auth()->get();
         return view('workspace.faculty.posts.index')->with(['posts'=>$posts]);
     }
 

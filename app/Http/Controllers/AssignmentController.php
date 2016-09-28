@@ -25,8 +25,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments = Assignment::where('user_id',\Auth::user()->id)
-                                    ->get();
+        $assignments = Assignment::auth()->get();
         return view('workspace.faculty.assignments.index')
                     ->with(['assignments'=>$assignments]);
     }
@@ -36,9 +35,7 @@ class AssignmentController extends Controller
      */
     public function create()
     {
-        $subjects = Faculty::find(Session::get('id'))
-                            ->subjects()
-                            ->get();
+        $subjects = \Auth::user()->subjects()->get();
         return view('workspace.faculty.assignments.create')
                     ->with(['subjects'=>$subjects]);
     }
@@ -50,14 +47,10 @@ class AssignmentController extends Controller
     public function store(Request $request)
     {
         $assignment = new Assignment();
-
         $assignment->title = $request->title;
-        $assignment->info = $request->info;
-        $assignment->sem = Subject::find($request->subject_id)
-                                    ->sem;
+        $assignment->info = $request->info;     ;
         $assignment->subject_id = $request->subject_id;
-        $assignment->user_id = \Auth::user()
-                                    ->id;
+        $assignment->user_id = \Auth::user()->id;
         $assignment->save();
         flash()->success('Your Assignment Has Been Saved');
         return redirect()->route('assignments.edit',['id'=>$assignment->id]);
@@ -80,9 +73,7 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        $subjects = Faculty::find(Session::get('id'))
-                                            ->subjects()
-                                            ->get();
+        $subjects = \Auth::user()->subjects()->get();
         $assignment = Assignment::find($id);
 
         return view('workspace.faculty.assignments.edit')
@@ -98,10 +89,8 @@ class AssignmentController extends Controller
     public function update($id, Request $request)
     {
         $assignment = Assignment::find($id);
-
         $assignment->title = $request->title;
         $assignment->info = $request->info;
-        $assignment->sem = Subject::find($request->subject_id)->sem;
         $assignment->subject_id = $request->subject_id;
         $assignment->user_id = \Auth::user()->id;
         $assignment->save();
@@ -111,21 +100,17 @@ class AssignmentController extends Controller
 
     public function submitlist($id)
     {
-        $assigment_id = $id;
-        $submits = Submit::where('assignment_id',$id)
-                    ->where('status','!=','unsubmitted')
-                    ->get();
+        $assignment_id = $id;
+        $submits = Submit::Submited($id)->get();
         return view('workspace.faculty.assignments.submitlist')
-            ->with(['submits'=>$submits,'assignment_id'=>$assigment_id]);
+            ->with(['submits'=>$submits,'assignment_id'=>$assignment_id]);
     }
 
     public function answersof($submitid)
     {
         $submit = Submit::find($submitid);
-        $assigment = Assignment::find($submit->assignment_id);
-        $user_id = $submit->user_id;
         return view('workspace.faculty.assignments.answers')
-            ->with(['assignment'=>$assigment,'user_id'=>$user_id,'submit'=>$submit]);
+            ->with(['submit'=>$submit]);
     }
 
     public function accept($id)

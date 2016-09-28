@@ -1,4 +1,4 @@
-@extends('AstonLayouts::templates.resource')
+@extends('AstonLayouts::templates.dashboard')
 
 @section('page-title')
     Aston | Home
@@ -13,31 +13,27 @@
     Admin Bhai zindabad
 @stop
 
-@section('panel-body')
-    <div class="container">
-        <div class="row">
+@section('catalogs')
+    <div class="row">
 
-            <div class="col-md-3 col-sm-6">
-                <div class="panel text-center">
-                    <h4>Total  Departments </h4>
-                    {{ \App\Department::all()->count() }}
+        <div class="col-sm-3">
+            <div class="panel dashboard-catalog">
+                <div class="panel-body">
+                <p class="caption">Total Users <br> {{$user_count}}</p>
+                <i class="fa fa-users ico"></i>
+                <div style="clear:both"></div>
                 </div>
             </div>
+         </div>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="panel text-center">
-                    <h4>Total  Users </h4>
-                    {{ \App\User::all()->count() }}
+        <div class="col-sm-3">
+            <div class="panel dashboard-catalog">
+                <div class="panel-body">
+                    <p class="caption">Total Departments <br> {{$department_count}}</p>
+                    <i class="fa fa-building ico"></i>
+                    <div style="clear:both"></div>
                 </div>
             </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="panel text-center">
-                    <h4>Total  Departments </h4>
-                    {{ \App\Department::all()->count() }}
-                </div>
-            </div>
-
         </div>
 
     </div>

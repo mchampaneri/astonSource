@@ -1,7 +1,9 @@
 @extends('AstonLayouts::templates.resource')
+
 @section('page-title')
     Aston | Hod/Subjects/Create
 @stop
+
 @section('page-heading')
     Assignment
 @stop
@@ -11,7 +13,7 @@
 @stop
 
 @section('panel-heading')
-    Answer of {{ $assignment->title }} By {{ \App\User::Name($user_id) }}
+    Answer of {{ $submit->assignment()->title }} By {{ $submit->student()->name }}
 @stop
 
 @section('page-buttons')
@@ -25,12 +27,12 @@
 @section('panel-body')
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            @if($assignment->questions()->count() > 0)
-                @foreach($assignment->questions()->get() as $question)
+            @if($submit->assignment()->questions()->count() > 0)
+                @foreach($submit->assignment()->questions()->get() as $question)
                             <div class="form-group">
                                 <label for="" class="control-label">{{$question->question}}</label>
-                                @if( ($question->answerByUser( $user_id ) ) )
-                                <p> {!! $question->answerByUser( $user_id )->answer !!} </p>
+                                @if( ($question->answerByUser( $submit->user_id ) ) )
+                                <p> {!! $question->answerByUser( $submit->user_id  )->answer !!} </p>
                                 @else
                                 <pre> Not Attempted  </pre>
                                 @endif

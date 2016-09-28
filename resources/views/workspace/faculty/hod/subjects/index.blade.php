@@ -1,10 +1,8 @@
 @extends('AstonLayouts::templates.resource')
 
-
 @section('page-title')
     Aston | Admin/Departments
 @stop
-
 
 @section('page-heading')
     <i class="fa fa-lg fa-book"> </i> Subjects
@@ -43,9 +41,9 @@
                     <td>{{$subject->id}}</td>
                     <td>{{$subject->name}}</td>
                     <td>
-                        @if($subject->faculties()->count() > 0 )
-                            @foreach($subject->faculties()->get() as $faculty)
-                                {{ $faculty->name }}
+                        @if($subject->users()->count() > 0 )
+                            @foreach($subject->users()->get() as $user)
+                                {{ $user->faculty()->name }}
                             @endforeach
                         @endif
                     </td>
@@ -64,7 +62,6 @@
     @endif
 
 @stop
-
 
 @section('page-js')
 

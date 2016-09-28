@@ -1,4 +1,6 @@
+{{-- Aston Core Css File --}}
 <link rel="stylesheet" href="{{asset('core/assets/css/app.css')}}">
+{{-- Pace.js  Style --}}
 <style>
     .pace {
         -webkit-pointer-events: none;
@@ -77,4 +79,5 @@
         100% { transform: rotate(360deg); transform: rotate(360deg); }
     }
 </style>
+{{-- Pace.js File --}}
 <script src="{{asset('core/assets/js/pace.js')}}"></script>

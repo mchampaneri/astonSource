@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-md-9">
                             <select name="faculties[]" id="" class="form-control" multiple="multiple">
-                                @foreach(\App\Department::find( Session::get('dept_id'))->faculties() as $faculty)
+                                @foreach($faculties as $faculty)
                                     <option value="{{$faculty->id}}"
                                             @if(in_array($faculty->id,$faculty_selected,true)) selected @endif
                                     >{{$faculty->name}}</option>

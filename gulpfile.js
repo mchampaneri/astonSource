@@ -2,7 +2,7 @@
 
 const elixir = require('laravel-elixir');
 
-//require('laravel-elixir-vueify');
+require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,11 +14,17 @@ const elixir = require('laravel-elixir');
  | file for our application, as well as publishing vendor resources.
  |
  */
+ elixir.config.assetsPath = 'resources/assets';
 
-// elixir.config.assetsPath = 'resources/assets';
-// elixir(function(mix) {
-//     mix.browserify('app.js','public/app.js');
-// });
+elixir(function(mix) {
+
+    mix.sass([
+        "app.scss"
+    ],'public/css/app.css');
+
+
+     mix.browserify('app.js','public/js/app.js');
+ });
 
 
 

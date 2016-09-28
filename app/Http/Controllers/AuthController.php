@@ -32,31 +32,31 @@ class AuthController extends Controller
 
             // Authentication passed...
 
-            if(\Auth::user()->role == "student")
-            {
-                Session::put('name',\Auth::user()->asStudent()->name);
-                Session::put('sem',\Auth::user()->asStudent()->sem);
-                Session::put('id',\Auth::user()->asStudent()->id);
-                Session::put('dept_id',\Auth::user()->department_id);
-                Session::put('role','student');
-
-            }
-
-            if(\Auth::user()->role == "faculty")
-            {
-                Session::put('name',\Auth::user()->asFaculty()->name);
-                Session::put('id',\Auth::user()->asFaculty()->id);
-                Session::put('dept_id',\Auth::user()->asFaculty()->department_id);
-                Session::put('role','faculty');
-                Session::put('hod',\Auth::user()->asFaculty()->is_hod);
-
-            }
-
-            if(\Auth::user()->role == "admin")
-            {
-                Session::put('role','admin');
-
-            }
+//            if(\Auth::user()->role == "student")
+//            {
+//                Session::put('name',\Auth::user()->asStudent()->name);
+//                Session::put('sem',\Auth::user()->asStudent()->sem);
+//                Session::put('id',\Auth::user()->asStudent()->id);
+//                Session::put('dept_id',\Auth::user()->department_id);
+//                Session::put('role','student');
+//
+//            }
+//
+//            if(\Auth::user()->role == "faculty")
+//            {
+//                Session::put('name',\Auth::user()->asFaculty()->name);
+//                Session::put('id',\Auth::user()->asFaculty()->id);
+//                Session::put('dept_id',\Auth::user()->asFaculty()->department_id);
+//                Session::put('role','faculty');
+//                Session::put('hod',\Auth::user()->asFaculty()->is_hod);
+//
+//            }
+//
+//            if(\Auth::user()->role == "admin")
+//            {
+//                Session::put('role','admin');
+//
+//            }
                     flash()->success("welcome ".Session::get('name'));
                   return redirect()->intended('workspace/'.\Auth::user()->role.'/home');
         }

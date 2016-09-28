@@ -16,7 +16,7 @@
             <div class="col-md-12">
             <h4 class="text-center"> Subjects </h4>
             </div>
-            @foreach( $subjects as $subject)
+            @foreach( $faculty->user()->subjects()->get() as $subject)
                 <div class="col-sm-2 ">
                     <a href="{{url('/faculty/'.$faculty->id.'/subject/'.$subject->id)}}">
                         <div  class="text-center aston-theme-color" style="padding: 10px;border:1px solid rgba(0,0,0,0.1)">
@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <h4 class="text-center"> Latest Posts </h4>
             </div>
-            @foreach( $posts as $post)
+            @foreach( $faculty->user()->posts()->get() as $post)
                 <div class="col-sm-2 ">
                     <a href="{{url('/post/'.$post->id)}}">
                         <div  class="text-center aston-theme-color" style="padding: 10px;border:1px solid rgba(0,0,0,0.1)">
