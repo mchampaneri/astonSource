@@ -25,7 +25,7 @@
 
         <form action="{{route('lectures.store')}}" method="post">
             {{ csrf_field() }}
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
@@ -53,7 +53,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="due_date" class="control-label">Date</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="due_date"  class="form-control aston-datepicker">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
@@ -88,4 +100,5 @@
 
 @section('page-js')
     <script src="{{asset('core/vue/all.js')}}"></script>
+
 @stop

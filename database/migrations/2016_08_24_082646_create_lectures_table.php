@@ -20,6 +20,7 @@ class CreateLecturesTable extends Migration
             $table->string('title');
             $table->string('info');
             $table->text('lecture');
+            $table->date('due_date');
             $table->timestamps();
         });
     }

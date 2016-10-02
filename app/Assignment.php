@@ -24,7 +24,7 @@ class Assignment extends Model
 
     public function Submits()
     {
-        return $this->hasMany('App\Submit');
+        return $this->hasMany('App\Submit')->where('status','!=','unsubmitted');
     }
 
     public function scopeAuth($query)

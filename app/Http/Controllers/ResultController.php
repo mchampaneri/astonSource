@@ -77,5 +77,11 @@ class ResultController extends Controller
         }
     }
     
-    
+    public function destroy($id)
+    {
+        $result = Result::find($id);
+        $result->delet();
+        flash()->success('Result Deleted Successfully');
+        return redirect()->route('results.index');
+    }
 }

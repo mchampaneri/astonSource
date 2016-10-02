@@ -2,9 +2,7 @@
 
 Route::group(['prefix' => "faculty",'middleware'=>'faculty'] , function() {
 
-    Route::get('/home',function(){
-        return view('workspace.faculty.dashboard.index');
-    });
+    Route::get('/home',['as'=>'faculty.home','uses'=>'DashboardController@faculty']);
 
     Route::group(['middleware'=>'hod'],function() {
         Route::resource('subjects', 'SubjectController');

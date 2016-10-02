@@ -42,7 +42,7 @@
                     <td>{{ $assignment->id }}</td>
                     <td>{{ $assignment->title }}</td>
                     <td>{{ \App\Subject::Name($assignment->subject_id)}}</td>
-                    <td>{{ \App\Submit::Submited($assignment->id)->count() }}</td>
+                    <td>{{ $assignment->submits()->count() }}</td>
                     <td><a href="{{route('assignments.edit',['id'=>$assignment->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>

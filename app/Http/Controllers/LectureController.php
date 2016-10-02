@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Faculty;
 use App\Lecture;
 use App\Subject;
+use Carbon\Carbon;
 use core\Functions\Editor;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -16,7 +17,7 @@ class LectureController extends Controller
 {
     public function index()
     {
-        $lectures = Lecture::auth();
+        $lectures = Lecture::auth()->get();
         return view('workspace.faculty.lectures.index')
             ->with(['lectures' => $lectures]);
     }
@@ -37,7 +38,8 @@ class LectureController extends Controller
         $lecture->info = $request->info;
         $lecture->lecture = b64toUrl($request->lecture);
         $lecture->subject_id = $request->subject_id;
-        $lecture->user_id = \Auth::user()->id; // Faculty_Id
+        $lecture->due_date = Carbon::parse( $request->due_date);
+        $lecture->user_id = \Auth::user()->id;
         $lecture->save();
         flash()->success('Lecture Stored Successfully');
         return redirect()->route('lectures.index');
@@ -65,6 +67,7 @@ class LectureController extends Controller
         $lecture->lecture = b64toUrl($request->lecture);
         $lecture->subject_id = $request->subject_id;
         $lecture->user_id = \Auth::user()->id;
+        $lecture->due_date = Carbon::parse( $request->due_date);
         $lecture->save();
         flash()->success('Lecture Updated Successfully');
         return redirect()->route('lectures.index');

@@ -24,8 +24,5 @@ class AstonCalls
             return Faculty::all()->pluck('name','id');
         }
 
-        public static function Posts()
-        {
-            return $posts = \App\Post::paginate(7);
-        }
+      
 }

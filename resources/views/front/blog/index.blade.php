@@ -3,7 +3,7 @@
 @section('page-content')
 
 
-    @foreach(AstonCalls::Posts() as $post)
+    @foreach($posts as $post)
     <div class="row">
         <div class="col-sm-2">
             <img src="{{url('/images/'.$post->thumb)}}" width="100%" alt="">
@@ -16,7 +16,7 @@
     @endforeach
     <div class="row">
         <div class="col-sm-12">
-            {{ AstonCalls::Posts()->links() }}
+            {{ $posts->links() }}
         </div>
     </div>
 @stop()

@@ -45,7 +45,7 @@ class PostController extends Controller
     public function update($id, Request $request)
     {
         $post = Post::find($id);
-        $post->title = $post->title;
+        $post->title = $request->title;
         if(isset($request->thumb)) {
             $file = $request->file('thumb')
                 ->store(\Auth::user()->id . '/posts/thumb');

@@ -22,6 +22,7 @@
   "dependencies": {
     "bootstrap-confirmation": "0.0.2",
     "bootstrap-confirmation2": "^2.3.1",
+    "bootstrap-datepicker": "^1.6.4",
     "bootstrap-list-filter": "^0.3.2",
     "bootstrap-slider": "^9.2.0",
     "datatables-responsive": "^1.0.7",

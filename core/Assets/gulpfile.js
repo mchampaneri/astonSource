@@ -34,6 +34,7 @@ elixir(function(mix) {
        '../../../node_modules/select2/dist/js/select2.full.js',
        '../../../vendor/kartik-v/bootstrap-fileinput/js/fileinput.js',
        '../../../node_modules/toastr/toastr.js',
+       '../../../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
         // Aston Workspace Config Files //
        '../js/aston-init.js'
     ],'public/core/assets/js/all.js','core/Assets/plugins');

@@ -21,4 +21,6 @@ class Subject extends Model
         return $query->where('department_id', $department_id)
             ->get();
     }
+    
+    
 }

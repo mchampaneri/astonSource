@@ -36,6 +36,7 @@ class QuestionController extends Controller
         $question->imp_lvl = $request->imp_lvl;
         $question->hint = $request->hint;
         $question->save();
+        flash()->success('Question Saved');
         return redirect()->route('assignments.edit',['id'=>$question->assignment_id]);
     }
 
@@ -47,11 +48,15 @@ class QuestionController extends Controller
         $question->imp_lvl = $request->imp_lvl;
         $question->hint = $request->hint;
         $question->save();
+        flash()->success('Question Updated');
         return redirect()->route('assignments.edit',['id'=>$question->assignment_id]);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-
+        $question = Question::find($id);
+        $question->delete();
+        flash()->success('Question Deleted');
+        return redirect()->route('assignments.edit',['id'=>$question->assignment_id]);
     }
 }

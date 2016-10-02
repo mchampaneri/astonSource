@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+
+    // Datepicker Initalizers
+    $('.aston-datepicker').datepicker({
+        todayHighlight: true,
+        orientation: "bottom auto",
+        format: 'yyyy-mm-dd',
+    });
+
     // Initiating The Summer note class
     $('.aston-summernote').summernote();
 
@@ -23,6 +32,9 @@ $(document).ready(function() {
     $('.aston-image').fileinput();
     $('.aston-image-edit').fileinput({
         defaultPreviewContent: '<img src="/images/'+image+'" alt="Image" style="width:160px">'});
+    
+    
+
 });
 
 function toggle()

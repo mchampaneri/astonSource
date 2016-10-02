@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Assignment;
+use App\Subject;
 use App\Submit;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class SubmissionController extends Controller
 {
     public function index()
     {
-        $assignments = Assignment::where('sem', \Session::get('sem'))
+        $subject_ids = Subject::where('sem',(\Auth::user()->student()->sem))->pluck('id');
+        $assignments = Assignment::wherein('subject_id', $subject_ids)
                                     ->get();
         return view('workspace.student.assignments.index')
                     ->with(['assignments' => $assignments]);

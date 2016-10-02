@@ -1,10 +1,10 @@
 <?php
 
 
-use App\Faculty;
-use App\Lecture;
-use App\Subject;
+Route::get('/',function() { return view('welcome'); });
 
+
+/********** Faculty Dominenet Routes *********************************************************/
 Route::get('/faculties', ['as' => 'faculty.all', 'uses' => 'FrontFacultyController@index']);
 
 Route::get('/faculty/{id}', ['as' => 'faculty.id', 'uses' => 'FrontFacultyController@faculty']);
@@ -13,6 +13,7 @@ Route::get('/faculty/{faculty_id}/subject/{subject_id}', ['as' => 'faculty.id.su
 
 Route::get('/faculty/{id}/subject/{id2}/lecture/{id3}', ['as' => 'faculty.lecture.id', 'uses' => 'FrontFacultyController@facultySubjectLecture']);
 
+/********************** Authentication Routes *************************************************/
 
 Route::get('/login', function () {
     return view('front.authentication.login');
@@ -24,11 +25,9 @@ Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@authenticate']
 Route::get('/register', function () {
     return view('front.authentication.register');
 });
-
 Route::get('/register/student', ['as' => 'register.student', function () {
     return view('front.register.student');
 }]);
-
 Route::post('/register/student', ['as' => 'register.student', 'uses' => 'AuthController@storeStudent']);
 
 Route::post('/register/faculty', ['as' => 'register.faculty', 'uses' => 'AuthController@storeFaculty']);
@@ -36,19 +35,12 @@ Route::get('/register/faculty', ['as' => 'register.faculty', function () {
     return view('front.register.faculty');
 }]);
 
-Route::get('/posts/all', function () {
-    return view('front.blog.index');
-});
+/************************************ Post Deminent Routes *************************************/
+Route::get('/posts/all', ['as'=>'post.all','uses'=>'FrontPostController@index']);
 
-Route::get('/post/{id}', function ($id) {
-    $post = \App\Post::find($id);
-    return view('front.blog.detail')->with(['post' => $post]);
-});
+Route::get('/post/{id}', ['as'=>'post.id', 'uses'=>'FrontPostController@show']);
 
-Route::get('/posts/by/{id}', function ($id) {
-    $posts = \App\Post::where('user_id', $id)->get();
-    return view('front.blog.index')->with(['posts' => $posts]);
-});
+Route::get('/posts/by/{id}',['as'=>'post.by.id' , 'uses'=>'FrontPostController@postBy']);
 
 
 

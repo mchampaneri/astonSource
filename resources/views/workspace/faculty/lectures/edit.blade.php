@@ -29,7 +29,7 @@
             <form action="{{route('lectures.update',['id'=>$lecture->id])}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                     <div class="row">
                         <div class="col-md-2">
@@ -57,6 +57,18 @@
                         </div>
                     </div>
                 </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="due_date" v class="control-label">Date</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="due_date"  value="{{$lecture->due_date}}" class="form-control aston-datepicker">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
