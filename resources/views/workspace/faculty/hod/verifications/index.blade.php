@@ -1,11 +1,11 @@
 @extends('AstonLayouts::templates.resource')
 
 @section('page-title')
-    Aston | Admin/Departments
+    Aston | Hod/Verify/Account
 @stop
 
 @section('page-heading')
-    <i class="fa fa-lg fa-book"> </i> Subjects
+    <i class="fa fa-lg fa-book"> </i> Users
 @stop
 
 @section('page-heading-small')
@@ -13,42 +13,35 @@
 @stop
 
 @section('panel-heading')
-    Subjects
+    Users
 @stop()
 
 @section('page-buttons')
-    <a href="{{route('subjects.create')}}" class="btn btn-success">
-        <i class="fa fa-plus fa-sm"></i> Add Subject
-    </a>
 
 @stop
 
 @section('panel-body')
 
-    @if(isset($subjects) && $subjects->count() > 0)
+    @if(isset($users) && $users->count() > 0)
         <table class="table table-hover aston-datatable">
             <thead>
             <tr>
                 <th>Number</th>
                 <th>Name</th>
-                <th>Assigned To</th>
-                <th>Edit</th>
+                <th>Role</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($subjects as $subject)
+            @foreach($users as $user)
                 <tr>
-                    <td>{{$subject->id}}</td>
-                    <td>{{$subject->name}}</td>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
                     <td>
-                        @if($subject->users()->count() > 0 )
-                            @foreach($subject->users()->get() as $user)
-                                {{ $user->name }},
-                            @endforeach
-                        @endif
+                        {{ App\User::RoleMap($user->role) }}
                     </td>
-                    <td><a href="{{route('subjects.edit',['id'=>$subject->id])}}"
-                           class="btn btn-sm btn-primary">Edit
+                    <td><a href="{{route('verify.show',['id'=>$user->id])}}"
+                           class="btn btn-sm btn-primary">Go Verify
                         </a>
                     </td>
                 </tr>

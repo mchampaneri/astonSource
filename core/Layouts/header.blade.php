@@ -19,7 +19,10 @@
                         <ul class="nav nav-pills">
 
                             {{-- Get Role From the Session of user set at login --}}
-                            <?php   $user = \Auth::user()->role;  ?>
+                            <?php
+                            $user = App\User::RoleMap(\Auth::user()->id);
+                            ?>
+
 
                             {{-- Getting the relavent menu for user from the menu.php file --}}
                             @foreach(config('menu.'.$user.'.'.$user.'-top') as $menu)
@@ -58,7 +61,7 @@
                                 @foreach(config('menu.hod.hod-top') as $menu)
                                     @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
                                         <li class="dropdown">
-                                            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#"
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
                                                role="button"
                                                aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa  fa-md   {{$menu['icon']}}"> </i>

@@ -30,6 +30,7 @@
                 <tr>
                     <th>Number</th>
                     <th>Name</th>
+                    <th>Hod</th>
                     <th>Edit</th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@
                 <tr>
                     <td>{{$department->id}}</td>
                     <td>{{$department->name}}</td>
+                    <td>{{$department->hod()->name }}</td>
                     <td><a href="{{route('departments.edit',['id'=>$department->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>

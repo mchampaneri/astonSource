@@ -14,7 +14,7 @@ class Submit extends Model
     }
     public function student()
     {
-        return $this->hasOne('App\Student','user_id','user_id')->first() ;
+        return $this->belongsTo('App\User')->first() ;
     }
 
     public static function submitId($assignment_id)

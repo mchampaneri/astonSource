@@ -61,8 +61,8 @@
                         <div class="col-md-9">
                             <select name="faculties[]" id="" class="form-control" multiple="multiple">
                                 @foreach($faculties as $faculty)
-                                    <option value="{{$faculty->user_id}}"
-                                            @if(in_array($faculty->user_id,$faculty_selected,true)) selected @endif
+                                    <option value="{{$faculty->id}}"
+                                            @if(in_array($faculty->id,$faculty_selected,true)) selected @endif
                                     >{{$faculty->name}}</option>
                                 @endforeach
                             </select>

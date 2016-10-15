@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Faculty;
 use App\Subject;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,19 +14,19 @@ class SubjectController extends Controller
 {
     public  function index()
     {
-        $subjects = Subject::department(\Auth::user()->faculty()->department_id);
+        $subjects = Subject::department(\Auth::user()->department_id);
         return view('workspace.faculty.hod.subjects.index')->with(['subjects'=>$subjects]);
     }
 
     public function create()
     {
-        $faculties = Faculty::department(\Auth::user()->faculty()->department_id);
+        $faculties = User::department(\Auth::user()->department_id);
         return view('workspace.faculty.hod.subjects.create')->with(['faculties'=>$faculties]);
     }
 
     public function edit($id)
     {
-        $faculties = Faculty::department(\Auth::user()->faculty()->department_id);
+        $faculties = User::department(\Auth::user()->department_id);
 
         $subject = Subject::find($id);
         $faculty_selected =  $subject->users()->pluck('user_id')->toArray();
@@ -36,7 +37,7 @@ class SubjectController extends Controller
     {
         $subject = new Subject();
         $subject->name = $request->name;
-        $subject->department_id = \Auth::user()->faculty()->department_id;
+        $subject->department_id = \Auth::user()->department_id;
         $subject->sem = $request->sem;
         $subject->user_id = \Auth::user()->id;
         $subject->save();
@@ -49,7 +50,7 @@ class SubjectController extends Controller
     {
         $subject = Subject::find($id);
         $subject->name = $request->name;
-        $subject->department_id = \Auth::user()->faculty()->department_id;
+        $subject->department_id = \Auth::user()->department_id;
         $subject->sem = $request->sem;
         $subject->user_id = \Auth::user()->id;
         $subject->save();

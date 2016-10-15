@@ -60,7 +60,7 @@
                         <div class="col-md-9">
                             <select name="faculties[]" id="" class="form-control" multiple="multiple">
                                 @foreach( $faculties as $faculty)
-                                    <option value="{{$faculty->user_id}}">{{$faculty->name}}</option>
+                                    <option value="{{$faculty->id}}">{{$faculty->name}}</option>
                                 @endforeach
                             </select>
                         </div>

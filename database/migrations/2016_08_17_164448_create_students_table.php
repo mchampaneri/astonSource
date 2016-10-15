@@ -16,12 +16,8 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('name');
-            $table->integer('department_id');
-            $table->integer('sem');
             $table->string('enrollno');
-            $table->string('contactno');
-            $table->string('address');
+      
             $table->timestamps();
         });
     }

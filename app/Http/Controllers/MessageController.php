@@ -30,17 +30,17 @@ class MessageController extends Controller
 
     public function create()
     {
-        if(\Auth::user()->role=="faculty")
+        if(\Auth::user()->role==3)
         {
             $persons = User::where('role','not like','faculty')
                             ->get();
         }
-        if(\Auth::user()->role=="student")
+        if(\Auth::user()->role==4)
         {
             $persons = User::where('role','not like','student')
                             ->get();
         }
-        if(\Auth::user()->role=="admin")
+        if(\Auth::user()->role==1)
         {
             $persons = User::all();
         }

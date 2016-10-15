@@ -39,3 +39,36 @@ $panel-default-heading-bg: #fff;
 // Custom Front Colors
 
 $header-background: #37474F;
+
+
+// Aston Variables //
+
+
+// Setting the basic color scheme
+
+$aston-main-background : #B0BEC5;
+
+$aston-theme-color : #37474F;
+
+$aston-theme-color-active : darken($aston-theme-color,7%) ;
+
+$aston-page-color : #fafafa;
+// Text Colors
+
+$aston-text-secondary: rgb(255,255,255);
+
+$aston-text-sidebar: #fff;
+
+$aston-empty-message-text: #aaa;
+
+// Media query break points
+
+$pc : '(min-width: 1200px)';
+
+$table : '(min-width:401px and max-width:1199px)';
+
+$mobile : '(max-width: 400px)';
+
+// Component Variables
+
+$aston-sidebar-size:100px;

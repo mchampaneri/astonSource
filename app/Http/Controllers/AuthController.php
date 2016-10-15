@@ -28,37 +28,12 @@ class AuthController extends Controller
             return redirect()->route('logout');
         }
 
-        if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (\Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+        {
 
-            // Authentication passed...
+                flash()->success("welcome ".\Auth::user()->name);
 
-//            if(\Auth::user()->role == "student")
-//            {
-//                Session::put('name',\Auth::user()->asStudent()->name);
-//                Session::put('sem',\Auth::user()->asStudent()->sem);
-//                Session::put('id',\Auth::user()->asStudent()->id);
-//                Session::put('dept_id',\Auth::user()->department_id);
-//                Session::put('role','student');
-//
-//            }
-//
-//            if(\Auth::user()->role == "faculty")
-//            {
-//                Session::put('name',\Auth::user()->asFaculty()->name);
-//                Session::put('id',\Auth::user()->asFaculty()->id);
-//                Session::put('dept_id',\Auth::user()->asFaculty()->department_id);
-//                Session::put('role','faculty');
-//                Session::put('hod',\Auth::user()->asFaculty()->is_hod);
-//
-//            }
-//
-//            if(\Auth::user()->role == "admin")
-//            {
-//                Session::put('role','admin');
-//
-//            }
-                    flash()->success("welcome ".Session::get('name'));
-                  return redirect()->intended('workspace/'.\Auth::user()->role.'/home');
+                return redirect()->intended('workspace/'.\App\User::RoleMap(\Auth::user()->role).'/home');
         }
         else{
             flash()->warning("Wrong Id Or Password ");
@@ -83,20 +58,24 @@ class AuthController extends Controller
         $user = new User();
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
-        $user->role = "student";
+        $user->name = $request->name;
+        $user->contact_no = $request->contactno;
+        $user->address = $request->address;
+        $user->department_id = $request->department_id;
+        $user->sem = $request->sem;
+        $user->role = 4;
+        $user->slug = 'noslug';
+        $user->save();
+        $user->slug = str_slug($request->name.$user->id);
         $user->save();
 
         //Generating The Student Account;
         $student = new Student();
         $student->user_id = $user->id;
-        $student->name = $request->name;
-        $student->department_id = $request->department_id;
-        $student->sem = $request->sem;
         $student->enrollno = $request->enrollno;
-        $student->contactno = $request->contactno;
-        $student->address = $request->address;
         $student->save();
-        return "Thanks For registrtion, Now please contact hod to activate your account";
+
+        return view('front.thanks')->with(['user'=>$user]);
     }
 
     public function storeFaculty(Request $request)
@@ -105,20 +84,23 @@ class AuthController extends Controller
         $user = new User();
         $user->email = $request->email;
         $user->password = \Hash::make($request->password);
-        $user->role = "faculty";
+        $user->name = $request->name;
+        $user->contact_no = $request->contactno;
+        $user->address = $request->address;
+        $user->department_id = $request->department_id;
+        $user->role = 3;
+        $user->slug = 'noslug';
+        $user->save();
+        $user->slug = str_slug($request->name.$user->id);
         $user->save();
 
+        
         //Generating The Faculty Account;
         $faculty = new Faculty();
         $faculty->user_id = $user->id;
-        $faculty->name = $request->name;
-        $faculty->contactno = $request->contactno;
-        $faculty->address = $request->address;
         $faculty->info = $request->info;
-        $faculty->department_id = $request->department_id;
-        $faculty->is_hod = false;
         $faculty->save();
-        return "Thanks For registrtion, Now please contact hod to activate your account";
+        return view('front.thanks')->with(['user'=>$user]);
     }
 
     public function signout()

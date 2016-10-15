@@ -116,7 +116,7 @@ class AssignmentController extends Controller
     public function accept($id)
     {
         $submit = Submit::find($id);
-        $submit->status = "Accepted";
+        $submit->status = 3;
         $submit->save();
         flash()->success('Submission accepted Successfully ');
         return redirect()->route('assignments.submitlist',['id'=>$submit->assignment_id]);
@@ -125,7 +125,7 @@ class AssignmentController extends Controller
     public function reject($id, Request $request)
     {
         $submit = Submit::find($id);
-        $submit->status = "Rejected";
+        $submit->status = 4;
         $submit->comment = $request->comment;
         $submit->save();
         flash()->success('Submission rejected Successfully ');

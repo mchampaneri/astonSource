@@ -13,7 +13,7 @@ class SubmissionController extends Controller
 {
     public function index()
     {
-        $subject_ids = Subject::where('sem',(\Auth::user()->student()->sem))->pluck('id');
+        $subject_ids = Subject::where('sem',(\Auth::user()->sem))->pluck('id');
         $assignments = Assignment::wherein('subject_id', $subject_ids)
                                     ->get();
         return view('workspace.student.assignments.index')
@@ -25,7 +25,7 @@ class SubmissionController extends Controller
         $submit = new Submit();
         $submit->user_id = \Auth::user()->id;
         $submit->assignment_id = $request->assignment_id;
-        $submit->status = 'unsubmitted';
+        $submit->status = 1;
         $submit->comment = 'uncommented';
         $submit->save();
         return redirect()->route('submits.edit',['id'=>$submit->id]);
@@ -42,7 +42,7 @@ class SubmissionController extends Controller
     public function update($id)
     {
         $submit = Submit::find($id);
-        $submit->status = "submitted";
+        $submit->status = 2;
         $submit->save();
         return redirect()->route('submits.edit',['id'=>$submit->id]);
 

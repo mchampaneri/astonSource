@@ -17,7 +17,8 @@ class CreateSubmitsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('assignment_id');
-            $table->string('status');
+            $table->integer('status');
+            // 1.unsubmitted 2.submitted 3.accpeted 4.reject //
             $table->string('comment');
             $table->timestamps();
         });

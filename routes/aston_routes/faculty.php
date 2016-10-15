@@ -6,6 +6,7 @@ Route::group(['prefix' => "faculty",'middleware'=>'faculty'] , function() {
 
     Route::group(['middleware'=>'hod'],function() {
         Route::resource('subjects', 'SubjectController');
+        Route::resource('verify','DepartmentUserVerificationController');
     });
 
     Route::resource('assignments','AssignmentController');

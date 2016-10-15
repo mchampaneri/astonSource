@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" name="sem" placeholder="current semester"></input>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="contactno" placeholder="phone number "></input>
+                <input type="text" class="form-control" name="contact_no" placeholder="phone number "></input>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="enrollno" placeholder="enrollment number "></input>

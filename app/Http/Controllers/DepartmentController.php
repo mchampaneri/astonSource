@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Faculty;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -42,8 +44,18 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
         $department->name = $request->name;
-        $department->hod_id = 0;
+        
+        if( $department->hod_id != 0 )
+        {
+
+            User::find($department->hod_id)->update(['role'=>3]);
+        }
+        $department->hod_id = $request->hod_id;
+
+        User::find($request->hod_id)->update(['role' => 2]);
+
         $department->save();
+
         return redirect()->route('departments.index');
     }
 

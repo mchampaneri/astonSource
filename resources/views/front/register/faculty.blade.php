@@ -31,7 +31,7 @@
                     <input type="text" class="form-control" name="email" placeholder="name@domain.domain"></input>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="contactno" placeholder="phone number "></input>
+                    <input type="text" class="form-control" name="contact_no" placeholder="phone number "></input>
                 </div>
                 <div class="form-group">
                     <textarea name="address" placeholder="address" id="" cols="30" rows="10" class="form-control"></textarea>

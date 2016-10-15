@@ -1,53 +1,92 @@
-$(document).ready(function() {
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// On load Called Function definitions ////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // Datepicker Initalizers
+DatePickerInit = function () {
     $('.aston-datepicker').datepicker({
         todayHighlight: true,
         orientation: "bottom auto",
         format: 'yyyy-mm-dd',
     });
+}
 
+
+SummernoteInit = function () {
     // Initiating The Summer note class
     $('.aston-summernote').summernote();
 
     // Initiating The Data tables  class
     $('.aston-datatable').DataTable({responsive: true});
+};
 
 
+Select2init = function () {
     // Initiating The select 2
     $('.aston-select2').select2({
-        placeholder: "Select a Subject"
+        placeholder: "Select an option"
     });
+};
 
+
+ConfirmationInit = function () {
     // Initiating the bootstrap confirmation
     $('[data-toggle=confirmation]').confirmation();
+};
 
+SliderInit = function () {
     // Initiating the bootstrap slider
     $('.slider').slider();
+};
 
+FlashMessageInit = function () {
     // Flash Message
     $('#flash-overlay-modal').modal();
+};
+
+FileInputInit = function () {
     // Initiating The Bootstrap file input class
     $('.aston-image').fileinput();
     $('.aston-image-edit').fileinput({
-        defaultPreviewContent: '<img src="/images/'+image+'" alt="Image" style="width:160px">'});
-    
-    
+        defaultPreviewContent: '<img src="/images/' + image + '" alt="Image" style="width:160px">'
+    });
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Functions called upon the loading of the document //////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$(document).ready(function () {
+
+    DatePickerInit();
+    SummernoteInit();
+    Select2init();
+    ConfirmationInit();
+    SliderInit();
+    FlashMessageInit();
+    FileInputInit();
 
 });
 
-function toggle()
-{
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Event called functions //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function toggle() {
     $('.sidebar').addClass('show');
     $('.cover').addClass('show');
-    $('.page').css('padding-left','100px');
+    $('.page').css('padding-left', '100px');
 
 }
 
 $('.cover').click(function () {
     $('.sidebar').removeClass('show');
     $('.cover').removeClass('show');
-    $('.page').css('padding-left','0px');
+    $('.page').css('padding-left', '0px');
 });
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Standalone functions ////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

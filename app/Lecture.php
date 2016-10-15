@@ -12,6 +12,7 @@ class Lecture extends Model
     {
         return $query->where('user_id',\Auth::user()->id);
     }
+    
     public function scopeFacultysubject($query,$user_id,$subject_id)
     {
         return $query->where('user_id',$user_id)->where('subject_id',$subject_id);

@@ -23,7 +23,7 @@ class FrontPostController extends Controller
 
     public function postsBy($id)
     {
-        $posts = \App\Post::where('user_id', $id)->get();
+        $posts = \App\Post::where('user_id', $id)->paginate(7);
         return view('front.blog.index')->with(['posts' => $posts]);
     }
 }

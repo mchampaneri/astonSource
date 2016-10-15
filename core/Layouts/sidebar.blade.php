@@ -3,7 +3,10 @@
     <ul class="sidebar-menu">
 
         {{-- Get Role From the Session of user set at login --}}
-        <?php $user = \Auth::user()->role; ?>
+        <?php
+                $user = App\User::RoleMap(\Auth::user()->id);
+        ?>
+
 
         {{-- Getting the relavent menu for user from the menu.php file --}}
         @foreach(config('menu.'.$user.'.'.$user.'-sidebar') as $menu)
@@ -34,7 +37,7 @@
 
         {{-- Special Check for hod privilage menu access --}}
 
-        @if(\Auth::user()->role == 'faculty' && \Auth::user()->faculty()->is_hod)
+        @if( \Auth::user()->role == 2)
         <!-- Putting Hod Menus -->
             @foreach(config('menu.hod.hod-sidebar') as $menu)
                 @if( isset($menu['has-child']) && sizeof($menu['has-child']) > 0)
@@ -51,7 +54,7 @@
                         </ul>
                     </li>
                 @else
-                    <li class="{{ set_active($menu['link'].'/*') }}">
+                    <li class="{{ set_active($menu['link'].'*') }}">
                         <a href="{{url($menu['link'])}}"><i class="fa fa-lg {{$menu['icon']}}"></i>
                             <p class="name">{{$menu['title']}}</p>
                         </a>

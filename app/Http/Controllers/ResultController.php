@@ -80,7 +80,7 @@ class ResultController extends Controller
     public function destroy($id)
     {
         $result = Result::find($id);
-        $result->delet();
+        $result->delete();
         flash()->success('Result Deleted Successfully');
         return redirect()->route('results.index');
     }

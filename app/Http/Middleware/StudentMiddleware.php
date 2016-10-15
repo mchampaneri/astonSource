@@ -15,7 +15,7 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->role == "student")
+        if (\Auth::user()->role ==  4 && \Auth::user()->state == 1)
             return $next($request);
         else {
             return redirect()->route('logout');

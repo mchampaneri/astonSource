@@ -211,7 +211,13 @@ Return [
                                         "title" => "Subject",
                                         "link" => "workspace/faculty/subjects",
                                         "icon" => "fa-book"
-                                    ]
+                                    ],
+
+                                       [
+                                           "title" => "Verify Users",
+                                           "link" => "workspace/faculty/verify",
+                                           "icon" => "fa-users"
+                                       ]
                                 ]
 
              ]

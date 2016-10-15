@@ -15,7 +15,7 @@ class FacultyMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->role == "faculty")
+        if (\Auth::user()->role == 3 || 2 && \Auth::user()->state == 1)
             return $next($request);
         else {
             return redirect()->route('logout');

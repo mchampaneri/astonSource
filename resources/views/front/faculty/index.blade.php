@@ -3,20 +3,14 @@
 @section('page-content')
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <h3>{{ $faculty->name }}</h3>
-                <h5>{{ $faculty->info }}</h5>
-                <h6>{{ $faculty->user()->email }}</h6>
-            </div>
-        </div>
+        @include('front.layout.partial.facultyinfo')
 
         <hr>
         <div class="row">
             <div class="col-md-12">
             <h4 class="text-center"> Subjects </h4>
             </div>
-            @foreach( $faculty->user()->subjects()->get() as $subject)
+            @foreach( $faculty->subjects()->get() as $subject)
                 <div class="col-sm-2 ">
                     <a href="{{url('/faculty/'.$faculty->id.'/subject/'.$subject->id)}}">
                         <div  class="text-center aston-theme-color" style="padding: 10px;border:1px solid rgba(0,0,0,0.1)">
@@ -33,7 +27,7 @@
             <div class="col-md-12">
                 <h4 class="text-center"> Latest Posts </h4>
             </div>
-            @foreach( $faculty->user()->posts()->get() as $post)
+            @foreach( $faculty->posts()->get() as $post)
                 <div class="col-sm-2 ">
                     <a href="{{url('/post/'.$post->id)}}">
                         <div  class="text-center aston-theme-color" style="padding: 10px;border:1px solid rgba(0,0,0,0.1)">

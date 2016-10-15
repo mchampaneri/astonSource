@@ -36,6 +36,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <label for="name" class="control-label">HOD</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select name="hod_id" id="" class="aston-select2 form-control">
+                                @foreach( $department->faculties()->get() as $user)
+                                    <option value="{{$user->id}}" @if($department->hod_id == $user->id ) selected @endif>{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-11">
