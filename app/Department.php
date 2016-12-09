@@ -28,6 +28,10 @@ class Department extends Model
 
     public function hod()
     {
-        return $this->hasOne('App\User')->where('id',$this->hod_id)->first();
+        if($this->hod_id != 0)
+        return $this->hasOne('App\User')->where('id',$this->hod_id)->first()->name;
+        else {
+          return 'No Hod Assigned';
+        }
     }
 }

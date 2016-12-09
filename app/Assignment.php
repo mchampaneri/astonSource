@@ -27,5 +27,9 @@ class Assignment extends Model
         return $query->where('user_id',\Auth::user()->id);
     }
     
+    public function myAnswers()
+    {
+        return $this->hasMany('App\Answer')->where('user_id',\Auth::user()->id);
+    }
 
 }

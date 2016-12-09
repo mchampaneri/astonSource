@@ -75,7 +75,7 @@ class AuthController extends Controller
         $student->enrollno = $request->enrollno;
         $student->save();
 
-        return view('front.thanks')->with(['user'=>$user]);
+        return view('front.register.thanks')->with(['user'=>$user]);
     }
 
     public function storeFaculty(Request $request)
@@ -94,7 +94,7 @@ class AuthController extends Controller
         $user->slug = str_slug($request->name.$user->id);
         $user->save();
 
-        
+
         //Generating The Faculty Account;
         $faculty = new Faculty();
         $faculty->user_id = $user->id;

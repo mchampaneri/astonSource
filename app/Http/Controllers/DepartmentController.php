@@ -44,7 +44,7 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
         $department->name = $request->name;
-        
+
         if( $department->hod_id != 0 )
         {
 

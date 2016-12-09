@@ -39,7 +39,7 @@
                 <tr>
                     <td>{{$department->id}}</td>
                     <td>{{$department->name}}</td>
-                    <td>{{$department->hod()->name }}</td>
+                    <td>{{$department->hod() }}</td>
                     <td><a href="{{route('departments.edit',['id'=>$department->id])}}"
                            class="btn btn-sm btn-primary">Edit
                         </a>
